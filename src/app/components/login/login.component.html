@@ -1,0 +1,98 @@
+<div *ngIf="isLoaded" style="text-align: center">
+  <app-spinner></app-spinner>
+</div>
+
+<form [formGroup]="loginForm" *ngIf="!isLoaded">
+  <div class="top-div container">
+    <div class="card" style="width: 30rem">
+      <div class="card-body">
+        <div class="d-flex">
+          <h3><b>LOGIN</b></h3>
+        </div>
+        <div class="d-flex">
+          <div class="form-floating mt-4 mb-2 w-100">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="username"
+              placeholder="Username"
+            />
+            <label for="floatingInput">Username <span>*</span></label>
+          </div>
+          <div>
+            <i
+              class="bi bi-info-circle"
+              data-toggle="tooltip"
+              data-placement="top"
+              title="Username should be greater than 3 characters & less than 20 characters!"
+            ></i>
+          </div>
+        </div>
+        <small *ngIf="loginForm.get('username')?.errors?.['noSpaceAllowed']">*No space is Allowed</small>
+
+        <!-- <small
+          *ngIf="
+            loginForm.controls.username.invalid &&
+            loginForm.controls.username.touched
+          "
+          >*Name is a required field.</small
+        > -->
+
+        <br />
+        <div class="d-flex">
+          <div class="form-floating w-100">
+            <input
+              type="password"
+              class="form-control"
+              formControlName="password"
+              placeholder="Password"
+            />
+
+            <label for="floatingPassword">Password <span>*</span></label>
+          </div>
+          <div>
+            <i
+              class="bi bi-info-circle"
+              data-toggle="tooltip"
+              data-placement="top"
+              title="Password should be of 8 characters containing atleast one uppercase, one lowercase, one number and one special character!"
+            ></i>
+          </div>
+        </div>
+        <small *ngIf="loginForm.get('password')?.errors?.['noSpaceAllowed']">*No space is Allowed</small>
+        <!-- <small
+          *ngIf="
+            loginForm.get('password')?.invalid &&
+            loginForm.get('password')?.touched
+          "
+          >*Password is a required field.</small
+        > -->
+
+        <br />
+
+        <button
+          type="button"
+          class="btn btn-success btn-lg my-4"
+          [disabled]="loginForm.invalid"
+          (click)="onLogin()"
+        >
+          Login
+        </button>
+
+        <!-- <button
+          type="button"
+          class="btn btn-danger btn-lg my-4 mx-4"
+          (click)="onRegister()"
+        >
+          Register
+        </button> -->
+      </div>
+    </div>
+
+    <app-alert
+      *ngIf="alert"
+      [message]="alert"
+      (close)="onHandleClose()"
+    ></app-alert>
+  </div>
+</form>

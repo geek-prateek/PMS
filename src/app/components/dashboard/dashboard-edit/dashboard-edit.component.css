@@ -1,0 +1,13 @@
+input.ng-touched.ng-invalid{
+    border: 1px solid red;
+}
+
+small{
+    color: red;
+    font-weight: bold;
+}
+
+/* span{
+    color: red;
+    font-weight: bold;
+} */

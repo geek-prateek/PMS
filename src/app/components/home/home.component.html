@@ -1,0 +1,61 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <h5 class="card-header">MY DSR</h5>
+        <div class="card-body">
+            <form [formGroup]="homeForm"></form>
+            <div class="form-check">
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  id="lastdays"
+                  value="lastdays"
+                  formControlName="lastdays"
+                />
+                <label class="form-check-label">Last 7 Days</label>
+              </div>
+              <div class="form-check">
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  id="check-male"
+                  value="male"
+                  formControlName="gender"
+                />
+                <label class="form-check-label">Current Month</label>
+              </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card">
+        <h5 class="card-header">LEAVE</h5>
+        <div class="card-body">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">
+            With supporting text below as a natural lead-in to additional
+            content.
+          </p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <h5 class="card-header">UPCOMING BIRTHDAY</h5>
+        <div class="card-body">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">
+            With supporting text below as a natural lead-in to additional
+            content.
+          </p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
