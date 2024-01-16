@@ -1,0 +1,22 @@
+
+<table id="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>DSR Date</th>
+      <th>Total Timespent</th>
+      <th>Pending hour</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+ 
+  <tbody id="tableBody">
+    <tr *ngFor="let dsr of dsrTable">
+        <td>{{dsr.id}}</td>
+        <td>{{dsr.date | date: 'mediumDate'}}</td>
+        <td>{{dsr.timespent}} hours</td>
+        <td>{{dsr.pendingHour}} seconds</td>
+        <td><i class="bi bi-pencil-square"></i></td>
+    </tr>
+  </tbody>
+</table>

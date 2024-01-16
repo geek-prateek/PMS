@@ -1,0 +1,40 @@
+<div class="card">
+  <div class="card-header d-flex justify-content-between">
+    <h4 style="color: red">MY DSR</h4>
+    <app-add-dsr></app-add-dsr>
+  </div>
+  
+  <div class="card-body">
+    <form [formGroup]="homeForm">
+      <div class="d-flex justify-content-around">
+        <div class="form-check">
+          <input
+            type="radio"
+            class="form-check-input"
+            id="lastdays"
+            value="lastdays"
+            formControlName="selectDays"
+          />
+          <label class="form-check-label">Last 7 Days</label>
+        </div>
+        <div class="form-check">
+          <input
+            type="radio"
+            class="form-check-input"
+            id="currentMonth"
+            value="currentMonth"
+            formControlName="selectDays"
+          />
+          <label class="form-check-label">Current Month</label>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <app-dashboard-table></app-dashboard-table>
+      </div>
+    </div>
+  </div>
+</div>

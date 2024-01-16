@@ -17,6 +17,10 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DashboardEditComponent } from './components/dashboard/dashboard-edit/dashboard-edit.component';
 import { DashboardQualificationComponent } from './components/dashboard/dashboard-qualification/dashboard-qualification.component';
 import { DashboardTeamComponent } from './components/dashboard/dashboard-team/dashboard-team.component';
+import { DashboardTableComponent } from './components/dashboard/dashboard-table/dashboard-table.component';
+import { SortingPipe } from './components/dashboard/sorting.pipe';
+import { DsrComponent } from './components/dsr/dsr.component';
+import { AddDsrComponent } from './components/dsr/addDsr/addDsr.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,11 @@ import { DashboardTeamComponent } from './components/dashboard/dashboard-team/da
     DashboardComponent,
     DashboardEditComponent,
     DashboardQualificationComponent,
-    DashboardTeamComponent
+    DashboardTeamComponent,
+    DashboardTableComponent,
+    SortingPipe,
+    DsrComponent,
+    AddDsrComponent
   ],
   imports: [
     BrowserModule,

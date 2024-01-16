@@ -1,14 +1,18 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { SortingPipe } from "../dashboard/sorting.pipe";
+import { DashboardService } from "../dashboard/dashboard.service";
 
 @Component({
     selector: 'app-home',
-    templateUrl: './home.component.html'
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.css']
 })
-export class HomeComponent{
+export class HomeComponent implements OnInit{
+    ngOnInit(): void {
+        throw new Error("Method not implemented.");
+    }
+    
 
-    homeForm = new FormGroup({
-        lastdays: new FormControl(null, Validators.required),
-        lastmonths: new FormControl(null, Validators.required),
-    })
+    
 }

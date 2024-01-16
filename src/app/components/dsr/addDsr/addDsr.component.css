@@ -1,0 +1,28 @@
+.addbtn{
+    border: 1px solid green;
+    color: green;
+}
+
+.timeRemaining{
+    color: red;
+    border: 1px solid rgb(221, 197, 197);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.dsrDate{
+    border: 1px solid rgb(221, 197, 197);
+    border-radius: 5px;
+    text-align: center;
+    width: 70%;
+    background-color: rgb(121, 121, 121);
+    color: white;
+    padding: 7px;
+}
+
+.dsrDateInput{
+    border: 1px solid rgb(221, 197, 197);
+    border-radius: 5px;
+    text-align: center;
+    width: 70%;
+}
