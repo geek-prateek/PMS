@@ -14,13 +14,12 @@ export class DashboardTableComponent{
    dsrTable: DsrDetails[] = [];
    search: string="";
    value: number = 0;
-    param: string ="";
+   status: string = "";
    
    constructor(public table: DashboardService ,public userService: UserService, private router: Router, private route: ActivatedRoute){}
 
    ngOnInit(){
        this.dsrTable = this.table.dsrtable;
-       this.param = this.table.order;
        
    }
    

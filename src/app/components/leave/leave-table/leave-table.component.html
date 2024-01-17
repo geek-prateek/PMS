@@ -1,0 +1,19 @@
+<h4 *ngIf="!leaveTable.values">Work on Fire</h4>
+<table id="table" class="tableFixHead" *ngIf="leaveTable.values">
+  <thead>
+    <tr>
+      <th>Employee Name</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Leave Count</th>
+    </tr>
+  </thead>
+  <tbody id="tableBody">
+    <tr *ngFor="let leave of leaveTable">
+        <td>{{leave.employeeName}}</td>
+        <td>{{leave.startDate | date: 'mediumDate'}}</td>
+        <td>{{leave.endDate | date: 'mediumDate'}}</td>
+        <td>{{leave.leaveCount}}</td>
+    </tr>
+  </tbody>
+</table>

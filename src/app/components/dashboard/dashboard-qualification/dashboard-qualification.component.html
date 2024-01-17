@@ -1,15 +1,22 @@
 <h4>{{ qualificationName }}</h4>
 
 
-<table id="table">
-    <thead>
-      <tr>
-        <th></th>
-      </tr>
-    </thead>
-   
-    <tbody id="tableBody">
-      
-    </tbody>
-  </table>
-  
+<!-- <div formArrayName="skills">
+  <h4>Add Skills <span>*</span></h4>
+  <div
+    *ngFor="
+      let control of loginForm.controls.skills['controls'];
+      let i = index
+    "
+  >
+    <input
+      type="text"
+      placeholder="Add skill..."
+      class="form-control"
+      [formControlName]="i"
+    />
+    <button type="button" (click)="DeleteSkills(i)">Delete</button>
+  </div>
+</div>
+<button type="button" class="btn" (click)="AddSkills()">Add Skills</button
+> -->

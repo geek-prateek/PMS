@@ -1,173 +1,165 @@
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Add DSR
-  </button>
-  
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Add DSR</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+<i class="bi bi-patch-plus" style="font-size: 25px;" data-bs-toggle="modal"
+data-bs-target="#exampleModal"></i>
+
+
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add DSR</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="row d-flex justify-content-between">
+          <div class="col-md-3">
+            <div class="dsrDateBack">
+              <form [formGroup]="addDsrForm">
+                <label for="dsrDate" class="form-label"
+                  >DSR Date <span>*</span></label
+                >
+                <input type="date" name="dsrDate" formControlName="dsrDate"/>
+            </form>
+          </div>
+          </div>
+          <div class="col-md-3">
+            <p class="timeRemaining">
+              <b>Total Hours & Minutes :- {{ hourSpent }} : {{ minuteSpent }}</b>
+            </p>
+          </div>
+
+          <div class="col-md-2">
+            <button class="btn addbtn">Add task</button>
+          </div>
         </div>
-        <div class="modal-body">
-            <div class="row d-flex justify-content-between">
-                <div class="col-md-3">
-                  <div class="d-flex flex-row">
-                    <div class="p-2"><label for="dsrDate" class="form-label"
-                      >DSR Date <span>*</span></label
-                      ></div>
-                    <div class="p-2"><input type="text" [value]="todayDate"></div>
-                    <div class=""><input type="date"></div>
-                  </div>
-                    
-                    
-                    
-                    
-                </div>
-                <div class="col-md-4">
-                    <p class="timeRemaining">Total Hours & Minutes :- {{hourSpent}} : {{minuteSpent}}</p>
-                </div>
-                
-                <div class="col-md-2">
-                    <button class="btn addbtn">Add task</button>
-                </div>
+      </div>
+      <hr />
+      <div class="modal-body">
+        <form class="row g-3" [formGroup]="addDsrForm">
+          <div class="col-md-3">
+            <label for="department" class="form-label"
+              >Department: <span>*</span></label
+            >
+            <div class="mb-3">
+              <select
+                class="form-select"
+                name="department"
+                formControlName="department"
+              >
+                <option hidden>Department</option>
+                <option value="development">Development</option>
+                <option value="devOps">DevOps</option>
+                <option value="hr">HR</option>
+              </select>
             </div>
-            
-            
-        </div>
-        <hr>
-        <div class="modal-body">
-            <form class="row g-3" [formGroup]="addDsrForm">
-                <div class="col-md-3">
-                  <label for="department" class="form-label"
-                    >Department: <span>*</span></label
-                  >
-                  <div class="mb-3">
-                    <select
-                      class="form-select"
-                      name="department"
-                      formControlName="department"
-                    >
-                      <option hidden>Department</option>
-                      <option value="development">Development</option>
-                      <option value="devOps">DevOps</option>
-                      <option value="hr">HR</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-md-2">
-                    <label for="client" class="form-label"
-                    >Client: <span>*</span></label
-                  >
-                    <div class="mb-3">
-                      <select
-                        class="form-select"
-                        name="client"
-                        placeholder="select example"
-                        formControlName="client"
-                      >
-                        <option hidden>Client</option>
-                        <option value="btl">BTL</option>
-                        <option value="zedra">Zedra</option>
-                        <option value="paycheck">PayCheck</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-md-2">
-                    <label for="project" class="form-label"
-                    >Project: <span>*</span></label
-                  >
-                    <div class="mb-3">
-                      <select
-                        class="form-select"
-                        name="project"
-                        aria-label="select example"
-                        formControlName="project"
-                      >
-                        <option hidden>Select Project</option>
-                        <option value="projectTraining">Project Training</option>
-                      </select>
-                      
-                    </div>
-                  </div>
-                  <div class="col-md-3">
-                    <label for="taskType" class="form-label"
-                    >Task type: <span>*</span></label
-                  >
-                    <div class="mb-3">
-                      <select
-                        class="form-select"
-                        name="taskType"
-                        aria-label="select example"
-                        formControlName="taskType"
-                      >
-                        <option hidden>Select Tasktype</option>
-                        <option value="self">Self learning</option>
-                        <option value="internal">Internal training</option>
-                        <option value="support">Support</option>
-                      </select>
-                      
-                    </div>
-                  </div>
-                <div class="col-md-1">
-                  <label for="hour" class="form-label">Hour <span>*</span></label>
-                  <input
-                    type="number"
-                    class="form-control"
-                    formControlName="hour"
-                  />
-                  
-                </div>
-                <div class="col-md-1">
-                    <label for="minute" class="form-label">Minute <span>*</span></label>
-                    <input
-                      type="number"
-                      class="form-control"
-                      formControlName="minute"
-                    />
-                    
-                  </div>
-                  <div class="col-md-3">
-                    <label for="taskKey" class="form-label">Task Key (Jira ID)</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Enter Jira ID"
-                      formControlName="taskKey"
-                    />
-                    
-                  </div>
-                <div class="col-md-3">
-                  <label for="dueDate" class="form-label"
-                    >Due Date</label
-                  >
-                  <input
-                    type="date"
-                    class="form-control"
-                    placeholder="yyyy-mm-dd"
-                    formControlName="dueDate"
-                  />
-                  
-                </div>
-                <div class="col-md-12">
-                    <label for="dsrDetails" class="form-label"
-                      >DSR Details</label
-                    >
-                    <textarea 
-                      class="form-control"
-                      placeholder="Write Details"
-                      rows="4"
-                      formControlName="dsrDetails"
-                    ></textarea>
-                    
-                  </div>
-                
-              </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-success">Publish</button>
-        </div>
+          </div>
+          <div class="col-md-2">
+            <label for="client" class="form-label"
+              >Client: <span>*</span></label
+            >
+            <div class="mb-3">
+              <select
+                class="form-select"
+                name="client"
+                formControlName="client"
+              >
+                <option hidden value="client">Select Client</option>
+                <option value="btl">BTL</option>
+                <option value="zedra">Zedra</option>
+                <option value="paycheck">PayCheck</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <label for="project" class="form-label"
+              >Project: <span>*</span></label
+            >
+            <div class="mb-3">
+              <select
+                class="form-select"
+                name="project"
+                formControlName="project"
+              >
+                <option hidden value="project">Select Project</option>
+                <option value="projectTraining">Project Training</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label for="taskType" class="form-label"
+              >Task type: <span>*</span></label
+            >
+            <div class="mb-3">
+              <select
+                class="form-select"
+                name="taskType"
+                formControlName="taskType"
+              >
+                <option hidden value="taskType">Select Tasktype</option>
+                <option value="self">Self learning</option>
+                <option value="internal">Internal training</option>
+                <option value="support">Support</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-1">
+            <label for="hour" class="form-label">Hour <span>*</span></label>
+            <input type="number" class="form-control" formControlName="hour" />
+          </div>
+          <div class="col-md-1">
+            <label for="minute" class="form-label">Minute <span>*</span></label>
+            <input
+              type="number"
+              class="form-control"
+              formControlName="minute"
+            />
+          </div>
+          <div class="col-md-3">
+            <label for="taskKey" class="form-label">Task Key (Jira ID)</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter Jira ID"
+              formControlName="taskKey"
+            />
+          </div>
+          <div class="col-md-3">
+            <label for="dueDate" class="form-label">Due Date</label>
+            <input
+              type="date"
+              class="form-control"
+              placeholder="yyyy-mm-dd"
+              formControlName="dueDate"
+            />
+          </div>
+          <div class="col-md-12">
+            <label for="dsrDetails" class="form-label">DSR Details <span>*</span></label>
+            <textarea
+              class="form-control"
+              placeholder="Write Details"
+              rows="4"
+              formControlName="dsrDetails"
+            ></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="submit" class="btn btn-success" [disabled]="addDsrForm.invalid" (click)="onPublish()">Publish</button>
       </div>
     </div>
   </div>
+</div>

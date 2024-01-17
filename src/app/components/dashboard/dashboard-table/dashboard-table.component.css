@@ -26,4 +26,40 @@
   color: white;
 }
 
+.pendingStatus{
+  color: rgb(235, 125, 74);
+  border: 1px solid rgb(235, 125, 74);
+}
+
+.completeStatus{
+  color: green;
+  border: 1px solid green;
+}
+
+.edit{
+  color: green;
+}
+
+.tableFixHead { 
+  width: 500px; 
+  table-layout: fixed; 
+  border-collapse: collapse; 
+} 
+  .tableFixHead tbody { 
+  display: block; 
+  width: 100%; 
+  overflow: auto; 
+  height: 180px; 
+} 
+.tableFixHead thead tr { 
+  display: block; 
+} 
+.tableFixHead th, 
+.tableFixHead  td { 
+  padding: 5px 10px; 
+  width: 200px; 
+} 
+th { 
+  background: #ABDD93; 
+} 
 

@@ -3,3 +3,7 @@
 .nav-link, .dropdown-item, .bi {
     cursor: pointer;
 }
+
+.card{
+    box-shadow: 5px 8px 10px 5px rgb(190, 190, 190);
+}

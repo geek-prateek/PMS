@@ -11,3 +11,13 @@ small{
     color: red;
     font-weight: bold;
 } */
+
+.panel-heading {
+    padding: 3px 0px 4px 0px;
+    margin: 15px;
+    border-bottom: 1px solid gray;
+}
+
+.bi{
+    margin-right: 12px;
+}

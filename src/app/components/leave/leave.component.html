@@ -1,0 +1,41 @@
+<div class="card">
+    <div class="card-header d-flex justify-content-between">
+      <h4 style="color: red">LEAVE</h4>
+      <app-leave-order></app-leave-order>
+    </div>
+    
+    <div class="card-body">
+    
+        <div class="d-flex justify-content-around">
+          <div class="form-check">
+            <input
+              type="radio"
+              class="form-check-input"
+              id="lastWeek"
+              value="lastWeek"
+              [formControl]="selectLeave"
+            />
+            <label class="form-check-label">Current Week</label>
+          </div>
+          <div class="form-check">
+            <input
+              type="radio"
+              class="form-check-input"
+              id="currentLeaveMonth"
+              value="currentLeaveMonth"
+              [formControl]="selectLeave"
+            />
+            <label class="form-check-label">Current Month</label>
+          </div>
+        </div>
+    
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+            <app-leave-table></app-leave-table>
+        </div>
+      </div>
+    </div>
+  </div>
+  

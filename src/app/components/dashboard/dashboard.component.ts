@@ -7,6 +7,8 @@ import { ActivatedRoute, Route, Router } from "@angular/router";
     styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+    disabled: boolean = false;
+
     constructor(private router: Router, private route: ActivatedRoute){}
 
     ngOnInit(): void {
@@ -22,7 +24,7 @@ export class DashboardComponent implements OnInit {
     }
 
     onEdit(){
-        this.router.navigate(['edit'], {relativeTo: this.route})
+        this.disabled = true;
     }
 
     onBasic(){

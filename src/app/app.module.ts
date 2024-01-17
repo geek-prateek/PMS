@@ -21,6 +21,11 @@ import { DashboardTableComponent } from './components/dashboard/dashboard-table/
 import { SortingPipe } from './components/dashboard/sorting.pipe';
 import { DsrComponent } from './components/dsr/dsr.component';
 import { AddDsrComponent } from './components/dsr/addDsr/addDsr.component';
+import { LeaveComponent } from './components/leave/leave.component';
+import { BirthdayComponent } from './components/birthday/birthday.component';
+import { LeaveTableComponent } from './components/leave/leave-table/leave-table.component';
+import { LeaveOrderComponent } from './components/leave/leave-order/leave-order.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +43,12 @@ import { AddDsrComponent } from './components/dsr/addDsr/addDsr.component';
     DashboardTableComponent,
     SortingPipe,
     DsrComponent,
-    AddDsrComponent
+    AddDsrComponent,
+    LeaveComponent,
+    BirthdayComponent,
+    LeaveTableComponent,
+    LeaveOrderComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

@@ -5,7 +5,7 @@
   </div>
   
   <div class="card-body">
-    <form [formGroup]="homeForm">
+ 
       <div class="d-flex justify-content-around">
         <div class="form-check">
           <input
@@ -13,7 +13,7 @@
             class="form-check-input"
             id="lastdays"
             value="lastdays"
-            formControlName="selectDays"
+            [formControl]="selectDays"
           />
           <label class="form-check-label">Last 7 Days</label>
         </div>
@@ -23,12 +23,12 @@
             class="form-check-input"
             id="currentMonth"
             value="currentMonth"
-            formControlName="selectDays"
+            [formControl]="selectDays"
           />
           <label class="form-check-label">Current Month</label>
         </div>
       </div>
-    </form>
+ 
   </div>
   <div class="container">
     <div class="row">
