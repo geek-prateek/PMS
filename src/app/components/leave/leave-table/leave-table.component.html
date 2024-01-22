@@ -1,5 +1,5 @@
-<h4 *ngIf="!leaveTable.values">Work on Fire</h4>
-<table id="table" class="tableFixHead" *ngIf="leaveTable.values">
+<h4 class="empty" *ngIf="leaveTable.length === 0">Work on Fire ! <app-leave-apply></app-leave-apply></h4>
+<table id="table" class="tableFixHead" *ngIf="leaveTable.length>0">
   <thead>
     <tr>
       <th>Employee Name</th>

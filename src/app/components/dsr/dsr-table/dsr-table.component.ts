@@ -1,15 +1,15 @@
 import { Component } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { UserService } from "../../login/user.service";
-import { DashboardService } from "../dashboard.service";
+import { DashboardService } from "../../dashboard/dashboard.service";
 import { DsrDetails } from "../tableDetails";
 
 @Component({
-    selector: 'app-dashboard-table',
-    templateUrl: './dashboard-table.component.html',
-    styleUrls: ['./dashboard-table.component.css']
+    selector: 'app-dsr-table',
+    templateUrl: './dsr-table.component.html',
+    styleUrls: ['./dsr-table.component.css']
 })
-export class DashboardTableComponent{
+export class DsrTableComponent{
    // @Input() show: boolean = false;
    dsrTable: DsrDetails[] = [];
    search: string="";

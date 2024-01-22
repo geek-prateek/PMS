@@ -11,10 +11,9 @@ export class DsrComponent{
 
     order: string = "";
 
-  
-    selectDays= new FormControl(null, Validators.required)
+    selectDays= new FormControl('lastdays', Validators.required)
         
     ngOnInit() {
-        this.table.order = this.order; 
+        this.table.order = this.order;
     }
 }

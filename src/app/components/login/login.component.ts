@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { UserService } from './user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { CustomValidators } from './customValidators.validators';
+import { CustomValidators } from './customValidators/customValidators.validators';
 
 @Component({
   selector: 'app-login',
@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit{
       this.userService.username = this.loginForm.value.username || '';
 
       // this.loggedIn.emit(true);
-      this.router.navigate(['/home']);
+      this.router.navigate(['/head/home']);
     } else {
       this.alert = "Username & Password are incorrect";
       // alert('Username & Password are incorrect!');

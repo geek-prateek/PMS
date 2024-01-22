@@ -6,7 +6,7 @@ import { Component } from "@angular/core";
     styleUrls: ['./birthday.component.css']
 })
 export class BirthdayComponent{
-    month: string ="";
+    month: string ="January";
 
     
 }

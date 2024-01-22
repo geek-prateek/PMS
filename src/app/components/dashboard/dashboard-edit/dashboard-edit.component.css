@@ -21,3 +21,33 @@ small{
 .bi{
     margin-right: 12px;
 }
+
+.bind{
+    float: right;
+    display: flex;
+}
+
+.edit-btn:hover{
+    background-color: green;
+    color: white;
+}
+
+.reset-btn{
+    float: right;
+    border: 1px solid red;
+    color: red;
+    margin: 10px;
+}
+
+.reset-btn:hover{
+    background-color: red;
+    color: white;
+}
+
+.edit-btn{
+    float: right;
+    border: 1px solid green;
+    margin: 10px;
+}
+
+

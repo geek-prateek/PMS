@@ -12,7 +12,34 @@ export class UserService {
     // flag: boolean = false;
     
     addedUser: UserDetails[] = [
-        {
+       new UserDetails('admin', 'prateek', 'Prateek@123'),
+       new UserDetails('superadmin', 'shoaib', 'Shoaib@123'),
+       new UserDetails('superadmin', 'faizan', 'Faizan@123'),
+       new UserDetails('superadmin', 'krutik', 'Krutik@123'),
+       new UserDetails('admin', 'amod', 'Amod@123'),
+    ]
+
+    getUsertype() {
+        const foundUser = this.addedUser.find(user => user.username === this.username);
+        if(foundUser){
+            localStorage.setItem('usertype', JSON.stringify(foundUser.usertype));
+            return foundUser.usertype;
+        }
+        return undefined;
+    }
+
+
+    logout(){
+        this.username = '';
+        this.router.navigate(['../login'], {relativeTo: this.route});
+    }
+
+}
+
+
+
+/* 
+ {
             usertype: 'admin',
             username: 'prateek',
             password: 'Prateek@123'
@@ -37,21 +64,4 @@ export class UserService {
             username: 'amod',
             password: 'Amod@123'
         }
-    ]
-
-    getUsertype() {
-        const foundUser = this.addedUser.find(user => user.username === this.username);
-        if(foundUser){
-            localStorage.setItem('usertype', JSON.stringify(foundUser.usertype));
-            return foundUser.usertype;
-        }
-        return undefined;
-    }
-
-
-    logout(){
-        this.username = '';
-        this.router.navigate(['../login'], {relativeTo: this.route});
-    }
-
-}
+*/

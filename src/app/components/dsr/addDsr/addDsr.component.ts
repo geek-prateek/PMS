@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { min } from "rxjs";
-import { DsrDetails } from "../../dashboard/tableDetails";
+import { DsrDetails } from "../tableDetails";
 import { DashboardService } from "../../dashboard/dashboard.service";
 import { ActivatedRoute, Router } from "@angular/router";
 
@@ -45,7 +45,7 @@ export class AddDsrComponent implements OnInit{
                 status: this.checked,
             };
             this.table.dsrtable.push(addDsrDetails);
-            this.router.navigate(['/home'])
+            this.router.navigate(['../home'], {relativeTo: this.route});
             console.log(addDsrDetails.date, addDsrDetails.timespent, addDsrDetails.pendingHour, addDsrDetails.status);
         }
     }

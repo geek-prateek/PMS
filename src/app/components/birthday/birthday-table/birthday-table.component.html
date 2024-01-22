@@ -1,0 +1,17 @@
+
+<h4 class="empty" *ngIf="birthDetails.length === 0" (click)="onDashboard()">Fill User Details</h4>
+<table id="table" class="tableFixHead" *ngIf="birthDetails.length > 0">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Birth Date</th>
+    </tr>
+  </thead>
+  <tbody id="tableBody">
+    <tr *ngFor="let birth of birthDetails">
+        <td>{{birth.name}}</td>
+        <td [ngClass]="birth.dob === todayDate ? 'todayBirth': 'upcomingBirth'">{{birth.dob}}</td>
+    </tr>
+  </tbody>
+</table>
+

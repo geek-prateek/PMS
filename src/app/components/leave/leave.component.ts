@@ -12,7 +12,7 @@ export class LeaveComponent{
     constructor(private leaveService: LeaveService){}
 
     
-    selectLeave= new FormControl(null)
+    selectLeave= new FormControl('lastWeek', Validators.required)
     
     
 }

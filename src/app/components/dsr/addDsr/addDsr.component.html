@@ -1,7 +1,9 @@
-
-<i class="bi bi-patch-plus" style="font-size: 25px;" data-bs-toggle="modal"
-data-bs-target="#exampleModal"></i>
-
+<i
+  class="bi bi-patch-plus"
+  style="font-size: 25px"
+  data-bs-toggle="modal"
+  data-bs-target="#exampleModal"
+></i>
 
 <div
   class="modal fade"
@@ -29,13 +31,15 @@ data-bs-target="#exampleModal"></i>
                 <label for="dsrDate" class="form-label"
                   >DSR Date <span>*</span></label
                 >
-                <input type="date" name="dsrDate" formControlName="dsrDate"/>
-            </form>
-          </div>
+                <input type="date" name="dsrDate" formControlName="dsrDate" />
+              </form>
+            </div>
           </div>
           <div class="col-md-3">
             <p class="timeRemaining">
-              <b>Total Hours & Minutes :- {{ hourSpent }} : {{ minuteSpent }}</b>
+              <b
+                >Total Hours & Minutes :- {{ hourSpent }} : {{ minuteSpent }}</b
+              >
             </p>
           </div>
 
@@ -144,7 +148,9 @@ data-bs-target="#exampleModal"></i>
             />
           </div>
           <div class="col-md-12">
-            <label for="dsrDetails" class="form-label">DSR Details <span>*</span></label>
+            <label for="dsrDetails" class="form-label"
+              >DSR Details <span>*</span></label
+            >
             <textarea
               class="form-control"
               placeholder="Write Details"
@@ -158,7 +164,14 @@ data-bs-target="#exampleModal"></i>
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
           Close
         </button>
-        <button type="submit" class="btn btn-success" [disabled]="addDsrForm.invalid" (click)="onPublish()">Publish</button>
+        <button
+          type="submit"
+          class="btn btn-success"
+          [disabled]="addDsrForm.invalid"
+          (click)="onPublish()"
+        >
+          Publish
+        </button>
       </div>
     </div>
   </div>

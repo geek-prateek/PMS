@@ -1,8 +1,4 @@
-.edit-btn{
-    float: right;
-    border: 1px solid green;
-    margin: 20px;
-}
+
 .panel-heading {
     padding: 3px 0px 4px 0px;
     margin: 15px;
@@ -13,7 +9,3 @@
     border-bottom: 1px solid gray;
 }
 
-.edit-btn:hover{
-    background-color: green;
-    color: white;
-}

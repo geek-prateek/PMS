@@ -1,20 +1,25 @@
 <div class="card">
   <div class="card-header d-flex justify-content-between">
     <h4 style="color: red">Contact HR</h4>
+    <div
+      *ngIf="msgSent"
+      class="btn rounded-3 mx-5"
+      role="alert"
+      style="border: 1px solid green; color: green"
+    >
+      <i class="bi bi-send-check-fill"></i> Message Sent !
+    </div>
   </div>
 
   <div class="card-body">
     <form [formGroup]="contactForm">
       <div class="mb-3">
         <label class="form-label">Query <span>*</span></label>
-        <select
-          class="form-select"
-          formControlName="query"
-        >
+        <select class="form-select" formControlName="query">
           <option hidden value="query">-- Please Select Query --</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+          <option value="1">Appraisal Related</option>
+          <option value="2">Leave Related</option>
+          <option value="3">Admin Related</option>
         </select>
       </div>
       <div class="mb-3">
@@ -41,9 +46,12 @@
           (click)="onSend()"
         >
           Send
+          <i class="bi bi-send-fill"></i>
         </button>
 
-        <button type="button" class="btn btn-danger mx-4" (click)="onReset()">Reset</button>
+        <button type="button" class="btn btn-danger mx-4" (click)="onReset()">
+          Cancel <i class="bi bi-x-octagon-fill"></i>
+        </button>
       </div>
     </div>
   </div>

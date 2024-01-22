@@ -1,5 +1,5 @@
-<h4 *ngIf="!dsrTable.values">No DSR</h4>
-<table id="table" class="tableFixHead" *ngIf="dsrTable.values">
+<h4 class="empty" *ngIf="dsrTable.length === 0">Add DSR <app-add-dsr></app-add-dsr></h4>
+<table id="table" class="tableFixHead" *ngIf="dsrTable.length>0">
   <thead>
     <tr>
       <th>Action</th>

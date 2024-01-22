@@ -1,7 +1,7 @@
 export class LeaveDetails{
-    employeeName: string;
-    startDate: Date;
-    endDate: Date;
+    employeeName: string | null | undefined;
+    startDate: Date | null |undefined;
+    endDate: Date | null |undefined;
     leaveCount: number;
     constructor(employeeName: string, startDate: Date, endDate: Date, leaveCount: number){
         this.employeeName = employeeName;

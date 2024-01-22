@@ -1,6 +1,7 @@
 <nav class="navbar mb-5 navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand">{{title}}</a>
+    <i class="bi bi-backpack3-fill icon"></i>
+    <a class="navbar-brand title">{{title}}</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -11,11 +12,12 @@
         
         <li class="nav-item dropdown">
           <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="bi bi-person-circle" style="font-size: 22px;"></i>
+            <i class="bi bi-person-circle" style="font-size: 25px;"></i>
           </button>
           
           <ul class="dropdown-menu dropdown-menu-dark">
-            <li><a class="dropdown-item" (click)="onDashboard()">Dashboard</a></li>
+            <li><a class="dropdown-item" *ngIf="!showButton" (click)="onDashboard()">Dashboard</a></li>
+            <li><a class="dropdown-item" *ngIf="showButton" (click)="onHome()">Home</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" (click)="onLogout()">Logout</a></li>
           </ul>
@@ -27,6 +29,7 @@
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form> -->
     </div>
-    <a style="color: white; margin-left: 20px;" (click)="onDashboard()">Welcome, {{username}}</a>
+    <a style="color: white; margin-left: 20px; font-size: 20px; margin-right: 20px;" (click)="onDashboard()">Welcome {{username}}</a>
   </div>
 </nav>
+<router-outlet></router-outlet>

@@ -7,7 +7,6 @@
   #table td,
   #table th {
     border: 1px solid #ddd;
-    padding: 8px;
   }
   
   #table tr:nth-child(even) {
@@ -26,47 +25,57 @@
     color: white;
   }
   
-  .status{
+  .pendingStatus{
     color: rgb(235, 125, 74);
     border: 1px solid rgb(235, 125, 74);
+  }
+  
+  .completeStatus{
+    color: green;
+    border: 1px solid green;
   }
   
   .edit{
     color: green;
   }
-
+  
   .tableFixHead { 
     width: 500px; 
     table-layout: fixed; 
     border-collapse: collapse; 
   } 
-    .tableFixHead tbody { 
-    display: block; 
+    .tableFixHead tbody {
     width: 100%; 
     overflow: auto; 
-    height: 200px; 
+    height: 190px;
     margin-bottom: 12px;
-  } 
-  .tableFixHead thead tr { 
-    display: block; 
-  } 
-  .tableFixHead th, 
+  }
+  .tableFixHead th,
   .tableFixHead  td { 
     padding: 5px 10px; 
     width: 200px; 
   } 
   th { 
     background: #ABDD93; 
-  } 
+  }
 
-  .empty{
+.todayBirth{
+    color: red;
+    font-weight: bold;
+}
+
+.upcomingBirth{
+    color: black;
+}
+
+.empty{
     text-align: center;
     vertical-align: middle;
     line-height: 190px; 
     font-size: 35px;
-    color: rgb(120, 231, 157);
-    height: 227px;
+    color: rgb(135, 202, 204);
+    height: 220px;
     transform: rotate(340deg);
-  }
+}
   
   

@@ -1,0 +1,94 @@
+<i class="bi bi-house-add" data-bs-toggle="modal"
+data-bs-target="#exampleLeaveModal" style="font-size: 25px; margin-right: 18px;"></i>
+
+<div
+  class="modal fade"
+  id="exampleLeaveModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div
+        class="modal-header"
+        style="background-color: rgb(37, 35, 34); color: white"
+      >
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          Apply Leave Application
+        </h1>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="leaveApplyForm">
+          <label for="taxYear" class="form-label">Tax Year</label>
+          <input
+            type="text"
+            class="form-control disable mb-3"
+            readonly="readonly"
+            formControlName="taxYear"
+          />
+
+          <label for="leaveType" class="form-label"
+            >Leave Type <span>*</span></label
+          >
+          <div class="mb-3">
+            <select
+              class="form-select"
+              name="leaveType"
+              formControlName="leaveType"
+            >
+              <option hidden value="leaveType">Select Leave Type</option>
+              <option value="paid">Annual Paid Leaves</option>
+              <option value="unpaid">Unpaid Leaves</option>
+              <option value="special">Special Occasion Leaves</option>
+            </select>
+          </div>
+
+          <label for="balance" class="form-label mb-3"
+            >Leave Balance :- {{ leaveBalance }}</label
+          >
+          <br>
+
+          <label for="leaveFrom" class="form-label">Start Date <span>*</span></label>
+          <input
+            type="date"
+            class="form-control mb-3"
+            placeholder="yyyy-mm-dd"
+            formControlName="leaveFrom"
+          />
+
+          <label for="leaveTo" class="form-label">End Date <span>*</span></label>
+          <input
+            type="date"
+            class="form-control mb-3"
+            placeholder="yyyy-mm-dd"
+            formControlName="leaveTo"
+          />
+
+          <label for="reason" class="form-label"
+            >Reason</label
+          >
+          <textarea
+            class="form-control"
+            placeholder="Write Notes"
+            rows="2"
+            formControlName="reason"
+          ></textarea>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+          Cancel
+        </button>
+        <button type="button" class="btn btn-success" [disabled]="leaveApplyForm.invalid" (click)="onApply()">Apply</button>
+      </div>
+    </div>
+  </div>
+</div>
