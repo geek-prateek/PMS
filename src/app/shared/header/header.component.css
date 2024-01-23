@@ -8,3 +8,19 @@
     font-size: 25px;
     font-weight: bold;
 }
+
+
+.header-content{
+    background-color: #7385df;
+    padding: 25px;
+    color: white;
+    margin: 0;
+}
+
+/* .header-content>h5{
+    margin-left: 10px;
+} */
+
+.bi{
+    margin: 0 15px 0 15px;
+}

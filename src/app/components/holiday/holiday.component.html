@@ -1,0 +1,24 @@
+<div class="container">
+
+    <app-holiday-order></app-holiday-order>
+    <hr>
+    <table id="table">
+    <thead>
+        <tr>
+        <th>Sr. No.</th>
+        <th>Holiday Date</th>
+        <th>Day</th>
+        <th>Holiday Detail</th>
+        </tr>
+    </thead>
+    <tbody id="tableBody">
+        <tr *ngFor="let holiday of holidayDetails">
+            <td>{{holiday.srNo}}</td>   
+            <td>{{holiday.holidayDate | date: 'mediumDate'}}</td>
+            <td>{{holiday.holiday}}</td>
+            <td>{{holiday.holidayName}}</td>
+        </tr>
+    </tbody>
+    </table>     
+</div>
+

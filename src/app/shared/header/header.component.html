@@ -1,35 +1,83 @@
-<nav class="navbar mb-5 navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <i class="bi bi-backpack3-fill icon"></i>
-    <a class="navbar-brand title">{{title}}</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand title">{{ title }}</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
-    
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto">
-        
-        
         <li class="nav-item dropdown">
-          <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="bi bi-person-circle" style="font-size: 25px;"></i>
+          <button
+            class="btn btn-dark dropdown-toggle"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="bi bi-person-circle" style="font-size: 25px"></i>
           </button>
-          
+
           <ul class="dropdown-menu dropdown-menu-dark">
-            <li><a class="dropdown-item" *ngIf="!showButton" (click)="onDashboard()">Dashboard</a></li>
-            <li><a class="dropdown-item" *ngIf="showButton" (click)="onHome()">Home</a></li>
-            <li><hr class="dropdown-divider"></li>
+            <li>
+              <a
+                class="dropdown-item"
+                *ngIf="!showButton"
+                (click)="onDashboard()"
+                >Dashboard</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" *ngIf="showButton" (click)="onHome()"
+                >Home</a
+              >
+            </li>
+            <li><hr class="dropdown-divider" /></li>
             <li><a class="dropdown-item" (click)="onLogout()">Logout</a></li>
           </ul>
         </li>
       </ul>
-      
+
       <!-- <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form> -->
     </div>
-    <a style="color: white; margin-left: 20px; font-size: 20px; margin-right: 20px;" (click)="onDashboard()">Welcome {{username}}</a>
+    <a
+      style="
+        color: white;
+        margin-left: 20px;
+        font-size: 20px;
+        margin-right: 20px;
+      "
+      (click)="onDashboard()"
+      >Welcome {{ username }}</a
+    >
   </div>
 </nav>
-<router-outlet></router-outlet>
+<div class="header-content">
+  <h5 *ngIf='router.url.includes("home")'><i class="bi bi-box"></i>Dashboard</h5>
+  <h5 *ngIf='router.url.includes("policy")'><i class="bi bi-receipt"></i>Policy</h5>
+  <h5 *ngIf='router.url.includes("dashboard")'><i class="bi bi-person-bounding-box"></i>My Profile</h5>
+  <h5 *ngIf='router.url.includes("dailystatusreportList")'><i class="bi bi-check2-square"></i>Daily Status Report</h5>
+  <h5 *ngIf='router.url.includes("leave")'><i class="bi bi-house-check"></i>Leave Apply</h5>
+  <h5 *ngIf='router.url.includes("holiday")'><i class="bi bi-house-door-fill"></i>Holiday List</h5>
+  <h5 *ngIf='router.url.includes("inbox")'><i class="bi bi-inbox"></i>Inbox</h5>
+</div>
+<div class="container-fluid overflow-hidden">
+  <div class="row">
+    <aside class="col-md-2 ps-0">
+      <app-menubar></app-menubar>
+    </aside>
+    <main class="col-md-8 mt-3">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

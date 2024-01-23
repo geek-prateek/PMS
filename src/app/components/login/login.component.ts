@@ -43,8 +43,8 @@ export class LoginComponent implements OnInit{
     ) {
       this.isLoaded = true;
       console.log('Succesfully logged IN');
-      this.userService.username = this.loginForm.value.username || '';
 
+      this.userService.username = this.loginForm.value.username || '';
       // this.loggedIn.emit(true);
       this.router.navigate(['/head/home']);
     } else {

@@ -4,6 +4,7 @@ import { RegisterUserDetails } from '../../../shared/registerUser/registerUserDe
 import { RegisterUserService } from '../../../shared/registerUser/registerUser.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../login/user.service';
+import { LocalService } from '../../localService';
 
 @Component({
   selector: 'app-dashboard-edit',
@@ -12,7 +13,7 @@ import { UserService } from '../../login/user.service';
 })
 export class DashboardEditComponent implements OnInit {
 
-  constructor(private registerUser: RegisterUserService, private router: Router, private route: ActivatedRoute, private userService: UserService){}
+  constructor(private registerUser: RegisterUserService, private router: Router, private route: ActivatedRoute, private userService: UserService, private localService: LocalService){}
 
   messageShow: boolean = false;
   showButton: boolean = true;
@@ -25,7 +26,7 @@ export class DashboardEditComponent implements OnInit {
     this.loginForm = new FormGroup({
       name: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
       email: new FormControl(null, [Validators.required]),
-      username: new FormControl(this.userService.username, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
+      username: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
       dob: new FormControl(null, Validators.required),
       gender: new FormControl('male'),
       department: new FormControl(null, Validators.required),
@@ -40,9 +41,10 @@ export class DashboardEditComponent implements OnInit {
       }),
     });
     this.loginForm.disable();
-    if(this.loginForm.value.username === this.userService.username){
-      this.loginForm.patchValue(this.registerUser.registerUserDetails[this.registerUser.registerUserDetails.length-1]);
-    }
+    
+    
+    this.loginForm.patchValue(this.registerUser.registerUserDetails[this.registerUser.registerUserDetails.length-1]);
+    
     
   }
   
@@ -63,6 +65,8 @@ export class DashboardEditComponent implements OnInit {
     console.log(registerUserDetails);
     this.registerUser.registerUserDetails.push(registerUserDetails);
     this.loginForm.patchValue(registerUserDetails);
+
+    this.localService.saveData(registerUserDetails);
 
     this.loginForm.disable();
     this.disabled=false;

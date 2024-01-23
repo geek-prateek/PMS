@@ -5,11 +5,13 @@ import { HeaderComponent } from "./header/header.component";
 import { SortingPipe } from "./sorting.pipe";
 import { Router, RouterModule } from "@angular/router";
 import { CommonModule } from "@angular/common";
+import { FooterComponent } from "./footer/footer.component";
+import { MenuBarComponent } from "./menubar/menubar.component";
 
 @NgModule({
     imports: [RouterModule, CommonModule],
-    declarations: [AlertComponent, SpinnerComponent, HeaderComponent, SortingPipe],
-    exports: [AlertComponent, SpinnerComponent, HeaderComponent, SortingPipe, RouterModule]
+    declarations: [AlertComponent, SpinnerComponent, HeaderComponent, SortingPipe, FooterComponent, MenuBarComponent],
+    exports: [AlertComponent, SpinnerComponent, HeaderComponent, SortingPipe, RouterModule, FooterComponent, MenuBarComponent]
 })
 export class SharedModule {
 }

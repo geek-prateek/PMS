@@ -25,7 +25,8 @@ import { SharedModule } from './shared/shared.module';
 import { DsrTableComponent } from './components/dsr/dsr-table/dsr-table.component';
 import { LeaveModule } from './components/leave/leave.module';
 import { DashboardModule } from './components/dashboard/dashboard.module';
-import { MenuBarComponent } from './components/menubar/menubar.component';
+import { HolidayComponent } from './components/holiday/holiday.component';
+import { HolidayOrderComponent } from './components/holiday/holiday-order/holiday-order.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { MenuBarComponent } from './components/menubar/menubar.component';
     BirthdayComponent,
     ContactComponent,
     BirthdayTableComponent,
-    MenuBarComponent
+    HolidayComponent,
+    HolidayOrderComponent
   ],
   imports: [
     BrowserModule,

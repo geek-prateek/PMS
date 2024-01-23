@@ -7,3 +7,17 @@
     border-radius: 4px;
     outline: none;
 }
+
+/* 
+.bd-sidebar{
+    grid-area: sidebar;
+} */
+
+/* @media (min-width: 992px){
+    .bd-layout {
+        display: grid;
+        grid-template-areas: "sidebar main";
+        grid-template-columns: 1fr 5fr;
+        gap: 1.5rem;
+    }
+} */
