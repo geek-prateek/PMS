@@ -1,6 +1,7 @@
 export class DsrDetails{
     date: Date | null | undefined;
     timespent: number| null | undefined;
+    minute: number | null | undefined;
     pendingHour: number| null | undefined;
     status: string| null | undefined;
 

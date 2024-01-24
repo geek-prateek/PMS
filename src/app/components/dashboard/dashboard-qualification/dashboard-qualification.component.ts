@@ -1,4 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dashboard-qualification',
@@ -7,11 +8,11 @@ import { Component, OnInit, Output } from '@angular/core';
 })
 export class DashboardQualificationComponent implements OnInit {
 
-  @Output() qualificationName: string = "";
-
   constructor() { }
 
   ngOnInit(): void {
+    
   }
+
 
 }

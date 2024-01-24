@@ -22,13 +22,21 @@ export class DsrTableComponent{
        this.dsrTable = this.table.dsrtable;
        
    }
+
+   onEdit(item: number){
+
+   }
+
+   onDelete(item: number){
+        this.table.deleteDsrDetails(item);
+   }
    
    onClick(event : any){
        console.log(event);
-    //    this.companyService.items = event;
+        //    this.companyService.items = event;
        
        // this.userService.flag = true;
-    //    this.router.navigate(['../company-edit'], {queryParams: {name: this.companyService.items.name, address: this.companyService.items.address},relativeTo:this.route});
+        //    this.router.navigate(['../company-edit'], {queryParams: {name: this.companyService.items.name, address: this.companyService.items.address},relativeTo:this.route});
    }
 
    onReturn(){

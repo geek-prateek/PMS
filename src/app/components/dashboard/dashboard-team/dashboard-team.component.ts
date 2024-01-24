@@ -12,4 +12,6 @@ export class DashboardTeamComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  projectTeamDetails = [];
+
 }

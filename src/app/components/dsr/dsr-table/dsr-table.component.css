@@ -58,11 +58,13 @@
 .tableFixHead th, 
 .tableFixHead  td { 
   padding: 5px 10px; 
-  width: 200px; 
+  width: 200px;
+  font-size: 15px; 
 } 
 th { 
   background: #ABDD93; 
 }
+
 
 .empty{
   text-align: center;

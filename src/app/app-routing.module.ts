@@ -11,6 +11,9 @@ import { AddDsrComponent } from './components/dsr/addDsr/addDsr.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { LeaveComponent } from './components/leave/leave.component';
 import { HolidayComponent } from './components/holiday/holiday.component';
+import { InboxComponent } from './components/inbox/inbox.component';
+import { PolicyComponent } from './components/policy/policy.component';
+import { DsrComponent } from './components/dsr/dsr.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -20,9 +23,11 @@ const routes: Routes = [
     component: HeaderComponent,
     children: [
       { path: 'home', component: HomeComponent },
-      { path: 'dailystatusreportList', component: AddDsrComponent },
+      { path: 'dailystatusreportList', component: DsrComponent },
       {path: 'leave', component: LeaveComponent},
       {path: 'holiday', component: HolidayComponent},
+      {path: 'inbox', component: InboxComponent},
+      {path: 'policy', component: PolicyComponent},
       {
         path: 'dashboard',
         component: DashboardComponent,

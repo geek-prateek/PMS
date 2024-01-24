@@ -2,19 +2,24 @@
     <table id="table">
     <thead>
         <tr>
-            <th>Project Name</th>
-            <th>Project Lead</th>
+            <th>Action</th>
+            <th>Policy Name</th>
         </tr>
     </thead>
-    
-    <tbody id="tableBody">
+    <h4 class="empty" *ngIf="policyDetails.length === 0">No records available</h4>
+    <tbody id="tableBody" *ngIf="policyDetails.length>0">
         <tr>
-            <td>Project Training</td>
-            <td>Suhas Joyous</td>
+            <!-- <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td> -->
         </tr>
     </tbody>
     </table>     
-    <mat-paginator #paginator [length]="projectTeamDetails.length"
+    <mat-paginator #paginator [length]="0"
               [pageSize]="0"
               [pageIndex]="0"
               [pageSizeOptions]="[0]"

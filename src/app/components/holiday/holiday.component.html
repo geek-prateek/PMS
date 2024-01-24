@@ -12,7 +12,7 @@
         </tr>
     </thead>
     <tbody id="tableBody">
-        <tr *ngFor="let holiday of holidayDetails">
+        <tr *ngFor="let holiday of (holidayDetails | slice: lowValue : highValue)">
             <td>{{holiday.srNo}}</td>   
             <td>{{holiday.holidayDate | date: 'mediumDate'}}</td>
             <td>{{holiday.holiday}}</td>
@@ -20,5 +20,14 @@
         </tr>
     </tbody>
     </table>     
+    <mat-paginator #paginator [length]="holidayDetails.length"
+              [pageSize]="pageSize"
+              [pageIndex]="currentPage"
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              (page)="onPageChanged($event)"
+              showFirstLastButtons="true"
+              aria-label="Select page"
+              style="background-color: rgb(238, 238, 238);">
+    </mat-paginator>
 </div>
 

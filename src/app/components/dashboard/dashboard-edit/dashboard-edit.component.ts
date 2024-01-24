@@ -80,25 +80,5 @@ export class DashboardEditComponent implements OnInit {
     
   }
 
-  // AddSkills() {
-  //   (<FormArray>this.loginForm.get('skills')).push(
-  //     new FormControl(null, Validators.required)
-  //   );
-  // }
-
-  // DeleteSkills(index: number) {
-  //   (<FormArray>this.loginForm.get('skills')).removeAt(index);
-  // }
+  
 }
-
-// if(this.addDsrForm.valid){
-//   const addDsrDetails: DsrDetails ={
-//       date: this.addDsrForm.value.dsrDate,
-//       timespent: this.addDsrForm.value.hour,
-//       pendingHour: this.addDsrForm.value.minute,
-//       status: this.checked,
-//   };
-//   this.table.dsrtable.push(addDsrDetails);
-//   this.router.navigate(['/home'])
-//   console.log(addDsrDetails.date, addDsrDetails.timespent, addDsrDetails.pendingHour, addDsrDetails.status);
-// }

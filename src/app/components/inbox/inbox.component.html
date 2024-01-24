@@ -1,0 +1,36 @@
+<div class="container">
+    <table id="table">
+    <thead>
+        <tr>
+            <th>Action</th>
+            <th>Email From</th>
+            <th>Email To</th>
+            <th>Subject</th>
+            <th>Email Creation Time</th>
+            <th>Status</th>
+            <th>Error Message</th>
+        </tr>
+    </thead>
+    <h4 class="empty" *ngIf="inboxDetails.length === 0">No records available</h4>
+    <tbody id="tableBody" *ngIf="inboxDetails.length>0">
+        <tr>
+            <!-- <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td> -->
+        </tr>
+    </tbody>
+    </table>     
+    <mat-paginator #paginator [length]="0"
+              [pageSize]="0"
+              [pageIndex]="0"
+              [pageSizeOptions]="[0]"
+              showFirstLastButtons="true"
+              aria-label="Select page"
+              style="background-color: rgb(238, 238, 238);">
+    </mat-paginator>
+</div>
+

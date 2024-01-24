@@ -27,6 +27,9 @@ import { LeaveModule } from './components/leave/leave.module';
 import { DashboardModule } from './components/dashboard/dashboard.module';
 import { HolidayComponent } from './components/holiday/holiday.component';
 import { HolidayOrderComponent } from './components/holiday/holiday-order/holiday-order.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { InboxComponent } from './components/inbox/inbox.component';
+import { PolicyComponent } from './components/policy/policy.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,9 @@ import { HolidayOrderComponent } from './components/holiday/holiday-order/holida
     ContactComponent,
     BirthdayTableComponent,
     HolidayComponent,
-    HolidayOrderComponent
+    HolidayOrderComponent,
+    InboxComponent,
+    PolicyComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +57,8 @@ import { HolidayOrderComponent } from './components/holiday/holiday-order/holida
     BrowserAnimationsModule,
     SharedModule,
     LeaveModule,
-    DashboardModule
+    DashboardModule,
+    MatPaginatorModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

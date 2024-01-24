@@ -1,0 +1,79 @@
+<button class="btn btn-outline-success" data-bs-toggle="modal"
+data-bs-target="#exampleQualificationModal">Add</button>
+
+<div
+  class="modal fade"
+  id="exampleQualificationModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div
+        class="modal-header"
+        style="background-color: rgb(37, 35, 34); color: white"
+      >
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          Add Work Experience
+        </h1>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addForm">
+          <label for="companyName" class="form-label">Company Name</label>
+          <input
+            type="text"
+            class="form-control mb-3"
+            placeholder="Company Name"
+            formControlName="companyName"
+          />
+
+          <label for="jobTitle" class="form-label"
+            >Job Title <span>*</span></label
+          >
+          <div class="mb-3">
+            <select
+              class="form-select"
+              name="jobTitle"
+              formControlName="jobTitle"
+            >
+              <option hidden value="jobTitle">--Please Select Job Title--</option>
+              <option >SE (Software Engineer)</option>
+              <option >AVP (Assistant Vice President)</option>
+              <option >SSE (Senior Software Engineer)</option>
+            </select>
+          </div>
+
+          <label for="from" class="form-label">From <span>*</span></label>
+          <input
+            type="date"
+            class="form-control mb-3"
+            placeholder="yyyy-mm-dd"
+            formControlName="from"
+          />
+
+          <label for="to" class="form-label">To <span>*</span></label>
+          <input
+            type="date"
+            class="form-control mb-3"
+            placeholder="yyyy-mm-dd"
+            formControlName="to"
+          />
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+          Cancel
+        </button>
+        <button type="button" class="btn btn-success" [disabled]="addForm.invalid" (click)="onAdd()">Apply</button>
+      </div>
+    </div>
+  </div>
+</div>

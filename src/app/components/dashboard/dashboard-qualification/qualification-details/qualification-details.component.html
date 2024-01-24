@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 my-5 d-flex justify-content-around">
+            <h4>WORK EXPERIENCE</h4>
+            <app-qualification-modal></app-qualification-modal>
+        </div>
+        <div class="col-xs-12">
+            <table class="table table-responsive-sm text-center">
+                <thead>
+                    <tr>
+                      <th>Company</th>
+                      <th>Job Title</th>
+                      <th>From</th>
+                      <th>To</th>
+                      <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let work of workDetails; let i = index">
+                    <tr>
+                        <td>{{work.companyName}}</td>
+                        <td>{{work.jobTitle}}</td>
+                        <td>{{work.from}}</td>
+                        <td>{{work.to}}</td>
+                        <td><i class="bi bi-trash3 text-danger" (click)="onDelete(i)"></i><i class="bi bi-pencil-square text-primary mx-3" (click)="onEdit(i)"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
