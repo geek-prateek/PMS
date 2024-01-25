@@ -27,7 +27,7 @@ export class LeaveApplyComponent{
     onApply(){
         if(this.leaveApplyForm.valid){
             const leaveApplyDetails : LeaveDetails = {
-                employeeName: this.registerUser.registerUserDetails[this.registerUser.registerUserDetails.length-1].name,
+                employeeName: this.userService.username,
                 startDate: this.leaveApplyForm.value.leaveFrom,
                 endDate: this.leaveApplyForm.value.leaveTo,
                 leaveCount: this.leaveBalance,
@@ -38,3 +38,5 @@ export class LeaveApplyComponent{
     }
 
 }
+
+// this.registerUser.registerUserDetails[this.registerUser.registerUserDetails.length-1].name;

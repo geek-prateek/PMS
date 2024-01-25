@@ -25,7 +25,8 @@ export class QualificationModalComponent {
             from: this.addForm.value.from,
             to: this.addForm.value.to,
         }
-        this.dashboardService.workDetails.push(addFormDetails)
+        this.dashboardService.workDetails.push(addFormDetails);
+        this.addForm.reset();
     }
 
     

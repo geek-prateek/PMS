@@ -26,7 +26,7 @@ export class DashboardEditComponent implements OnInit {
     this.loginForm = new FormGroup({
       name: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
       email: new FormControl(null, [Validators.required]),
-      username: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
+      username: new FormControl(this.userService.username, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
       dob: new FormControl(null, Validators.required),
       gender: new FormControl('male'),
       department: new FormControl(null, Validators.required),
@@ -41,13 +41,10 @@ export class DashboardEditComponent implements OnInit {
       }),
     });
     this.loginForm.disable();
-    
-    
-    this.loginForm.patchValue(this.registerUser.registerUserDetails[this.registerUser.registerUserDetails.length-1]);
-    
-    
+
+    this.loginForm.patchValue(this.registerUser.registerUserDetails[this.registerUser.registerUserDetails.length-1]);    
   }
-  
+
 
   onEdit(){
     this.disabled = true;

@@ -35,3 +35,8 @@
 span{
     color: red;
 }
+
+.modal-body{
+    max-height: calc(65vh - 200px);
+    overflow-y: auto;
+}
