@@ -35,3 +35,21 @@
 .bi{
     margin: 0 15px 0 15px;
 }
+
+.header-content{
+    background-color: #7385df;
+    padding: 25px;
+    color: white;
+    margin: 0;
+}
+
+.menuBtn{
+    background-color: #7385df;
+    border-radius: 0;
+    color: white;
+}
+
+
+.flex{
+    flex: 1 30px;
+}

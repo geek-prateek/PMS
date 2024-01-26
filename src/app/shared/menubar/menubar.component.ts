@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
     selector: 'app-menubar',
@@ -6,7 +7,7 @@ import { Component } from "@angular/core";
     styleUrls: ['./menubar.component.css']
 })
 export class MenuBarComponent {
-    constructor() { }
+    constructor(public router : Router, private route: ActivatedRoute, ) { }
     ngOnInit() {
     }
 }

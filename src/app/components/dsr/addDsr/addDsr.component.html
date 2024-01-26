@@ -90,8 +90,9 @@
                       class="form-select"
                       name="client"
                       formControlName="client"
+                      required
                     >
-                      <option hidden value="client">Select Client</option>
+                      <option value="" selected disabled hidden>Select Client</option>
                       <option value="btl">BTL</option>
                       <option value="zedra">Zedra</option>
                       <option value="paycheck">PayCheck</option>
@@ -108,8 +109,9 @@
                       class="form-select"
                       name="project"
                       formControlName="project"
+                      required
                     >
-                      <option hidden value="project">Select Project</option>
+                      <option value="" selected disabled hidden>Select Project</option>
                       <option value="projectTraining">Project Training</option>
                     </select>
                   </div>
@@ -124,8 +126,9 @@
                       class="form-select"
                       name="taskType"
                       formControlName="taskType"
+                      required
                     >
-                      <option hidden value="taskType">Select Tasktype</option>
+                      <option value="" selected disabled hidden>Select Tasktype</option>
                       <option value="self">Self learning</option>
                       <option value="internal">Internal training</option>
                       <option value="support">Support</option>

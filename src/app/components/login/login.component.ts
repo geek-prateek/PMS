@@ -46,7 +46,10 @@ export class LoginComponent implements OnInit{
 
       this.userService.username = this.loginForm.value.username || '';
       // this.loggedIn.emit(true);
-      this.router.navigate(['/head/home']);
+      setTimeout(()=>{
+        this.router.navigate(['/head/home']);
+      },1000)
+      
     } else {
       this.alert = "Username & Password are incorrect";
       // alert('Username & Password are incorrect!');

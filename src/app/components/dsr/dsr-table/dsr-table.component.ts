@@ -23,6 +23,10 @@ export class DsrTableComponent{
        
    }
 
+   onView(item: number){
+    
+   }
+
    onEdit(item: number){
 
    }

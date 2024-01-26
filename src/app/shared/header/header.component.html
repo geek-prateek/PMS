@@ -62,19 +62,13 @@
     >
   </div>
 </nav>
-<div class="header-content">
-  <h5 *ngIf='router.url.includes("home")'><i class="bi bi-box"></i>Dashboard</h5>
-  <h5 *ngIf='router.url.includes("policy")'><i class="bi bi-receipt"></i>Policy</h5>
-  <h5 *ngIf='router.url.includes("dashboard")'><i class="bi bi-person-bounding-box"></i>My Profile</h5>
-  <h5 *ngIf='router.url.includes("dailystatusreportList")'><i class="bi bi-check2-square"></i>Daily Status Report</h5>
-  <h5 *ngIf='router.url.includes("leave")'><i class="bi bi-house-check"></i>Leave Apply</h5>
-  <h5 *ngIf='router.url.includes("holiday")'><i class="bi bi-house-door-fill"></i>Holiday List</h5>
-  <h5 *ngIf='router.url.includes("inbox")'><i class="bi bi-inbox"></i>Inbox</h5>
-</div>
+
 <div class="container-fluid overflow-hidden">
   <div class="row">
-    <aside class="col-md-2 ps-0">
+    <aside class="col-md-2 ps-0 ">
+      
       <app-menubar></app-menubar>
+      
     </aside>
     <main class="col-md-8 mt-3">
       <router-outlet></router-outlet>

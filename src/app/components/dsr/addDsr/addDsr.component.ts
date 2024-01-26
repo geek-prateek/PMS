@@ -156,9 +156,9 @@ export class AddDsrComponent implements OnInit {
   addDsrFormGroup(){
     return this.fb.group({
         department: ['development', Validators.required],
-        client: ['client', Validators.required],
-        project: ['project', Validators.required],
-        taskType: ['taskType', Validators.required],
+        client: ['', Validators.required],
+        project: ['', Validators.required],
+        taskType: ['', Validators.required],
         hour: [0, [Validators.required, Validators.min(8), Validators.max(23)]],
         minute: [0, [Validators.min(0), Validators.max(59)]],
         taskKey: [null],

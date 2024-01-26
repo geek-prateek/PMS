@@ -1,10 +1,32 @@
+<div class="flex">
 
-<div class="list-bar">
-  <a [routerLink]="['/head/home']" class="list-group-item list-group-item-action list-group-item-light" routerLinkActive="currentLink"><i class="bi bi-box"></i>Dashboard</a>
-  <a [routerLink]="['/head/policy']" class="list-group-item list-group-item-action list-group-item-light" routerLinkActive="currentLink"><i class="bi bi-receipt"></i>Policy</a>
-  <a [routerLink]="['/head/dashboard']" class="list-group-item list-group-item-action list-group-item-light" routerLinkActive="currentLink"><i class="bi bi-person-bounding-box"></i>Employees</a>
-  <a [routerLink]="['/head/dailystatusreportList']" class="list-group-item list-group-item-action list-group-item-light" routerLinkActive="currentLink"><i class="bi bi-check2-square"></i>Daily Status Report</a>
-  <a [routerLink]="['/head/leave']" class="list-group-item list-group-item-action list-group-item-light" routerLinkActive="currentLink"><i class="bi bi-house-check"></i>Leave</a>
-  <a [routerLink]="['/head/holiday']" class="list-group-item list-group-item-action list-group-item-light" routerLinkActive="currentLink"><i class="bi bi-house-door-fill"></i>Holiday</a>
-  <a [routerLink]="['/head/inbox']" class="list-group-item list-group-item-action list-group-item-light" routerLinkActive="currentLink"><i class="bi bi-inbox"></i>Inbox</a>
+
+  <button class="btn menuBtn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive"><i class="bi bi-list"></i></button>
+  <div class="header-content">
+    <h5 *ngIf='router.url.includes("home")'><i class="bi bi-box"></i>Dashboard</h5>
+    <h5 *ngIf='router.url.includes("policy")'><i class="bi bi-receipt"></i>Policy</h5>
+    <h5 *ngIf='router.url.includes("dashboard")'><i class="bi bi-person-bounding-box"></i>My Profile</h5>
+    <h5 *ngIf='router.url.includes("dailystatusreportList")'><i class="bi bi-check2-square"></i>Daily Status Report</h5>
+    <h5 *ngIf='router.url.includes("leave")'><i class="bi bi-house-check"></i>Leave Apply</h5>
+    <h5 *ngIf='router.url.includes("holiday")'><i class="bi bi-house-door-fill"></i>Holiday List</h5>
+    <h5 *ngIf='router.url.includes("inbox")'><i class="bi bi-inbox"></i>Inbox</h5>
+    
+  </div>
+</div>
+<div class="offcanvas-lg offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" style="font-size: 25px;" id="offcanvasResponsiveLabel"><i class="bi bi-backpack3-fill icon"></i>PMS</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasResponsive" aria-label="Close"></button>
+  </div>
+  <div class="mb-0">
+    <div class="list-bar">
+      <a [routerLink]="['/head/home']" class="list-group-item list-group-item-action list-group-item-light" routerLinkActive="currentLink"><i class="bi bi-box"></i>Dashboard</a>
+      <a [routerLink]="['/head/policy']" class="list-group-item list-group-item-action list-group-item-light" routerLinkActive="currentLink"><i class="bi bi-receipt"></i>Policy</a>
+      <a [routerLink]="['/head/dashboard']" class="list-group-item list-group-item-action list-group-item-light" routerLinkActive="currentLink"><i class="bi bi-person-bounding-box"></i>Employees</a>
+      <a [routerLink]="['/head/dailystatusreportList']" class="list-group-item list-group-item-action list-group-item-light" routerLinkActive="currentLink"><i class="bi bi-check2-square"></i>Daily Status Report</a>
+      <a [routerLink]="['/head/leave']" class="list-group-item list-group-item-action list-group-item-light" routerLinkActive="currentLink"><i class="bi bi-house-check"></i>Leave</a>
+      <a [routerLink]="['/head/holiday']" class="list-group-item list-group-item-action list-group-item-light" routerLinkActive="currentLink"><i class="bi bi-house-door-fill"></i>Holiday</a>
+      <a [routerLink]="['/head/inbox']" class="list-group-item list-group-item-action list-group-item-light" routerLinkActive="currentLink"><i class="bi bi-inbox"></i>Inbox</a>
+    </div>
+  </div>
 </div>
