@@ -188,7 +188,27 @@ export class AddDsrComponent implements OnInit {
       this.table.dsrtable.push(addDsrDetails);
       this.pendingHourTime = 0;
       console.log(addDsrDetails);
+
+      this.onReset();
     }
+  }
+
+  onReset(){
+    this.addDsrForm.reset({
+      newDsr: [
+        {
+          department: 'development',
+          client: '',
+          project: '',
+          taskType: '',
+          hour: 0,
+          minute: 0,
+          taskKey: null,
+          dueDate: null,
+          dsrDetails: null,
+        }
+      ]
+    })
   }
  
   private updateSpentTime() {

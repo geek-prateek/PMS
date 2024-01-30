@@ -18,7 +18,7 @@ export class LeaveApplyComponent{
     
     leaveApplyForm= new FormGroup({
         taxYear: new FormControl('2023-2024'),
-        leaveType: new FormControl('leaveType', Validators.required),
+        leaveType: new FormControl('', Validators.required),
         leaveFrom: new FormControl(null, Validators.required),
         leaveTo: new FormControl(null, Validators.required),
         reason: new FormControl(''),
@@ -34,7 +34,18 @@ export class LeaveApplyComponent{
             };
             this.leaveService.leaveDetails.push(leaveApplyDetails);
             console.log(leaveApplyDetails);
+            this.onReset();
         }
+    }
+
+    onReset(){
+        this.leaveApplyForm.reset({
+            leaveType: '',
+            leaveFrom: null,
+            leaveTo: null,
+            reason: '',
+        });
+    
     }
 
 }

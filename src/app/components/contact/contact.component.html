@@ -15,8 +15,8 @@
     <form [formGroup]="contactForm">
       <div class="mb-3">
         <label class="form-label">Query <span>*</span></label>
-        <select class="form-select" formControlName="query">
-          <option hidden value="query">-- Please Select Query --</option>
+        <select class="form-select" formControlName="query" required>
+          <option value="" selected disabled hidden>-- Please Select Query --</option>
           <option value="1">Appraisal Related</option>
           <option value="2">Leave Related</option>
           <option value="3">Admin Related</option>

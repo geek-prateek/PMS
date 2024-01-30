@@ -10,7 +10,7 @@ export class ContactComponent{
     msgSent: boolean = false;
 
     contactForm = new FormGroup({
-        query : new FormControl('query', Validators.required),
+        query : new FormControl('', Validators.required),
         desc: new FormControl('', Validators.required)
     })
 
@@ -21,11 +21,14 @@ export class ContactComponent{
         setTimeout(()=>{
             this.msgSent = false;
         }, 3000);
-        this.contactForm.reset();
+        this.onReset();
         
     }
 
     onReset(){
-        this.contactForm.reset();
+        this.contactForm.reset({
+            query: '',
+            desc: null,
+        });
     }
 }

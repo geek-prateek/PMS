@@ -42,8 +42,9 @@ data-bs-target="#exampleQualificationModal">Add</button>
               class="form-select"
               name="jobTitle"
               formControlName="jobTitle"
+              required
             >
-              <option hidden value="jobTitle">--Please Select Job Title--</option>
+              <option value="" selected disabled hidden>--Please Select Job Title--</option>
               <option >SE (Software Engineer)</option>
               <option >AVP (Assistant Vice President)</option>
               <option >SSE (Senior Software Engineer)</option>

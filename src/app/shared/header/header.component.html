@@ -64,6 +64,7 @@
 </nav>
 
 <div class="container-fluid overflow-hidden">
+  
   <div class="row">
     <aside class="col-md-2 ps-0 ">
       
@@ -72,6 +73,9 @@
     </aside>
     <main class="col-md-8 mt-3">
       <router-outlet></router-outlet>
+      <div *ngIf="showLoader" style="text-align: center">
+        <app-spinner></app-spinner>
+    </div>
     </main>
   </div>
 </div>

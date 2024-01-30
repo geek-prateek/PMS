@@ -3,6 +3,7 @@ import { UserService } from './user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from './customValidators/customValidators.validators';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-login',
@@ -22,41 +23,47 @@ export class LoginComponent implements OnInit{
     password: new FormControl('', [Validators.required, Validators.minLength(8), Validators.pattern(this.regex), CustomValidators.noSpaceAllowed]),
   });
 
+
+  
+
   // @Output() loggedIn = new EventEmitter<boolean>();
   // @Output() showSignup = new EventEmitter<boolean>();
 
   constructor(
     private userService: UserService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private authService: AuthService
   ) {}
   ngOnInit() {
-    
+    this.route.queryParamMap.subscribe((queries) => {
+      const logout = Boolean(queries.get('logout'));
+      if(logout){
+        this.authService.logout();
+      }
+    });
   }
 
-  onLogin() {
-    if (
-      this.userService.addedUser.find(
-        (user) =>
-          user.username === this.loginForm.value.username && user.password === this.loginForm.value.password
-      )
-    ) {
+  onLogin(){
+    const username = this.loginForm.value.username ?? '';
+    const password = this.loginForm.value.password ?? '';
+
+    const user = this.authService.login(username, password);
+
+    if(user === undefined){
+      this.alert = "Username & Password are incorrect";
+    }
+    else{
       this.isLoaded = true;
       console.log('Succesfully logged IN');
-
       this.userService.username = this.loginForm.value.username || '';
-      // this.loggedIn.emit(true);
       setTimeout(()=>{
         this.router.navigate(['/head/home']);
       },1000)
-      
-    } else {
-      this.alert = "Username & Password are incorrect";
-      // alert('Username & Password are incorrect!');
     }
-    // this.username = '';
-    // this.password = '';
+    
   }
+
   onRegister() {
     // this.showSignup.emit(true);
     this.router.navigate(['/register']);

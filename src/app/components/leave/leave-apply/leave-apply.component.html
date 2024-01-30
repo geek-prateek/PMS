@@ -42,8 +42,9 @@ data-bs-target="#exampleLeaveModal" style="font-size: 25px; margin-right: 18px;"
               class="form-select"
               name="leaveType"
               formControlName="leaveType"
+              required
             >
-              <option hidden value="leaveType">Select Leave Type</option>
+              <option value="" selected disabled hidden>Select Leave Type</option>
               <option value="paid">Annual Paid Leaves</option>
               <option value="unpaid">Unpaid Leaves</option>
               <option value="special">Special Occasion Leaves</option>

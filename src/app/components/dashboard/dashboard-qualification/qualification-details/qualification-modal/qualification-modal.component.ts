@@ -13,7 +13,7 @@ export class QualificationModalComponent {
 
     addForm= new FormGroup({
         companyName: new FormControl('', Validators.required),
-        jobTitle: new FormControl('jobTitle', Validators.required),
+        jobTitle: new FormControl('', Validators.required),
         from: new FormControl(null, Validators.required),
         to: new FormControl(null, Validators.required),
     });
@@ -26,7 +26,12 @@ export class QualificationModalComponent {
             to: this.addForm.value.to,
         }
         this.dashboardService.workDetails.push(addFormDetails);
-        this.addForm.reset();
+        this.addForm.reset({
+            companyName: '',
+            jobTitle: '',
+            from: null,
+            to: null
+        });
     }
 
     

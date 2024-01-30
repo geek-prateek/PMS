@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { UserService } from "./login/user.service";
 
 @Injectable({
     providedIn: 'root'
@@ -6,16 +7,21 @@ import { Injectable } from "@angular/core";
 export class LocalService {
     constructor(){}
 
-    public saveData(key: any){
-        localStorage.setItem('userData', JSON.stringify(key));
+    public saveData(username: string, data: any){
+        localStorage.setItem(username, JSON.stringify(data));
     }
 
-    public getData(key: string){
-        return localStorage.getItem(key);
+    public getData(username: string){
+        const storedData = localStorage.getItem(username);
+        if(storedData){
+            return JSON.parse(storedData);
+        }else{
+            return null;
+        }
     }
 
-    public removeData(key: string){
-        localStorage.removeItem(key);
+    public removeData(username: string){
+        localStorage.removeItem(username);
     }
 
     public clearAll(){

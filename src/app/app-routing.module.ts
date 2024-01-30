@@ -14,36 +14,40 @@ import { HolidayComponent } from './components/holiday/holiday.component';
 import { InboxComponent } from './components/inbox/inbox.component';
 import { PolicyComponent } from './components/policy/policy.component';
 import { DsrComponent } from './components/dsr/dsr.component';
+import { AuthService } from './components/login/auth.service';
+import { CanActivate, CanActivateChild, resolve } from './shared/auth.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full'},
   { path: 'login', component: LoginComponent },
   {
     path: 'head',
     component: HeaderComponent,
+    canActivate: [CanActivate],
+    canActivateChild: [CanActivateChild],
     children: [
       { path: 'home', component: HomeComponent },
       { path: 'dailystatusreportList', component: DsrComponent },
       {path: 'leave', component: LeaveComponent},
-      {path: 'holiday', component: HolidayComponent},
+      {path: 'holiday', component: HolidayComponent, resolve: {holidayData: resolve}},
       {path: 'inbox', component: InboxComponent},
       {path: 'policy', component: PolicyComponent},
       {
         path: 'dashboard',
         component: DashboardComponent,
         children: [
-          { path: 'edit', component: DashboardEditComponent },
+          { path: 'edit', component: DashboardEditComponent , canDeactivate: [(comp: DashboardEditComponent)=>{return comp.canExit();}]},
           { path: 'qualification', component: DashboardQualificationComponent },
           { path: 'team', component: DashboardTeamComponent },
         ],
       },
     ],
   },
-  { path: '**', pathMatch: 'full', component: PageNotFoundComponent },
+  { path: '**', pathMatch: 'full', component: PageNotFoundComponent, canActivate: [CanActivate]},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {enableTracing: true})],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

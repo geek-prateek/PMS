@@ -8,9 +8,7 @@ export class UserService {
     username: string ="";
 
     constructor(private router: Router, private route: ActivatedRoute){}
-    
-    // flag: boolean = false;
-    
+        
     addedUser: UserDetails[] = [
        new UserDetails('admin', 'prateek', 'Prateek@123'),
        new UserDetails('superadmin', 'shoaib', 'Shoaib@123'),
@@ -35,33 +33,3 @@ export class UserService {
     }
 
 }
-
-
-
-/* 
- {
-            usertype: 'admin',
-            username: 'prateek',
-            password: 'Prateek@123'
-        },
-        {
-            usertype: 'superadmin',
-            username: 'shoaib',
-            password: 'Shoaib@123'
-        },
-        {
-            usertype: 'superadmin',
-            username: 'faizan',
-            password: 'Faizan@123'
-        },
-        {
-            usertype: 'superadmin',
-            username: 'krutik',
-            password: 'Krutik@123'
-        },
-        {
-            usertype: 'admin',                 
-            username: 'amod',
-            password: 'Amod@123'
-        }
-*/
