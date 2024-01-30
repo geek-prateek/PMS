@@ -4,6 +4,7 @@ import {
   Event,
   NavigationCancel,
   NavigationEnd,
+  NavigationError,
   NavigationStart,
   Router,
 } from '@angular/router';
@@ -32,7 +33,7 @@ export class HeaderComponent {
         this.showLoader = true;
       }
 
-      if (event instanceof NavigationEnd || event instanceof NavigationCancel || event instanceof NavigationCancel) {
+      if (event instanceof NavigationEnd || event instanceof NavigationCancel || event instanceof NavigationError) {
         this.showLoader = false;
       }
     });

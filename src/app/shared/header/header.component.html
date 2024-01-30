@@ -73,9 +73,9 @@
     </aside>
     <main class="col-md-8 mt-3">
       <router-outlet></router-outlet>
-      <div *ngIf="showLoader" style="text-align: center">
+      <div *ngIf="showLoader" class="spinner_overlay">
         <app-spinner></app-spinner>
-    </div>
+      </div>
     </main>
   </div>
 </div>
