@@ -29,7 +29,7 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'dailystatusreportList', component: DsrComponent },
       {path: 'leave', component: LeaveComponent},
-      {path: 'holiday', component: HolidayComponent, resolve: {holidayData: resolve}},
+      {path: 'holiday', component: HolidayComponent, resolve:{holidayData: resolve}},
       {path: 'inbox', component: InboxComponent},
       {path: 'policy', component: PolicyComponent},
       {
