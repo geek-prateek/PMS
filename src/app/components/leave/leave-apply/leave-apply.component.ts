@@ -1,9 +1,10 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { LeaveDetails } from "../leaveDetails";
 import { UserService } from "../../login/user.service";
 import { LeaveService } from "../leave.service";
 import { RegisterUserService } from "src/app/shared/registerUser/registerUser.service";
+import { LocalService } from "../../localService";
 
 @Component({
     selector: 'app-leave-apply',
@@ -12,8 +13,8 @@ import { RegisterUserService } from "src/app/shared/registerUser/registerUser.se
 })
 export class LeaveApplyComponent{
 
-    constructor(private userService: UserService, private leaveService: LeaveService, private registerUser: RegisterUserService){}
-
+    constructor(private userService: UserService, private leaveService: LeaveService, private registerUser: RegisterUserService, private localService: LocalService){}
+    
     leaveBalance: number = 0;
     
     leaveApplyForm= new FormGroup({
@@ -32,14 +33,16 @@ export class LeaveApplyComponent{
                 endDate: this.leaveApplyForm.value.leaveTo,
                 leaveCount: this.leaveBalance,
             };
-            this.leaveService.leaveDetails.push(leaveApplyDetails);
+            this.leaveService.leaveDetails.push(leaveApplyDetails);   
             console.log(leaveApplyDetails);
             this.onReset();
         }
+        
     }
 
     onReset(){
         this.leaveApplyForm.reset({
+            taxYear: '2023-2024',
             leaveType: '',
             leaveFrom: null,
             leaveTo: null,

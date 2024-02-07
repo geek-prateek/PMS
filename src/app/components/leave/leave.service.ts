@@ -1,10 +1,13 @@
 import { Injectable } from "@angular/core";
 import { LeaveDetails } from "./leaveDetails";
+import { LocalService } from "../localService";
 
 @Injectable({
     providedIn: "root"
 })
 export class LeaveService{
+
+    constructor(private localService: LocalService){}
     leaveDetails: LeaveDetails[]=[
         {
             employeeName: "Prateek Kumar",
@@ -15,4 +18,7 @@ export class LeaveService{
         
         
     ]
+    
+
+    
 }

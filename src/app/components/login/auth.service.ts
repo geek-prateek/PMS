@@ -1,5 +1,6 @@
 import { Injectable, inject } from "@angular/core";
 import { UserService } from "./user.service";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Injectable({
     providedIn: 'root'
@@ -8,6 +9,8 @@ export class AuthService{
     isLoggedIn: boolean = false;
 
     userService: UserService = inject(UserService);
+    router: Router = inject(Router);
+    route: ActivatedRoute = inject(ActivatedRoute);
 
 
     login(username: string, password: string){
@@ -27,5 +30,9 @@ export class AuthService{
 
     isAuthenticated(){
         return this.isLoggedIn;
+    }
+
+    onDashboard(){
+        this.router.navigate(['/head/dashboard/edit'], {queryParams: {id: this.userService.getUserID()}});
     }
 }

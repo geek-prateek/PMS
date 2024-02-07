@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
+import { AuthService } from "src/app/components/login/auth.service";
 
 @Component({
     selector: 'app-menubar',
@@ -7,7 +8,8 @@ import { ActivatedRoute, Router } from "@angular/router";
     styleUrls: ['./menubar.component.css']
 })
 export class MenuBarComponent {
-    constructor(public router : Router, private route: ActivatedRoute, ) { }
+    constructor(public router : Router, private route: ActivatedRoute, private authService: AuthService) { }
     ngOnInit() {
     }
+    
 }

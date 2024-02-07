@@ -24,6 +24,32 @@ export class LocalService {
         localStorage.removeItem(username);
     }
 
+    public saveLeaveData(data: any){
+        localStorage.setItem('leave', JSON.stringify(data));
+    }
+
+    public getLeaveData(){
+        const storedData = localStorage.getItem('leave');
+        if(storedData){
+            return JSON.parse(storedData);
+        }else{
+            return null;
+        }
+    }
+
+    public saveBirthdayData(data: any){
+        localStorage.setItem('birthday', JSON.stringify(data));
+    }
+
+    public getBirthdayData(){
+        const storedData = localStorage.getItem('birthday');
+        if(storedData){
+            return JSON.parse(storedData);
+        }else{
+            return null;
+        }
+    }
+    
     public clearAll(){
         localStorage.clear();
     }

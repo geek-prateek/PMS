@@ -9,6 +9,7 @@ import {
   Router,
 } from '@angular/router';
 import { UserService } from '../../components/login/user.service';
+import { AuthService } from 'src/app/components/login/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -19,15 +20,20 @@ export class HeaderComponent {
   constructor(
     public router: Router,
     private route: ActivatedRoute,
-    private userService: UserService
+    private userService: UserService,
+    private authService: AuthService
   ) {}
   title: string = 'Angular';
   username: string = '';
+  id: number = 0;
   showButton: boolean = false;
   showLoader: boolean = false;
 
   ngOnInit() {
-    this.username = this.userService.username;
+    this.route.queryParams.subscribe((params) => {
+      this.id = params['id'];
+      
+    });
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationStart) {
         this.showLoader = true;
@@ -37,12 +43,13 @@ export class HeaderComponent {
         this.showLoader = false;
       }
     });
+    this.username = this.userService.username;
   }
 
   onAbout() {}
 
   onDashboard() {
-    this.router.navigate(['/head/dashboard/edit']);
+    this.authService.onDashboard();
     this.showButton = true;
   }
 

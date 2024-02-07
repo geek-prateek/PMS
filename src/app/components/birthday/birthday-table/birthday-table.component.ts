@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { RegisterUserService } from "../../../shared/registerUser/registerUser.service";
 import { BirthDetails } from "../birthDetails";
 import { ActivatedRoute, Router } from "@angular/router";
+import { LocalService } from "../../localService";
+import { UserService } from "../../login/user.service";
 
 @Component({
     selector: 'app-birthday-table',
@@ -10,13 +12,13 @@ import { ActivatedRoute, Router } from "@angular/router";
 })
 export class BirthdayTableComponent implements OnInit {
 
-    constructor(private registerUser: RegisterUserService, private router: Router, private route: ActivatedRoute){}
+    constructor(private registerUser: RegisterUserService, private router: Router, private route: ActivatedRoute, private localService: LocalService, private userService: UserService){}
 
     birthDetails: BirthDetails[] = [];
     todayDate: Date = new Date()
 
     ngOnInit(): void {
-        this.birthDetails = this.registerUser.registerUserDetails;
+        this.birthDetails = this.localService.getBirthdayData();
        
         
     }

@@ -30,6 +30,8 @@ import { HolidayOrderComponent } from './components/holiday/holiday-order/holida
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { InboxComponent } from './components/inbox/inbox.component';
 import { PolicyComponent } from './components/policy/policy.component';
+import { CardStatsComponent } from './components/card-stats/card-stats.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,8 @@ import { PolicyComponent } from './components/policy/policy.component';
     HolidayComponent,
     HolidayOrderComponent,
     InboxComponent,
-    PolicyComponent
+    PolicyComponent,
+    CardStatsComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,9 @@ import { PolicyComponent } from './components/policy/policy.component';
     SharedModule,
     LeaveModule,
     DashboardModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    FullCalendarModule
+   
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

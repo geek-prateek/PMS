@@ -16,18 +16,21 @@ import { PolicyComponent } from './components/policy/policy.component';
 import { DsrComponent } from './components/dsr/dsr.component';
 import { AuthService } from './components/login/auth.service';
 import { CanActivate, CanActivateChild, resolve } from './shared/auth.guard';
+import { UserService } from './components/login/user.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent},
   {
     path: 'head',
     component: HeaderComponent,
-    canActivate: [CanActivate],
-    canActivateChild: [CanActivateChild],
+    // canActivate: [CanActivate],
+    // canActivateChild: [CanActivateChild],
     children: [
       { path: 'home', component: HomeComponent },
-      { path: 'dailystatusreportList', component: DsrComponent },
+      { path: 'dailystatusreportList', component: DsrComponent , children: [
+        { path: 'addDsr', component: AddDsrComponent },
+      ]},
       {path: 'leave', component: LeaveComponent},
       {path: 'holiday', component: HolidayComponent, resolve:{holidayData: resolve}},
       {path: 'inbox', component: InboxComponent},
@@ -43,11 +46,13 @@ const routes: Routes = [
       },
     ],
   },
-  { path: '**', pathMatch: 'full', component: PageNotFoundComponent, canActivate: [CanActivate]},
+  { path: '**', pathMatch: 'full', component: PageNotFoundComponent},
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {enableTracing: true})],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+  
+}

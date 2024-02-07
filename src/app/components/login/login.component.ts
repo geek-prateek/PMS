@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit{
       console.log('Succesfully logged IN');
       this.userService.username = this.loginForm.value.username || '';
       setTimeout(()=>{
-        this.router.navigate(['/head/home']);
+        this.router.navigate(['/head/home'], {queryParams: {id: this.userService.getUserID()}});
       },1000)
     }
     
@@ -72,4 +72,6 @@ export class LoginComponent implements OnInit{
   onHandleClose(){
     this.alert = null;
   }
+
+  
 }

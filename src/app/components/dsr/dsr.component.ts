@@ -1,13 +1,14 @@
 import { Component } from "@angular/core";
 import { DashboardService } from "../dashboard/dashboard.service";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
     selector: 'app-dsr',
     templateUrl: './dsr.component.html',
 })
 export class DsrComponent{
-    constructor(private table: DashboardService){}
+    constructor(private table: DashboardService, private router: Router, private route: ActivatedRoute){}
 
     order: string = "";
 
@@ -16,4 +17,6 @@ export class DsrComponent{
     ngOnInit() {
         this.table.order = this.order;
     }
+
+    
 }
