@@ -11,7 +11,7 @@ import { UserService } from "../login/user.service";
 })
 export class DashboardComponent implements OnInit {
     
-    constructor(private router: Router, private route: ActivatedRoute, private registerUser: RegisterUserService, private localService: LocalService, private userService: UserService){}
+    constructor(private router: Router, private route: ActivatedRoute, private localService: LocalService, private userService: UserService){}
 
     name: string = '';
     email: string = '';
@@ -38,4 +38,5 @@ export class DashboardComponent implements OnInit {
     onBasic(){
         this.router.navigate(['edit'], {relativeTo: this.route});
     }
+    
 }

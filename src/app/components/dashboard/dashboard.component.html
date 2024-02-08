@@ -8,7 +8,11 @@
         ></i>
         <h3>My Profile</h3>
       </div>
-
+      <app-profile>
+        <span slot="role">{{role}}</span>
+        <div name>{{name}}</div>
+        <div email>{{email}}@gmail.com</div>
+      </app-profile>
       <div class="nav nav-tabs nav-fill">
         <li class="nav-item">
           <a class="nav-link" (click)="onBasic()">Basic</a>

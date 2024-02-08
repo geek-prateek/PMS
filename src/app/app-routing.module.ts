@@ -17,6 +17,7 @@ import { DsrComponent } from './components/dsr/dsr.component';
 import { AuthService } from './components/login/auth.service';
 import { CanActivate, CanActivateChild, resolve } from './shared/auth.guard';
 import { UserService } from './components/login/user.service';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -35,6 +36,7 @@ const routes: Routes = [
       {path: 'holiday', component: HolidayComponent, resolve:{holidayData: resolve}},
       {path: 'inbox', component: InboxComponent},
       {path: 'policy', component: PolicyComponent},
+      {path: 'profile', component: ProfileComponent},
       {
         path: 'dashboard',
         component: DashboardComponent,

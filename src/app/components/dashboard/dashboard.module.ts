@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { QualificationDetails } from './dashboard-qualification/qualification-details/qualification-details.component';
 import { QualificationModalComponent } from './dashboard-qualification/qualification-details/qualification-modal/qualification-modal.component';
+import { ProfileComponent } from '../profile/profile.component';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { QualificationModalComponent } from './dashboard-qualification/qualifica
     DashboardTeamComponent,
     QualificationDetails,
     QualificationModalComponent,
+    ProfileComponent,
   ],
   exports: [
     DashboardComponent,
