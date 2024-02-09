@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { DashboardService } from "../dashboard/dashboard.service";
+import { DashboardService } from "../../services/dashboard.service";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 

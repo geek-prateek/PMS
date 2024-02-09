@@ -1,4 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, ViewChild } from "@angular/core";
+import { HolidayComponent } from "../holiday/holiday.component";
+import { HolidayService } from "../../services/holiday.service";
 
 @Component({
     selector: 'app-card-stats',
@@ -20,7 +22,26 @@ import { Component } from "@angular/core";
     ]
 })
 export class CardStatsComponent {
-    constructor() { }
+    
+    holidayLeft: Number = 0;
+    dayLeftforPayroll: Number = 0;
+    today: Date = new Date();
+    lastDayOfMonth = new Date(this.today.getFullYear(), this.today.getMonth()+1, 0);
+
+    constructor(private holidayService: HolidayService) { }
     ngOnInit() {
+        if(this.lastDayOfMonth.getDay() < 6){
+            this.dayLeftforPayroll = this.lastDayOfMonth.getDate() - this.today.getDate();
+        }else{
+            if(this.lastDayOfMonth.getDay() == 6){
+                this.dayLeftforPayroll = (this.lastDayOfMonth.getDate() - this.today.getDate())-1;
+            }
+            else{
+                this.dayLeftforPayroll = (this.lastDayOfMonth.getDate() - this.today.getDate())-2;
+            }
+        }
+        this.holidayLeft = this.holidayService.nextHoliday;
+        console.log(this.holidayService.nextHoliday);
+        
     }
 }

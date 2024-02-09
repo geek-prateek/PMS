@@ -8,8 +8,8 @@ import {
   NavigationStart,
   Router,
 } from '@angular/router';
-import { UserService } from '../../components/login/user.service';
-import { AuthService } from 'src/app/components/login/auth.service';
+import { UserService } from '../../services/user.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -28,6 +28,7 @@ export class HeaderComponent {
   id: number = 0;
   showButton: boolean = false;
   showLoader: boolean = false;
+  showProgress: boolean = true;
 
   ngOnInit() {
     this.route.queryParams.subscribe((params) => {
@@ -44,6 +45,10 @@ export class HeaderComponent {
       }
     });
     this.username = this.userService.username;
+
+    setTimeout(() => {
+      this.showProgress = false;
+    }, 2000);
   }
 
   onAbout() {}

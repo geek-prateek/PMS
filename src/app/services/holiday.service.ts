@@ -1,5 +1,5 @@
 import { Injectable, OnInit } from "@angular/core";
-import { HolidayDetails } from "./holidayDetails";
+import { HolidayDetails } from "../components/holiday/holidayDetails";
 import { Observable } from "rxjs";
 import { ActivatedRoute, Router } from "@angular/router";
 
@@ -8,8 +8,16 @@ import { ActivatedRoute, Router } from "@angular/router";
 })
 export class HolidayService implements OnInit{
 
-    constructor(private router: Router, private route: ActivatedRoute){}
+    constructor(private router: Router, private route: ActivatedRoute)
+    {
+        this.nextHoliday = this.days_between(this.todayDate, this.holidayDate);
+        console.log(this.nextHoliday);
+    }
     HolidayDetails: HolidayDetails[]=[];
+
+    todayDate: Date = new Date();
+    holidayDate: Date = new Date("2024-04-07");
+    nextHoliday: Number = 0;
 
     holidayDetails: HolidayDetails[]=[
         {
@@ -80,6 +88,7 @@ export class HolidayService implements OnInit{
         //     this.HolidayDetails = data;
         // })
         this.HolidayDetails = this.route.snapshot.data['holidayDetails'];
+        
     }
 
     getHolidayDetails(): Observable<HolidayDetails[]> {
@@ -88,6 +97,19 @@ export class HolidayService implements OnInit{
                 sub.next(this.holidayDetails);
             },1000)
         })
+    }
+
+    days_between(date1: any, date2: any) {
+
+        // The number of milliseconds in one day
+        const ONE_DAY = 1000 * 60 * 60 * 24;
+    
+        // Calculate the difference in milliseconds
+        const differenceMs = Math.abs(date1 - date2);
+    
+        // Convert back to days and return
+        return Math.round(differenceMs / ONE_DAY);
+    
     }
 
 }

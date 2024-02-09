@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from "@angular/core";
-import { DashboardService } from "../components/dashboard/dashboard.service";
+import { DashboardService } from "../services/dashboard.service";
 
 @Pipe({
     name: 'sort'

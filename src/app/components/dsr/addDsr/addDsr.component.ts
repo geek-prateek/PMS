@@ -114,7 +114,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DsrDetails } from '../tableDetails';
-import { DashboardService } from '../../dashboard/dashboard.service';
+import { DashboardService } from '../../../services/dashboard.service';
  
 @Component({
   selector: 'app-add-dsr',

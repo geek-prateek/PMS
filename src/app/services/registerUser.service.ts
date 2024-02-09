@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
-import { RegisterUserDetails } from "./registerUserDetails.modal";
-import { LocalService } from "src/app/components/localService";
+import { RegisterUserDetails } from "../shared/registerUser/registerUserDetails.modal";
+import { LocalService } from "src/app/services/localService";
 
 @Injectable({
     providedIn: 'root'

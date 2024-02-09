@@ -1,6 +1,6 @@
 import { Injectable, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { UserDetails } from "./userDetails";
+import { UserDetails } from "../components/login/userDetails";
 
 @Injectable()
 export class UserService {

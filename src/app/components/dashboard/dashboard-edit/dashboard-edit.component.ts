@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { RegisterUserDetails } from '../../../shared/registerUser/registerUserDetails.modal';
-import { RegisterUserService } from '../../../shared/registerUser/registerUser.service';
+import { RegisterUserService } from '../../../services/registerUser.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UserService } from '../../login/user.service';
-import { LocalService } from '../../localService';
+import { UserService } from '../../../services/user.service';
+import { LocalService } from '../../../services/localService';
 
 @Component({
   selector: 'app-dashboard-edit',

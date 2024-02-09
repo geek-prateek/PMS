@@ -1,10 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { LeaveDetails } from "../leaveDetails";
-import { UserService } from "../../login/user.service";
-import { LeaveService } from "../leave.service";
-import { RegisterUserService } from "src/app/shared/registerUser/registerUser.service";
-import { LocalService } from "../../localService";
+import { UserService } from "../../../services/user.service";
+import { LeaveService } from "../../../services/leave.service";
+import { RegisterUserService } from "src/app/services/registerUser.service";
+import { LocalService } from "../../../services/localService";
 
 @Component({
     selector: 'app-leave-apply',

@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { UserService } from "../../login/user.service";
-import { DashboardService } from "../../dashboard/dashboard.service";
+import { UserService } from "../../../services/user.service";
+import { DashboardService } from "../../../services/dashboard.service";
 import { DsrDetails } from "../tableDetails";
 
 @Component({

@@ -14,9 +14,9 @@ import { HolidayComponent } from './components/holiday/holiday.component';
 import { InboxComponent } from './components/inbox/inbox.component';
 import { PolicyComponent } from './components/policy/policy.component';
 import { DsrComponent } from './components/dsr/dsr.component';
-import { AuthService } from './components/login/auth.service';
+import { AuthService } from './services/auth.service';
 import { CanActivate, CanActivateChild, resolve } from './shared/auth.guard';
-import { UserService } from './components/login/user.service';
+import { UserService } from './services/user.service';
 import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
@@ -52,7 +52,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {enableTracing: true})],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {

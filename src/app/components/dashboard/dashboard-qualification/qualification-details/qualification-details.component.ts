@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { WorkDetails } from "../../workDetails";
-import { DashboardService } from "../../dashboard.service";
+import { DashboardService } from "../../../../services/dashboard.service";
 
 @Component({
     selector: 'app-qualification-details',

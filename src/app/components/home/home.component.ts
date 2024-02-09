@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { SortingPipe } from "../../shared/sorting.pipe";
-import { DashboardService } from "../dashboard/dashboard.service";
+import { DashboardService } from "../../services/dashboard.service";
 import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({

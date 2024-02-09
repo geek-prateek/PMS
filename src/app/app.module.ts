@@ -7,7 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './components/home/home.component';
 import { PageNotFoundComponent } from './components/pageNotFound/page-not-found.component';
-import { UserService } from './components/login/user.service';
+import { UserService } from './services/user.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DashboardEditComponent } from './components/dashboard/dashboard-edit/dashboard-edit.component';
 import { DashboardQualificationComponent } from './components/dashboard/dashboard-qualification/dashboard-qualification.component';

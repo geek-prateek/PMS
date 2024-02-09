@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { LocalService } from "../localService";
-import { UserService } from "../login/user.service";
+import { LocalService } from "../../services/localService";
+import { UserService } from "../../services/user.service";
 
 @Component({
     selector: 'app-profile',

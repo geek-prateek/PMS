@@ -3,7 +3,7 @@ import { HolidayDetails } from "./holidayDetails";
 import { MatPaginator, PageEvent } from "@angular/material/paginator";
 import { Observable } from "rxjs";
 import { ActivatedRoute, Router } from "@angular/router";
-import { HolidayService } from "./holiday.service";
+import { HolidayService } from "../../services/holiday.service";
 import { CalendarOptions } from "@fullcalendar/core";
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
@@ -14,6 +14,7 @@ import interactionPlugin from '@fullcalendar/interaction';
     styleUrls: ['./holiday.component.css']
 })
 export class HolidayComponent implements OnInit{
+    
     value: Date = new Date();
     pageSize: number=10;
     currentPage: number = 0;
@@ -53,4 +54,6 @@ export class HolidayComponent implements OnInit{
     handleDateClick(arg:any) {
         alert('date click! ' + arg.dateStr);
     }
+
+    
 }

@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { DashboardService } from "../../../dashboard.service";
+import { DashboardService } from "../../../../../services/dashboard.service";
 import { WorkDetails } from "../../../workDetails";
 
 @Component({

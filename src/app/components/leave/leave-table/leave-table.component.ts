@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { LeaveDetails } from "../leaveDetails";
-import { LeaveService } from "../leave.service";
-import { LocalService } from "../../localService";
+import { LeaveService } from "../../../services/leave.service";
+import { LocalService } from "../../../services/localService";
 
 @Component({
     selector: "app-leave-table",

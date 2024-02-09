@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
-import { LeaveDetails } from "./leaveDetails";
-import { LocalService } from "../localService";
+import { LeaveDetails } from "../components/leave/leaveDetails";
+import { LocalService } from "./localService";
 
 @Injectable({
     providedIn: "root"

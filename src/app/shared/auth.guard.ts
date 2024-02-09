@@ -1,8 +1,8 @@
 import { inject } from "@angular/core"
 import { Router } from "@angular/router"
-import { AuthService } from "../components/login/auth.service";
+import { AuthService } from "../services/auth.service";
 import { HolidayComponent } from "../components/holiday/holiday.component";
-import { HolidayService } from "../components/holiday/holiday.service";
+import { HolidayService } from "../services/holiday.service";
 
 export const CanActivate=()=>{
     const authService = inject(AuthService);

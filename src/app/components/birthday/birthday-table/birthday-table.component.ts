@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { RegisterUserService } from "../../../shared/registerUser/registerUser.service";
+import { RegisterUserService } from "../../../services/registerUser.service";
 import { BirthDetails } from "../birthDetails";
 import { ActivatedRoute, Router } from "@angular/router";
-import { LocalService } from "../../localService";
-import { UserService } from "../../login/user.service";
+import { LocalService } from "../../../services/localService";
+import { UserService } from "../../../services/user.service";
 
 @Component({
     selector: 'app-birthday-table',

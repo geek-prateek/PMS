@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
-import { DsrDetails } from "../dsr/tableDetails";
-import { WorkDetails } from "./workDetails";
+import { DsrDetails } from "../components/dsr/tableDetails";
+import { WorkDetails } from "../components/dashboard/workDetails";
 
 @Injectable({
     providedIn: 'root'

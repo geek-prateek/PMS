@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Route, Router } from "@angular/router";
-import { RegisterUserService } from "src/app/shared/registerUser/registerUser.service";
-import { LocalService } from "../localService";
-import { UserService } from "../login/user.service";
+import { RegisterUserService } from "src/app/services/registerUser.service";
+import { LocalService } from "../../services/localService";
+import { UserService } from "../../services/user.service";
 
 @Component({
     selector: 'app-dashboard',
