@@ -10,6 +10,7 @@ import {
 } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { LocalService } from 'src/app/services/localService';
 
 @Component({
   selector: 'app-header',
@@ -21,9 +22,10 @@ export class HeaderComponent {
     public router: Router,
     private route: ActivatedRoute,
     private userService: UserService,
-    private authService: AuthService
+    private authService: AuthService,
+    private localService: LocalService
   ) {}
-  title: string = 'Angular';
+  title: string = 'PMS';
   username: string = '';
   id: number = 0;
   showButton: boolean = false;
@@ -35,6 +37,7 @@ export class HeaderComponent {
       this.id = params['id'];
       
     });
+    
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationStart) {
         this.showLoader = true;
@@ -49,6 +52,8 @@ export class HeaderComponent {
     setTimeout(() => {
       this.showProgress = false;
     }, 2000);
+
+    this.localService.title = this.title;
   }
 
   onAbout() {}

@@ -21,3 +21,15 @@
     background-color: #393839;
     position: fixed;
 }
+
+img{
+    margin: 5px 20px 0 30px;
+    font-size: larger;
+}
+
+@media (max-width: 900px) {
+    .aside{
+        position: relative;
+    }
+}
+

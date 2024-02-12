@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
   <div class="container-fluid">
-    <i class="bi bi-backpack3-fill icon"></i>
+    <img src="../../../assets/images/logo.png" alt="Logo">
     <a class="navbar-brand title">{{ title }}</a>
     <button
       class="navbar-toggler"
@@ -49,8 +49,7 @@
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form> -->
-    </div>
-    <a
+      <a
       style="
         color: white;
         margin-left: 20px;
@@ -60,18 +59,20 @@
       (click)="onDashboard()"
       >Welcome {{ username }}</a
     >
+    </div>
+    
   </div>
 </nav>
 <mat-progress-bar mode="indeterminate" *ngIf="showProgress"></mat-progress-bar>
 <div class="container-fluid overflow-hidden">
   
   <div class="row">
-    <aside class="aside col-sm-3 px-0">
+    <aside class="aside col-sm-2 px-0">
       
       <app-menubar></app-menubar>
       
     </aside>
-    <div class="col-sm-3"></div>
+    <div class="col-sm-2"></div>
     <main class="col-md-9">
       <div class="header-content my-3">
         <h5 *ngIf='router.url.includes("home")'><i class="bi bi-box"></i>Dashboard</h5>

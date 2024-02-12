@@ -5,6 +5,8 @@ import { UserService } from "./user.service";
     providedIn: 'root'
 })
 export class LocalService {
+
+    title: string = "";
     constructor(){}
 
     public saveData(username: string, data: any){

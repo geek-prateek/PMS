@@ -33,6 +33,6 @@ form{
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: url("http://pms.btl.com/assets/img/photos/login_Background.jpg");
+    background-image: url("../../../assets/images/login_Background.jpg");
     background-size: cover;
 }
