@@ -16,6 +16,7 @@
           class="btn-close"
           data-bs-dismiss="modal"
           aria-label="Close"
+          (click)="onReset()"
         ></button>
       </div>
       <div class="modal-body">
@@ -26,7 +27,7 @@
                 <label for="dsrDate" class="form-label"
                   >DSR Date <span>*</span></label
                 >
-                <input type="date" name="dsrDate" formControlName="dsrDate" />
+                <input type="date" name="dsrDate" formControlName="dsrDate"/>
               </form>
             </div>
           </div>
@@ -199,7 +200,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="onReset()">
           Close
         </button>
         <button

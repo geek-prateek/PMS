@@ -127,7 +127,6 @@ export class AddDsrComponent implements OnInit {
   todayDate: string = '';
   pendingHourTime: number = 0;
   checked: string = 'Pending';
- 
   constructor(
     private table: DashboardService,
     private fb: FormBuilder

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
   <div class="container-fluid">
     <i class="bi bi-backpack3-fill icon"></i>
     <a class="navbar-brand title">{{ title }}</a>
@@ -66,12 +66,13 @@
 <div class="container-fluid overflow-hidden">
   
   <div class="row">
-    <aside class="aside col-sm-2 px-0">
+    <aside class="aside col-sm-3 px-0">
       
       <app-menubar></app-menubar>
       
     </aside>
-    <main class="col-md-8">
+    <div class="col-sm-3"></div>
+    <main class="col-md-9">
       <div class="header-content my-3">
         <h5 *ngIf='router.url.includes("home")'><i class="bi bi-box"></i>Dashboard</h5>
         <h5 *ngIf='router.url.includes("policy")'><i class="bi bi-receipt"></i>Policy</h5>

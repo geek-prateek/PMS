@@ -9,6 +9,9 @@
     font-weight: bold;
 }
 
+.nav-link, .dropdown-item, .bi {
+    cursor: pointer;
+}
 
 .bi{
     margin: 0 15px 0 15px;
@@ -16,6 +19,5 @@
 
 .aside{
     background-color: #393839;
-    
+    position: fixed;
 }
-

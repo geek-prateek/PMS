@@ -26,12 +26,16 @@ export class QualificationModalComponent {
             to: this.addForm.value.to,
         }
         this.dashboardService.workDetails.push(addFormDetails);
+        this.onReset();
+    }
+
+    onReset(){
         this.addForm.reset({
             companyName: '',
             jobTitle: '',
             from: null,
             to: null
-        });
+          })
     }
 
     

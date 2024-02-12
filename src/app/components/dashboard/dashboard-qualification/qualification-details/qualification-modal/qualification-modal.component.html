@@ -22,6 +22,7 @@ data-bs-target="#exampleQualificationModal">Add</button>
           class="btn-close btn-close-white"
           data-bs-dismiss="modal"
           aria-label="Close"
+          (click)="onReset()"
         ></button>
       </div>
       <div class="modal-body">
@@ -70,10 +71,10 @@ data-bs-target="#exampleQualificationModal">Add</button>
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="onReset()">
           Cancel
         </button>
-        <button type="button" class="btn btn-success" [disabled]="addForm.invalid" (click)="onAdd()">Apply</button>
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal" [disabled]="addForm.invalid" (click)="onAdd()">Apply</button>
       </div>
     </div>
   </div>

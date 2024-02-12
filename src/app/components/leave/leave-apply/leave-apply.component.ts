@@ -16,7 +16,6 @@ export class LeaveApplyComponent{
     constructor(private userService: UserService, private leaveService: LeaveService, private registerUser: RegisterUserService, private localService: LocalService){}
     
     leaveBalance: number = 0;
-    
     leaveApplyForm= new FormGroup({
         taxYear: new FormControl('2023-2024'),
         leaveType: new FormControl('', Validators.required),
@@ -33,6 +32,7 @@ export class LeaveApplyComponent{
                 endDate: this.leaveApplyForm.value.leaveTo,
                 leaveCount: this.leaveBalance,
             };
+            
             this.leaveService.leaveDetails.push(leaveApplyDetails);   
             console.log(leaveApplyDetails);
             this.onReset();
