@@ -1,9 +1,11 @@
 .list-group-item{
+    position: relative;
     padding: 15px;
     font-size: 18px;
     font-weight: 500;
-    background-color: #393839;
+    background: transparent;
     color: white;
+   
 }
 
 .list-group-item:hover{
@@ -17,7 +19,7 @@
 .list-bar{
     position: sticky;
     height: 100vh;
-    background-color: #393839;
+
 }
 
 .currentLink{
@@ -52,3 +54,12 @@ img{
     margin: 0 20px 5px 0;
 }
 
+
+.sidebar{
+    
+    background-image: url("../../../assets/images/sidebar.jpg");
+    opacity: 0.2;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

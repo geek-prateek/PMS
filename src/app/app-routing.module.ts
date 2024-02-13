@@ -18,6 +18,7 @@ import { AuthService } from './services/auth.service';
 import { CanActivate, CanActivateChild, resolve } from './shared/auth.guard';
 import { UserService } from './services/user.service';
 import { ProfileComponent } from './components/profile/profile.component';
+import { CelebrationComponent } from './components/celebration/celebration.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -29,8 +30,9 @@ const routes: Routes = [
     // canActivateChild: [CanActivateChild],
     children: [
       { path: 'home', component: HomeComponent },
+      { path: 'celebration', component: CelebrationComponent},
       { path: 'dailystatusreportList', component: DsrComponent , children: [
-        { path: 'addDsr', component: AddDsrComponent },
+        { path: 'addDsr', component: AddDsrComponent }
       ]},
       {path: 'leave', component: LeaveComponent},
       {path: 'holiday', component: HolidayComponent, resolve:{holidayData: resolve}},

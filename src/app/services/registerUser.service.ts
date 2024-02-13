@@ -10,7 +10,4 @@ export class RegisterUserService{
     constructor(private localService: LocalService){}
 
     registerUserDetails: RegisterUserDetails[]=[];
-
-
-
 }

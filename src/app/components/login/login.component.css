@@ -36,3 +36,23 @@ form{
     background-image: url("../../../assets/images/login_Background.jpg");
     background-size: cover;
 }
+
+.example-container{
+    background-color: aliceblue;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 12px;
+    
+}
+
+input.ng-touched.ng-invalid{
+    border: none;
+}
+
+input.ng-valid{
+    border: none;
+}
+
+.mat-form-field {
+    width: 350px;
+}

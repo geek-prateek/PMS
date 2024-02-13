@@ -32,7 +32,7 @@ img{
         position: relative;
     }
 }
-
+/* 
 @media (max-width: 1440px), (min-width: 900px) {
     .col-sm-2{
         width: 20%;
@@ -40,5 +40,5 @@ img{
     .col-md-9{
         width: 75%;
     }
-}
+} */
 

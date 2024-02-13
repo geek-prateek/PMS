@@ -51,6 +51,19 @@ export class LocalService {
             return null;
         }
     }
+
+    public saveWorkData(data: any){
+        localStorage.setItem('anniversary', JSON.stringify(data));
+    }
+
+    public getWorkData(){
+        const storedData = localStorage.getItem('anniversary');
+        if(storedData){
+            return JSON.parse(storedData);
+        }else{
+            return null;
+        }
+    }
     
     public clearAll(){
         localStorage.clear();

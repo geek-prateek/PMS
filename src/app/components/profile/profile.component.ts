@@ -23,7 +23,7 @@ import { UserService } from "../../services/user.service";
     }
     .profile{
         border: 1px solid black;
-        border-radius: 10px;
+        ;
         background-color: #f0f0f0;
     }`
     ]

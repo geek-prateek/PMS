@@ -11,7 +11,11 @@
   </thead>
   <tbody id="tableBody">
     <tr *ngFor="let dsr of dsrTable; let i = index">
-        <td><i class="bi bi-eye text-primary" (click)="onView(i)"></i><i class="bi bi-pencil-square text-success mx-3" (click)="onEdit(i)"></i><i class="bi bi-trash3 text-danger" (click)="onDelete(i)"></i></td>
+        <td>
+          <!-- <i class="bi bi-eye text-primary" (click)="onView(i)"></i> -->
+          <i class="bi bi-pencil-square text-success mx-3" (click)="onEdit(i)"></i>
+          <!-- <i class="bi bi-trash3 text-danger" (click)="onDelete(i)"></i> -->
+        </td>
         <td>{{dsr.date | date: 'mediumDate'}}</td>
         <td>{{dsr.timespent}} hrs, {{dsr.minute}} min</td>
         <td>{{dsr.pendingHour}} sec</td>

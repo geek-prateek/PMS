@@ -49,7 +49,7 @@
   display: block; 
   width: 100%; 
   overflow: auto; 
-  height: 178px; 
+  height: 200px; 
   margin-bottom: 12px;
 } 
 .tableFixHead thead tr { 

@@ -32,6 +32,15 @@ import { InboxComponent } from './components/inbox/inbox.component';
 import { PolicyComponent } from './components/policy/policy.component';
 import { CardStatsComponent } from './components/card-stats/card-stats.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
+import { PerformanceComponent } from './components/performance/performance.component';
+import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
+import { CelebrationComponent } from './components/celebration/celebration.component';
+import { CelebrationTableComponent } from './components/celebration/celebration-table/celebration-table.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -49,7 +58,10 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     HolidayOrderComponent,
     InboxComponent,
     PolicyComponent,
-    CardStatsComponent
+    CardStatsComponent,
+    PerformanceComponent,
+    CelebrationComponent,
+    CelebrationTableComponent
   ],
   imports: [
     BrowserModule,
@@ -62,8 +74,13 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     LeaveModule,
     DashboardModule,
     MatPaginatorModule,
-    FullCalendarModule
-   
+    FullCalendarModule,
+    CanvasJSAngularChartsModule,
+    MatTabsModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatButtonModule,
+    MatInputModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

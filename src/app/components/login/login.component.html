@@ -2,33 +2,58 @@
   <app-spinner></app-spinner>
 </div>
 
+
 <form [formGroup]="loginForm">
   <div class="top-div container">
-    <div class="card" style="width: 30rem">
+    <div class="card" style="width: 25rem">
       <div class="card-body">
-        <div class="d-flex">
-          <h3><b>LOGIN</b></h3>
+        <div
+          class="d-flex justify-content-center"
+          style="
+            border-bottom: 1px solid rgb(187, 186, 186);
+            padding-bottom: 12px;
+          "
+        >
+          <img
+            src="../../../assets/images/login_logo.png"
+            alt="login_logo"
+            style="width: 25%"
+          />
         </div>
-        <div class="d-flex">
-          <div class="form-floating mt-4 mb-2 w-100">
+
+        <div class="example-container mt-4 mb-2 w-100">
+          <mat-form-field>
+            <mat-label>Enter your username</mat-label>
+            <input
+              matInput
+              placeholder="Enter your username"
+              formControlName="username"
+              required
+            />
+
+          
+          </mat-form-field>
+        </div>
+        <!-- <div class="form-floating mt-4 mb-2 w-100 position-relative">
             <input
               type="text"
               class="form-control"
               formControlName="username"
               placeholder="Username"
             />
+            
             <label for="floatingInput">Username <span>*</span></label>
-          </div>
-          <div>
-            <i
-              class="bi bi-info-circle"
+          </div> -->
+        <!-- <i
+              class="bi bi-info-circle position-absolute"
               data-toggle="tooltip"
               data-placement="top"
               title="Username should be greater than 3 characters & less than 20 characters!"
-            ></i>
-          </div>
-        </div>
-        <small *ngIf="loginForm.get('username')?.errors?.['noSpaceAllowed']">*No space is Allowed</small>
+            ></i> -->
+
+        <small *ngIf="loginForm.get('username')?.errors?.['noSpaceAllowed']"
+          >*No space is Allowed</small
+        >
 
         <!-- <small
           *ngIf="
@@ -39,7 +64,28 @@
         > -->
 
         <br />
-        <div class="d-flex">
+
+        <div class="example-container w-100">
+          <mat-form-field>
+            <mat-label>Enter your password</mat-label>
+            <input
+              matInput
+              [type]="hide ? 'password' : 'text'"
+              formControlName="password"
+              placeholder="Enter your password"
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="hide = !hide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide"
+            >
+              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+        <!-- <div class="d-flex">
           <div class="form-floating w-100">
             <input
               type="password"
@@ -49,20 +95,11 @@
             />
 
             <label for="floatingPassword">Password <span>*</span></label>
-            
-            
           </div>
-         
-          <div>
-            <i
-              class="bi bi-info-circle"
-              data-toggle="tooltip"
-              data-placement="top"
-              title="Password should be of 8 characters containing atleast one uppercase, one lowercase, one number and one special character!"
-            ></i>
-          </div>
-        </div>
-        <small *ngIf="loginForm.get('password')?.errors?.['noSpaceAllowed']">*No space is Allowed</small>
+        </div> -->
+        <small *ngIf="loginForm.get('password')?.errors?.['noSpaceAllowed']"
+          >*No space is Allowed</small
+        >
         <!-- <small
           *ngIf="
             loginForm.get('password')?.invalid &&
@@ -75,7 +112,7 @@
 
         <button
           type="button"
-          class="btn btn-success btn-lg my-4"
+          class="btn btn-dark w-100 btn-lg my-4"
           [disabled]="loginForm.invalid"
           (click)="onLogin()"
         >

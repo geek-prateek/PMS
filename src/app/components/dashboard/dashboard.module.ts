@@ -12,6 +12,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { QualificationDetails } from './dashboard-qualification/qualification-details/qualification-details.component';
 import { QualificationModalComponent } from './dashboard-qualification/qualification-details/qualification-modal/qualification-modal.component';
 import { ProfileComponent } from '../profile/profile.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { ProfileComponent } from '../profile/profile.component';
     SharedModule,
     CommonModule,
     MatPaginatorModule,
+    MatProgressBarModule
   ],
   declarations: [
     DashboardComponent,

@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit{
   // password: string = '';
   alert: string | null = null;
   isLoaded: boolean = false;
+  hide: boolean = true;
   regex =
     '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,20}$';
 
@@ -22,8 +23,6 @@ export class LoginComponent implements OnInit{
     username: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20), CustomValidators.noSpaceAllowed]),
     password: new FormControl('', [Validators.required, Validators.minLength(8), Validators.pattern(this.regex), CustomValidators.noSpaceAllowed]),
   });
-
-
   
 
   // @Output() loggedIn = new EventEmitter<boolean>();

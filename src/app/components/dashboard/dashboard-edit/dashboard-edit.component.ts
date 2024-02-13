@@ -109,6 +109,7 @@ export class DashboardEditComponent implements OnInit {
 
     this.localService.saveData(this.userService.username, registerUserDetails);
     this.localService.saveBirthdayData(this.registerUser.registerUserDetails);
+    this.localService.saveWorkData(this.registerUser.registerUserDetails);
 
     this.loginForm.disable();
     this.disabled = false;

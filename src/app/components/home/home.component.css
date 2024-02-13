@@ -8,6 +8,37 @@
     outline: none;
 }
 
+.gutters{
+    padding-left: 24px;
+    padding-right: 0;
+}
+
+.tab-gutters{
+    padding-left: 24px;
+    padding-right: 0;
+    width: 100%;
+}
+
+.centerCard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+@media (max-width: 900px) {
+    .tab-gutters{
+        padding-left: 0px;
+        padding-right: 0;
+    }
+    
+    .col-md-3{
+        width: 0%;
+    }
+    .col-md-6{
+        width: 100%;
+    }
+}
 /* 
 .bd-sidebar{
     grid-area: sidebar;

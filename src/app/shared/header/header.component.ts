@@ -11,6 +11,7 @@ import {
 import { UserService } from '../../services/user.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { LocalService } from 'src/app/services/localService';
+import { RegisterUserService } from 'src/app/services/registerUser.service';
 
 @Component({
   selector: 'app-header',
@@ -27,6 +28,7 @@ export class HeaderComponent {
   ) {}
   title: string = 'PMS';
   username: string = '';
+  jobTitle: string = '';
   id: number = 0;
   showButton: boolean = false;
   showLoader: boolean = false;
@@ -48,6 +50,7 @@ export class HeaderComponent {
       }
     });
     this.username = this.userService.username;
+    this.jobTitle = this.localService.getData(this.userService.username).userRole;
 
     setTimeout(() => {
       this.showProgress = false;
