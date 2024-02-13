@@ -5,16 +5,17 @@ import { UserService } from "../../../services/user.service";
 import { LeaveService } from "../../../services/leave.service";
 import { RegisterUserService } from "src/app/services/registerUser.service";
 import { LocalService } from "../../../services/localService";
+import { HolidayService } from "src/app/services/holiday.service";
 
 @Component({
     selector: 'app-leave-apply',
     templateUrl: './leave-apply.component.html',
     styleUrls: ['./leave-apply.component.css']
 })
-export class LeaveApplyComponent{
+export class LeaveApplyComponent {
 
-    constructor(private userService: UserService, private leaveService: LeaveService, private registerUser: RegisterUserService, private localService: LocalService){}
-    
+    constructor(private userService: UserService, private leaveService: LeaveService, private registerUser: RegisterUserService, private localService: LocalService, private holidayService: HolidayService){}
+    leaveCount: number = 0;
     leaveBalance: number = 0;
     leaveApplyForm= new FormGroup({
         taxYear: new FormControl('2023-2024'),
@@ -26,12 +27,21 @@ export class LeaveApplyComponent{
 
     onApply(){
         if(this.leaveApplyForm.valid){
+            const startDate = this.leaveApplyForm.value.leaveFrom;
+            const endDate = this.leaveApplyForm.value.leaveTo;
+            this.leaveCount = this.holidayService.days_between(startDate, endDate);
+            console.log(startDate, endDate, this.holidayService.days_between(startDate, endDate));
+
+            const registerUser = this.localService.getData(this.userService.username);
+            let name = registerUser.name;
+
             const leaveApplyDetails : LeaveDetails = {
-                employeeName: this.userService.username,
+                employeeName: name,
                 startDate: this.leaveApplyForm.value.leaveFrom,
                 endDate: this.leaveApplyForm.value.leaveTo,
-                leaveCount: this.leaveBalance,
+                leaveCount: this.leaveCount,
             };
+            
             
             this.leaveService.leaveDetails.push(leaveApplyDetails);   
             console.log(leaveApplyDetails);

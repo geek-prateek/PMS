@@ -7,7 +7,22 @@ import { WorkDetails } from "../components/dashboard/workDetails";
 })
 export class DashboardService {
     order: string = "";
-    dsrtable: DsrDetails[]=[];
+    dsrtable: DsrDetails[]=[
+        {
+            date: new Date("2/11/2024"),
+            timespent: 8,
+            minute: 30,
+            pendingHour: 0,
+            status: "Pending"
+        },
+        {
+            date: new Date("2/12/2024"),
+            timespent: 9,
+            minute: 0,
+            pendingHour: 0,
+            status: "Approved"
+        }
+    ];
 
     workDetails: WorkDetails[]=[];
 

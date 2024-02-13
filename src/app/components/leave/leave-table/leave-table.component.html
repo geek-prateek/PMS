@@ -9,7 +9,7 @@
     </tr>
   </thead>
   <tbody id="tableBody">
-    <tr *ngFor="let leave of leaveTable">
+    <tr *ngFor="let leave of leaveTable.reverse()">
         <td>{{leave.employeeName}}</td>
         <td>{{leave.startDate | date: 'mediumDate'}}</td>
         <td>{{leave.endDate | date: 'mediumDate'}}</td>

@@ -2,6 +2,8 @@ import { Component, ViewChild } from "@angular/core";
 import { HolidayComponent } from "../holiday/holiday.component";
 import { HolidayService } from "../../services/holiday.service";
 import { LeaveService } from "src/app/services/leave.service";
+import { UserService } from "src/app/services/user.service";
+import { RegisterUserService } from "src/app/services/registerUser.service";
 
 @Component({
     selector: 'app-card-stats',
@@ -23,13 +25,13 @@ import { LeaveService } from "src/app/services/leave.service";
     ]
 })
 export class CardStatsComponent {
-    leaveLeft: Number = 15;
+    leaveLeft: Number = 0;
     holidayLeft: Number = 0;
     dayLeftforPayroll: Number = 0;
     today: Date = new Date();
     lastDayOfMonth = new Date(this.today.getFullYear(), this.today.getMonth()+1, 0);
 
-    constructor(private holidayService: HolidayService, private leaveService: LeaveService) { }
+    constructor(private holidayService: HolidayService, private leaveService: LeaveService, private userService: UserService) { }
     ngOnInit() {
         if(this.lastDayOfMonth.getDay() < 6){
             this.dayLeftforPayroll = this.lastDayOfMonth.getDate() - this.today.getDate();
@@ -43,5 +45,7 @@ export class CardStatsComponent {
         }
         this.holidayLeft = this.holidayService.nextHoliday;
         console.log(this.holidayService.nextHoliday);
+
+        this.leaveLeft = this.leaveService.getLeaveCount(this.userService.username);
     }
 }

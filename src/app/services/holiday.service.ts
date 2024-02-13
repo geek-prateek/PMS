@@ -99,7 +99,7 @@ export class HolidayService implements OnInit{
         })
     }
 
-    days_between(date1: any, date2: any) {
+    days_between(date1: any, date2: any): number {
 
         // The number of milliseconds in one day
         const ONE_DAY = 1000 * 60 * 60 * 24;

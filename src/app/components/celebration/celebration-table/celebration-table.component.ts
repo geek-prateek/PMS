@@ -91,11 +91,38 @@ export class CelebrationTableComponent implements OnInit {
     private userService: UserService
   ) {}
 
-  celebrationDetails: CelebrationDetails[] = [];
-  todayDate: Date = new Date();
+  celebrationDetails: CelebrationDetails[] = [
+    // {
+    //   name: "Krutik Vaishnav",
+    //   doj: new Date("04/12/2023").toLocaleDateString(),
+    // },
+    // {
+    //   name: "Shoaib Akhtar",
+    //   doj: new Date("04/12/2023").toLocaleDateString()
+    // },
+    // {
+    //   name: "Amod Sah",
+    //   doj: new Date("04/12/2023").toLocaleDateString()
+    // },
+    // {
+    //   name: "Faizan Shaik",
+    //   doj: new Date("04/12/2023").toLocaleDateString()
+    // },
+    // {
+    //   name: "Prateek Kumar",
+    //   doj: new Date("04/12/2023").toLocaleDateString()
+    // }
+  ];
+  todayDate: string = new Date().toLocaleDateString();
 
   ngOnInit(): void {
-    this.celebrationDetails = this.localService.getWorkData();
+    if(this.localService.getWorkData() === null){
+      this.localService.saveWorkData(this.celebrationDetails);
+    
+    }else{
+      this.celebrationDetails = this.localService.getWorkData();
+    
+    }
   }
 
   onDashboard() {

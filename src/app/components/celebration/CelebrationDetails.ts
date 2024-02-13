@@ -1,7 +1,7 @@
 export class CelebrationDetails{
     name: string | null | undefined;
-    doj: Date | null | undefined;
-    constructor(name: string, doj: Date){
+    doj: string | null | undefined;
+    constructor(name: string, doj: string){
       this.name = name;
       this.doj = doj;
     }
