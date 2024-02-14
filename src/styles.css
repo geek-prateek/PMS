@@ -5,8 +5,14 @@
 }
 
 body.dark-mode {
-    background-color: #3d3d3d;
-    color: #dfe6e9;
+    background-color: rgb(59,59,59);
+    color: white;
+}
+
+body.dark-mode .card {
+    background-color: rgb(73,76,80);
+    color: white;
+    box-shadow: 0 0 0 0 black;
 }
   
 body.light-mode {
