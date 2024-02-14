@@ -29,9 +29,11 @@ export class LeaveApplyComponent {
         if(this.leaveApplyForm.valid){
             const startDate = this.leaveApplyForm.value.leaveFrom;
             const endDate = this.leaveApplyForm.value.leaveTo;
-            this.leaveCount = this.holidayService.days_between(startDate, endDate);
-            console.log(startDate, endDate, this.holidayService.days_between(startDate, endDate));
-
+            
+            this.leaveCount = this.holidayService.calculateBusinessDays(startDate, endDate);
+            console.log(startDate, endDate, this.holidayService.calculateBusinessDays(startDate, endDate));
+            
+        
             const registerUser = this.localService.getData(this.userService.username);
             let name = registerUser.name;
 

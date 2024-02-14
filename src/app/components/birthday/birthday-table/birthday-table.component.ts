@@ -18,9 +18,17 @@ export class BirthdayTableComponent implements OnInit {
     todayDate: Date = new Date()
 
     ngOnInit(): void {
+        this.birthDetails.find((data) => {
+            if(data.dob.getMonth() === this.todayDate.getMonth() && data.dob.getDate() === this.todayDate.getDate()){
+                alert('Today is ' + data.name + "'s birthday")
+            }
+        });
         this.birthDetails = this.localService.getBirthdayData();
-       
-        
+        // this.birthDetails.find((data) => {
+        //     if(this.registerUser.getNameFromRegisteredUser() !== data.name){
+        //         this.birthDetails = this.localService.getBirthdayData();
+        //     }
+        // });
     }
 
     onDashboard(){

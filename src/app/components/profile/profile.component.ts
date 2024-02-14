@@ -23,14 +23,12 @@ import { UserService } from "../../services/user.service";
     }
     .profile{
         border: 1px solid black;
-        ;
         background-color: #f0f0f0;
     }`
     ]
 })
 export class ProfileComponent implements OnInit{
     
-
     ngOnInit(): void {
         
     }

@@ -11,6 +11,7 @@
     <tr *ngFor="let birth of birthDetails.reverse()">
         <td>{{birth.name}}</td>
         <td [ngClass]="birth.dob === todayDate ? 'todayBirth': 'upcomingBirth'">{{birth.dob}}</td>
+       
     </tr>
   </tbody>
 </table>
