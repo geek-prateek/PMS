@@ -15,7 +15,7 @@ export class BirthdayTableComponent implements OnInit {
     constructor(private registerUser: RegisterUserService, private router: Router, private route: ActivatedRoute, private localService: LocalService, private userService: UserService){}
 
     birthDetails: BirthDetails[] = [];
-    todayDate: Date = new Date()
+    todayDate: Date = new Date();
 
     ngOnInit(): void {
         this.birthDetails.find((data) => {

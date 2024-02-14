@@ -4,6 +4,16 @@
     cursor: pointer;
 }
 
+body.dark-mode {
+    background-color: #3d3d3d;
+    color: #dfe6e9;
+}
+  
+body.light-mode {
+    background-color: #FFFFFF;
+    color: #2d3436;
+}
+
 .card{
     box-shadow: 5px 8px 10px 5px rgb(190, 190, 190);
 }

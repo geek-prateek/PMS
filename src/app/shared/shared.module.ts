@@ -9,11 +9,13 @@ import { FooterComponent } from "./footer/footer.component";
 import { MenuBarComponent } from "./menubar/menubar.component";
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { DarkModeToggleComponent } from "./dark-mode-toggle/dark-mode-toggle.component";
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
-    imports: [RouterModule, CommonModule, MatProgressSpinnerModule, MatProgressBarModule],
-    declarations: [AlertComponent, SpinnerComponent, HeaderComponent, SortingPipe, FooterComponent, MenuBarComponent],
-    exports: [AlertComponent, SpinnerComponent, HeaderComponent, SortingPipe, RouterModule, FooterComponent, MenuBarComponent]
+    imports: [RouterModule, CommonModule, MatProgressSpinnerModule, MatProgressBarModule, MatSlideToggleModule],
+    declarations: [AlertComponent, SpinnerComponent, HeaderComponent, SortingPipe, FooterComponent, MenuBarComponent, DarkModeToggleComponent],
+    exports: [AlertComponent, SpinnerComponent, HeaderComponent, SortingPipe, RouterModule, FooterComponent, MenuBarComponent, DarkModeToggleComponent, MatSlideToggleModule]
 })
 export class SharedModule {
 }

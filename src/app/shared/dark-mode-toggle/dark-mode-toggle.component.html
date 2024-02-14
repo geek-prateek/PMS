@@ -1,0 +1,7 @@
+<!-- <input
+    type="checkbox"
+    [checked]="darkMode$ | async"
+    (change)="onToggle()"
+  /> -->
+
+<mat-slide-toggle (change)="onToggle()" [checked]="darkMode$|async"><span style="color: aliceblue;">Dark Mode</span></mat-slide-toggle>
