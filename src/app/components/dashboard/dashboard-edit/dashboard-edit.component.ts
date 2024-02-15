@@ -27,6 +27,7 @@ export class DashboardEditComponent implements OnInit {
 
   loginForm: FormGroup = new FormGroup({});
 
+  country: string[] = ['India', 'USA', 'UK', 'Canada', 'Australia'];
   ngOnInit(): void {
     this.loginForm = new FormGroup({
       name: new FormControl(null, [
@@ -49,7 +50,7 @@ export class DashboardEditComponent implements OnInit {
         street: new FormControl(null),
         city: new FormControl(null, Validators.required),
         state: new FormControl(null, Validators.required),
-        country: new FormControl('india', Validators.required),
+        country: new FormControl('India', Validators.required),
         mobile: new FormControl(null, [
           Validators.minLength(10),
           Validators.maxLength(10),
@@ -101,27 +102,29 @@ export class DashboardEditComponent implements OnInit {
   }
 
   onSubmit() {
-    const registerUserDetails = this.loginForm.value as RegisterUserDetails;
-    console.log(registerUserDetails);
+    if(this.loginForm.valid){
+      const registerUserDetails = this.loginForm.value as RegisterUserDetails;
+      console.log(registerUserDetails);
 
-    this.registerUser.registerUserDetails.push(registerUserDetails);
-    this.loginForm.patchValue(registerUserDetails);
+      this.registerUser.registerUserDetails.push(registerUserDetails);
+      this.loginForm.patchValue(registerUserDetails);
 
-    this.localService.saveData(this.userService.username, registerUserDetails);
+      this.localService.saveData(this.userService.username, registerUserDetails);
 
-    
-    this.localService.saveBirthdayData(this.registerUser.registerUserDetails);
-    
+      
+      this.localService.saveBirthdayData(this.registerUser.registerUserDetails);
+      
 
-    this.localService.saveWorkData(this.registerUser.registerUserDetails);
+      this.localService.saveWorkData(this.registerUser.registerUserDetails);
 
-    this.loginForm.disable();
-    this.disabled = false;
-    setTimeout(() => {
-      this.messageShow = true;
-    }, 500);
-    setTimeout(() => {
-      this.messageShow = false;
-    }, 3000);
+      this.loginForm.disable();
+      this.disabled = false;
+      setTimeout(() => {
+        this.messageShow = true;
+      }, 500);
+      setTimeout(() => {
+        this.messageShow = false;
+      }, 3000);
+    }
   }
 }

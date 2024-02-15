@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { UserService } from "../../../services/user.service";
 import { DashboardService } from "../../../services/dashboard.service";
 import { DsrDetails } from "../tableDetails";
+import { Observable } from "rxjs";
 
 @Component({
     selector: 'app-dsr-table',
@@ -22,6 +23,18 @@ export class DsrTableComponent{
        this.dsrTable = this.table.dsrtable;
        
    }
+
+//    getDsrDetails(){
+//     this.table.getDsrDetails().subscribe({
+//       next: (data) => {
+//         console.log(data);
+//       },
+//       error: (err) => {
+//         console.log(err);
+//       }
+    
+//     })
+//   }
 
    onView(item: number){
     

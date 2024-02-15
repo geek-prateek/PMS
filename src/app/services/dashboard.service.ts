@@ -1,11 +1,14 @@
 import { Injectable } from "@angular/core";
 import { DsrDetails } from "../components/dsr/tableDetails";
 import { WorkDetails } from "../components/dashboard/workDetails";
+import { Observable } from "rxjs";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
     providedIn: 'root'
 })
 export class DashboardService {
+    constructor(private _http: HttpClient){}
     order: string = "";
     dsrtable: DsrDetails[]=[
         {
@@ -24,18 +27,30 @@ export class DashboardService {
         }
     ];
 
-    workDetails: WorkDetails[]=[];
+    // addDsrDetails(data: DsrDetails): Observable<any>{
+    //     return this._http.post('http://localhost:3000/dsrDetails', data);
+    // }
 
-    addWorkDetails(item: WorkDetails){
-        this.workDetails.push(item);
-    }
-
-    deleteWorkDetails(item: number){
-        this.workDetails.splice(item,1);
-    }
+    // getDsrDetails(): Observable<any>{
+    //     return this._http.get('http://localhost:3000/dsrDetails');
+    // }
 
     deleteDsrDetails(item: number){
         this.dsrtable.splice(item,1);
+    }
+
+    workDetails: WorkDetails[]=[];
+
+    addWorkDetails(item: WorkDetails): Observable<any>{
+        return this._http.post('http://localhost:3000/workData', item);
+    }
+
+    getWorkDetails(): Observable<any>{
+        return this._http.get('http://localhost:3000/workData');
+    }
+
+    deleteWorkDetails(item: number): Observable<any>{
+        return this._http.delete(`http://localhost:3000/workData/${item}`);
     }
 
     editWorkDetails(item: number){

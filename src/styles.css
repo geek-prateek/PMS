@@ -21,9 +21,38 @@ body.dark-mode .dark-card {
     border: 1px solid white;
 }
 
-body.dark-mode #table td {
-    background-color: black;
+body.dark-mode .ng-mat-form{
+    background-color: white;
+    color: black;
+}
+
+body.dark-mode #table tr {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
+
+body.dark-mode #table tr:nth-child(even) {
+    background-color: rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+}
+
+body.dark-mode .dark-btn{
     color: white;
+}
+
+body.dark-mode .mat-tab-label-content{
+    color: white;
+}
+
+body.dark-mode .dark-modal{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+
+}
+
+body.dark-mode .dark-cont{
+    background-color: rgb(180, 180, 180);
+    color: rgb(0, 0, 0);
 }
 
 .card{

@@ -142,7 +142,7 @@ export class AddDsrComponent implements OnInit {
   ngOnInit() {
     const date = new Date();
     this.todayDate = date.toLocaleDateString();
- 
+
     this.addDsrForm.get('newDsr')?.valueChanges.subscribe(() => {
       this.updateSpentTime();
     });
@@ -165,6 +165,7 @@ export class AddDsrComponent implements OnInit {
         dsrDetails: [null, Validators.required],
       })
   }
+
  
   onAddTask() {
     (this.addDsrForm.get('newDsr') as FormArray).push(this.addDsrFormGroup());
@@ -191,6 +192,21 @@ export class AddDsrComponent implements OnInit {
       this.onReset();
     }
   }
+
+  // addDsrDetails(){
+  //   this.table.addDsrDetails(this.addDsrForm.value).subscribe({
+  //     next: (data) => {
+  //       console.log(data);
+  //     },
+  //     error: (err) => {
+  //       console.log(err);
+  //     }
+    
+  //   })
+  // }
+
+  
+  
 
   onReset(){
     this.addDsrForm.reset({

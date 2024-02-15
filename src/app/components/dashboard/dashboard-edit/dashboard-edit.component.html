@@ -5,13 +5,13 @@
 >
   <i class="bi bi-shield-fill-check"></i> Updated Successfully !
 </div>
-<body ng-app="">
+  <div class="dark-mode">
 <div class="tab-content" style="padding: 1rem">
   <div class="row">
     <div class="col-md-12">
       <button
         *ngIf="!disabled"
-        class="btn edit-btn"
+        class="btn dark-btn edit-btn"
         (click)="onEdit()"
       >
         Edit
@@ -19,7 +19,7 @@
       <div class="bind">
         <button
           *ngIf="disabled"
-          class="btn edit-btn"
+          class="btn dark-btn edit-btn"
           [disabled]="loginForm.invalid"
           (click)="onSubmit()"
         >
@@ -245,9 +245,8 @@
                 formControlName="country"
               >
                 <option hidden>Country</option>
-                <option value="india">India</option>
-                <option value="america">America</option>
-                <option value="japan">Japan</option>
+                <option *ngFor="let val of country; let i = index" [value]="val">{{val}}</option>
+                
               </select>
               <small
                 *ngIf="
@@ -287,4 +286,4 @@
     </div>
   </div>
 </div>
-</body>
+</div>

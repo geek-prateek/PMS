@@ -1,16 +1,26 @@
-import { Component, OnInit } from "@angular/core";
+import { AfterViewInit, Component, OnInit, ViewChild } from "@angular/core";
+import { DarkModeToggleComponent } from "src/app/shared/dark-mode-toggle/dark-mode-toggle.component";
 
 @Component({
     selector: 'app-performance',
     templateUrl: './performance.component.html'
 
 })
-export class PerformanceComponent{
+export class PerformanceComponent implements AfterViewInit{
+
+	@ViewChild(DarkModeToggleComponent) darkModeToggleComponent!: DarkModeToggleComponent;
+
     chart: any;
-	
+	isDarkMode: boolean = false;
+	ngAfterViewInit(): void {
+		// const toggleResult = this.darkModeToggleComponent.onToggle();
+		// if (toggleResult !== undefined) {
+		// 	this.isDarkMode = toggleResult;
+		// }
+	}
 	chartOptions = {
 	  animationEnabled: true,
-	  theme: "light2",
+	  theme: this.isDarkMode ? "dark1" : "light2",
 	  title:{
 		text: "February 2024 Attendance"
 	  },

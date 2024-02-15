@@ -41,6 +41,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
+import { HttpClientModule } from '@angular/common/http';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -80,7 +82,9 @@ import {MatInputModule} from '@angular/material/input';
     MatFormFieldModule,
     MatIconModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule,
+    MatTableModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

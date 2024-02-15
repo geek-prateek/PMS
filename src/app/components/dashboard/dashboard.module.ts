@@ -13,6 +13,11 @@ import { QualificationDetails } from './dashboard-qualification/qualification-de
 import { QualificationModalComponent } from './dashboard-qualification/qualification-details/qualification-modal/qualification-modal.component';
 import { ProfileComponent } from '../profile/profile.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatSortModule} from '@angular/material/sort';
+import {MatTableModule} from '@angular/material/table';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   imports: [
@@ -21,7 +26,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     SharedModule,
     CommonModule,
     MatPaginatorModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatDialogModule
   ],
   declarations: [
     DashboardComponent,
