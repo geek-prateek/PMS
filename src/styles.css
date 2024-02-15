@@ -5,19 +5,25 @@
 }
 
 body.dark-mode {
-    background-color: rgb(59,59,59);
+    background-color: #000000;
     color: white;
-}
-
-body.dark-mode .card {
-    background-color: rgb(73,76,80);
-    color: white;
-    box-shadow: 0 0 0 0 black;
 }
   
 body.light-mode {
     background-color: #FFFFFF;
-    color: #2d3436;
+    color: black;
+}
+
+body.dark-mode .dark-card {
+    background-color: #2B2B2B;
+    color: white;
+    box-shadow: none;
+    border: 1px solid white;
+}
+
+body.dark-mode #table td {
+    background-color: black;
+    color: white;
 }
 
 .card{
