@@ -14,32 +14,29 @@
         <app-leave></app-leave>
       </div>
     </div>
-    
-    <mat-tab-group>
-      
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <mat-tab-group>
         <mat-tab label="BIRTHDAY">
-          <div class="row tab-gutters">
-            <div class="col-md-3"></div>
-            <div class="col-md-6 mt-3"><app-birthday></app-birthday></div>  
+          <div class="tab-gutters mt-3">
+            <app-birthday></app-birthday>
           </div>
-          
         </mat-tab>
         <mat-tab label="WORK ANNIVERSARY">
-          <div class="row tab-gutters">
-            <div class="col-md-3"></div>
-            <div class="col-md-6 mt-3"><app-celebration></app-celebration></div>  
-          </div>
+          <div class="tab-gutters mt-3"><app-celebration></app-celebration></div>
+          
         </mat-tab>
         <mat-tab label="CONTACT HR">
-          <div class="row tab-gutters">
-            <div class="col-md-3"></div>
-            <div class="col-md-6 mt-3"><app-contact></app-contact></div>  
-          </div>
+          <div class="tab-gutters mt-3"><app-contact></app-contact></div>
+         
         </mat-tab>
-     
-      
-    </mat-tab-group>
-    
-    
+      </mat-tab-group>
+    </div>
+    <div class="col-md-6">
+      <app-announcement></app-announcement>
+    </div>
   </div>
+    
+  
 </div>

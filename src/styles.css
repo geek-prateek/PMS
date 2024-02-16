@@ -21,6 +21,15 @@ body.dark-mode .dark-card {
     border: 1px solid white;
 }
 
+body.dark-mode .mat-card{
+    background-color: #2B2B2B;
+    color: white;
+    box-shadow: none;
+    border: 1px solid white;
+
+}
+
+
 body.dark-mode .ng-mat-form{
     background-color: white;
     color: black;

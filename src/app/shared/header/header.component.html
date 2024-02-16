@@ -34,7 +34,7 @@
                 class="dropdown-item"
                 *ngIf="!showButton"
                 (click)="onDashboard()"
-                >Dashboard</a
+                >Profile</a
               >
             </li>
             <li>
@@ -80,7 +80,7 @@
     <main class="col-md-9">
       <div class="header-content my-3">
         <h5 *ngIf='router.url.includes("home")'><i class="bi bi-box"></i>Dashboard</h5>
-        <h5 *ngIf='router.url.includes("policy")'><i class="bi bi-receipt"></i>Policy</h5>
+        <h5 *ngIf='router.url.includes("policy")'><i class="bi bi-receipt"></i>Policies</h5>
         <h5 *ngIf='router.url.includes("dashboard")'><i class="bi bi-person-bounding-box"></i>My Profile</h5>
         <h5 *ngIf='router.url.includes("dailystatusreportList")'><i class="bi bi-check2-square"></i>Daily Status Report</h5>
         <h5 *ngIf='router.url.includes("leave")'><i class="bi bi-house-check"></i>Leave Apply</h5>
