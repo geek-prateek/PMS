@@ -15,6 +15,14 @@ import { AnnouncementComponent } from './announcement/announcement.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatTabsModule} from '@angular/material/tabs';
+import { EmpAddEditComponent } from './emp-add-edit/emp-add-edit.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 @NgModule({
   imports: [
@@ -25,7 +33,13 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatSlideToggleModule,
     MatButtonModule,
     MatCardModule,
-    MatTabsModule
+    MatTabsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    ReactiveFormsModule,
+    MatNativeDateModule
   ],
   declarations: [
     AlertComponent,
@@ -35,7 +49,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     FooterComponent,
     MenuBarComponent,
     DarkModeToggleComponent,
-    AnnouncementComponent
+    AnnouncementComponent,
+    EmpAddEditComponent
   ],
   exports: [
     AlertComponent,
@@ -49,5 +64,6 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatSlideToggleModule,
     AnnouncementComponent
   ],
+  
 })
 export class SharedModule {}

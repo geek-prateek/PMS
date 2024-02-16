@@ -4,7 +4,14 @@ import { Component } from "@angular/core";
     selector: 'app-announcement',
     templateUrl: './announcement.component.html',
     styles: [`
-    
+    .card-text{
+        height: 370px;
+        overflow-x: scroll;
+        width: 100%;
+    }
+    .card-text::-webkit-scrollbar{
+        display: none;
+    }
     .icon{
         font-size: 1rem;
         border-radius: 50%;
@@ -12,6 +19,14 @@ import { Component } from "@angular/core";
     }
     .news-icon{
         margin-right: 10px;
+    }
+    .icon{
+        margin-right: 15px;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        margin-bottom: 10px;
+        background-color: #F2F2F2;
     }
     `]
 

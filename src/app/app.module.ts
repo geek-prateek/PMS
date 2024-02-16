@@ -43,6 +43,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -63,7 +65,7 @@ import {MatTableModule} from '@angular/material/table';
     CardStatsComponent,
     PerformanceComponent,
     CelebrationComponent,
-    CelebrationTableComponent
+    CelebrationTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -84,7 +86,10 @@ import {MatTableModule} from '@angular/material/table';
     MatButtonModule,
     MatInputModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule,
+
+    MatSnackBarModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

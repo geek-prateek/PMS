@@ -6,6 +6,9 @@ import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { QualificationModalComponent } from "./qualification-modal/qualification-modal.component";
 import { MatDialog } from "@angular/material/dialog";
+import { EmpAddEditComponent } from "src/app/shared/emp-add-edit/emp-add-edit.component";
+import { LocalService } from "src/app/services/localService";
+import { RoutingService } from "src/app/services/routing.service";
 
 
 @Component({
@@ -15,7 +18,7 @@ import { MatDialog } from "@angular/material/dialog";
 })
 export class QualificationDetails implements OnInit{
 
-    constructor(private dashboardService: DashboardService, private _dialog: MatDialog){}
+    constructor(private dashboardService: DashboardService, private _dialog: MatDialog, private routing: RoutingService){}
     @Input() workDetails!: WorkDetails[];
     displayedColumns: string[] = ['companyName', 'jobTitle', 'from', 'to', 'actions'];
     dataSource!: MatTableDataSource<any>;
@@ -28,7 +31,17 @@ export class QualificationDetails implements OnInit{
     }
 
     openAddEditModal(){
-        this._dialog.open(QualificationModalComponent);
+        const dialogRef = this._dialog.open(EmpAddEditComponent);
+        dialogRef.afterClosed().subscribe({
+            next: (data) => {
+                if(data){
+                    this.getWorkDetails();
+                }
+            },
+            error: (err) => {
+                console.log(err);
+            }
+        });
     }
     getWorkDetails(){
         this.dashboardService.getWorkDetails().subscribe({
@@ -43,14 +56,12 @@ export class QualificationDetails implements OnInit{
         })
     }
 
-    openEditModal(data: any){
-
-    }
 
     deleteWorkData(id: number){
         this.dashboardService.deleteWorkDetails(id).subscribe({
             next: (data) => {
                 console.log(data);
+                this.routing.openSnackBar('Work Details Deleted Successfully', 'Done');
                 this.getWorkDetails();
             },
             error: (err) => {
@@ -68,11 +79,23 @@ export class QualificationDetails implements OnInit{
         }
       }
 
-    onDelete(item: number){
-        this.dashboardService.deleteWorkDetails(item);
-    }
+    
 
-    onEdit(item: number){
-        this.dashboardService.editWorkDetails(item);
+      openEditModal(data: any){
+        const dialogRef = this._dialog.open(EmpAddEditComponent, {
+            data,
+        });
+
+        dialogRef.afterClosed().subscribe({
+            next: (data) => {
+                if(data){
+                    this.getWorkDetails();
+                }
+            },
+            error: (err) => {
+                console.log(err);
+            }
+        });
+        
     }
 }

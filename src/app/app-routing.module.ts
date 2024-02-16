@@ -26,8 +26,8 @@ const routes: Routes = [
   {
     path: 'head',
     component: HeaderComponent,
-    canActivate: [CanActivate],
-    canActivateChild: [CanActivateChild],
+    // canActivate: [CanActivate],
+    // canActivateChild: [CanActivateChild],
     children: [
       { path: 'home', component: HomeComponent },
       { path: 'celebration', component: CelebrationComponent},

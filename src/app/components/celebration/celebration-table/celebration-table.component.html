@@ -1,17 +1,22 @@
 
 <h4 class="empty" *ngIf="celebrationDetails.length === 0" (click)="onDashboard()">Fill User Details</h4>
-<table id="table" class="tableFixHead" *ngIf="celebrationDetails.length > 0">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Date</th>
-    </tr>
-  </thead>
-  <tbody id="tableBody">
-    <tr *ngFor="let anni of celebrationDetails.reverse()">
-        <td>{{anni.name}}</td>
-        <td [ngClass]="anni.doj === todayDate ? 'todayAnniversary': 'upcomingAnniversary'">{{anni.doj}}</td>
-    </tr>
-  </tbody>
-</table>
 
+
+<div class="grid" *ngIf="celebrationDetails.length > 0">
+  <div class="grid-container">
+  <table>
+  <thead>
+  <tr class="header">
+    <th>Name<div>Name</div></th>
+    <th>Date<div>Date</div></th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let anni of celebrationDetails.reverse()">
+      <td class="name">{{anni.name}}</td>
+      <td [ngClass]="anni.doj === todayDate ? 'todayAnniversary': 'upcomingAnniversary'">{{anni.doj}}</td>
+  </tr>
+  </tbody>
+  </table>
+  </div>
+  </div>

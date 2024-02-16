@@ -10,56 +10,60 @@ import { UserService } from '../../../services/user.service';
   templateUrl: './celebration-table.component.html',
   styles: [
     `
-      #table {
-        font-family: Arial, Helvetica, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-      }
+      
 
-      #table td,
-      #table th {
-        border: 1px solid #ddd;
-      }
+   .grid {
+    border: 1px solid #ddd;
+    position: relative;
+    padding-top: 37px;
+    background: #7385df;
+    width:100%;
+    }
+    .grid-container {
+    overflow-y: auto;
+    height: 190px;
+    }
+    table {
+    border-spacing: 0;
+    width:100%;
+    }
+    
+    
+    td, th {
+      border: 1px solid #ddd;
+    padding: 7px 25px;
+    }
+    th {
+    height: 0;
+    line-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    color: transparent;
+    border: none;
+    white-space: nowrap;
+    }
+    th div{
+    position: absolute;
+    background: transparent;
+    color: #fff;
+    padding: 9px 25px;
+    top: 0;
+    margin-left: -25px;
+    line-height: normal;
+    border-left: 1px solid #ddd;
+    }
 
-      #table tr:nth-child(even) {
-        background-color: #f2f2f2;
-      }
-
-      #table tr:hover {
-        background-color: #ddd;
-      }
-
-      #table th {
-        padding-top: 5px;
-        padding-bottom: 5px;
-        text-align: left;
-        background-color: #7385df;
-        color: white;
-      }
-
-      .edit {
-        color: green;
-      }
-
-      .tableFixHead {
-        width: 500px;
-        table-layout: fixed;
-        border-collapse: collapse;
-      }
-      .tableFixHead tbody {
-        width: 100%;
-        overflow: auto;
-        height: 190px;
-        margin-bottom: 12px;
-      }
-      .tableFixHead th,
-      .tableFixHead td {
-        padding: 5px 10px;
-        width: 200px;
-      }
-      th {
-        background: #abdd93;
-      }
+    
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    tr:nth-child(odd) {
+      background-color: #fff;
+    }
+    tr:hover {
+      background-color: #ddd;
+    }
+    
 
       .todayAnniversary {
         color: red;

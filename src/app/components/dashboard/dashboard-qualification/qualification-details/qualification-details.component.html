@@ -2,10 +2,12 @@
   <div class="row">
     <div class="col-xs-12 my-5 d-flex justify-content-around">
       <h4>WORK EXPERIENCE</h4>
-      <app-qualification-modal>
+
+      <button class="btn btn-outline-success" (click)="openAddEditModal()">Add</button>
+      <!-- <app-qualification-modal>
         <button class="btn btn-outline-success" data-bs-toggle="modal"
           data-bs-target="#exampleQualificationModal">Add</button>
-      </app-qualification-modal>
+      </app-qualification-modal> -->
     </div>
     <div class="col-xs-12">
       <!-- <table class="table table-responsive-sm text-center">
@@ -70,7 +72,7 @@
                 <i class="bi bi-trash3 text-danger" (click)="deleteWorkData(row.id)"></i>
               <i
                 class="bi bi-pencil-square text-primary mx-3"
-                (click)="onEdit(row)"
+                (click)="openEditModal(row)"
               ></i>
               </div>
               

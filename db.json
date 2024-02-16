@@ -33,39 +33,25 @@
   ],
   "workData": [
     {
-      "companyName": "sdasd",
+      "companyName": "sdfg",
       "jobTitle": "SE (Software Engineer)",
-      "from": "2024-02-23",
-      "to": "2024-02-22",
-      "id": 9
-    },
-    {
-      "companyName": "asdasd",
-      "jobTitle": "SE (Software Engineer)",
-      "from": "2024-02-16",
-      "to": "2024-02-23",
-      "id": 11
-    },
-    {
-      "companyName": "asdsad",
-      "jobTitle": "SE (Software Engineer)",
-      "from": "2024-02-16",
-      "to": "2024-02-16",
-      "id": 12
-    },
-    {
-      "companyName": "asdas",
-      "jobTitle": "SE (Software Engineer)",
-      "from": "2024-02-16",
+      "from": "2024-02-15",
       "to": "2024-02-17",
-      "id": 13
+      "id": 25
     },
     {
-      "companyName": "asdasd",
+      "companyName": "sdfsdfs",
+      "jobTitle": "SE (Software Engineer)",
+      "from": "2024-02-21",
+      "to": "2024-02-14",
+      "id": 26
+    },
+    {
+      "companyName": "sdfsdf",
       "jobTitle": "AVP (Assistant Vice President)",
-      "from": "2024-02-16",
-      "to": "2024-02-16",
-      "id": 14
+      "from": "2024-02-14",
+      "to": "2024-02-17",
+      "id": 27
     }
   ]
 }

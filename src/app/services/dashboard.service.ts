@@ -45,6 +45,10 @@ export class DashboardService {
         return this._http.post('http://localhost:3000/workData', item);
     }
 
+    updateWorkDetails(id: number, item: WorkDetails): Observable<any>{
+        return this._http.put(`http://localhost:3000/workData/${id}`, item);
+    }
+
     getWorkDetails(): Observable<any>{
         return this._http.get('http://localhost:3000/workData');
     }

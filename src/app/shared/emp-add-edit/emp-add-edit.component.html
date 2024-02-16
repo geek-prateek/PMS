@@ -1,0 +1,57 @@
+<div class="group-backdrop"></div>
+<div mat-dialog-title >
+    <h5>Add Work Experience</h5>
+</div>
+<hr>
+<div mat-dialog-content style="width: 25rem;">
+    
+    <form [formGroup]="addForm">
+        <label for="companyName" class="form-label">Company Name</label>
+        <input
+          type="text"
+          class="form-control mb-3"
+          placeholder="Company Name"
+          formControlName="companyName"
+        />
+
+        <label for="jobTitle" class="form-label"
+          >Job Title <span class="asterik">*</span></label
+        >
+        <div class="mb-3">
+          <select
+            class="form-select"
+            name="jobTitle"
+            formControlName="jobTitle"
+            required
+          >
+            <option value="" selected disabled hidden>--Please Select Job Title--</option>
+            <option >SE (Software Engineer)</option>
+            <option >AVP (Assistant Vice President)</option>
+            <option >SSE (Senior Software Engineer)</option>
+          </select>
+        </div>
+
+        <label for="from" class="form-label">From <span class="asterik">*</span></label>
+        <input
+          type="date"
+          class="form-control mb-3"
+          placeholder="yyyy-mm-dd"
+          formControlName="from"
+        />
+
+        <label for="to" class="form-label">To <span class="asterik">*</span></label>
+        <input
+          type="date"
+          class="form-control mb-3"
+          placeholder="yyyy-mm-dd"
+          formControlName="to"
+        />
+        
+      </form>
+      
+</div>
+<hr>
+<div mat-dialog-actions class="action">
+    <button mat-raised-button type="button" class="btn btn-danger" (click)="onReset()">Cancel</button>
+    <button mat-raised-button class="btn btn-success" [disabled]="addForm.invalid" (click)="onAdd()">{{data ? 'Update': 'Apply'}}</button>
+</div>

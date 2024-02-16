@@ -14,6 +14,18 @@ body.light-mode {
     color: black;
 }
 
+body.dark-mode .name{
+    color: black;
+}
+
+body.dark-mode .icon{
+    color: black;
+}
+
+body.dark-mode .newsDate{
+    color: white;
+}
+
 body.dark-mode .dark-card {
     background-color: #2B2B2B;
     color: white;
