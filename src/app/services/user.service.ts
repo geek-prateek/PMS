@@ -1,22 +1,25 @@
 import { Injectable, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { UserDetails } from "../components/login/userDetails";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
 
 @Injectable()
 export class UserService {
 
     username: string ="";
-
-    constructor(private router: Router, private route: ActivatedRoute){}
+    addedUser: UserDetails[] = [];
+    constructor(private router: Router, private route: ActivatedRoute, private _http: HttpClient){
+        this.getUserDetails().subscribe({
+            next: (data) => {
+                this.addedUser = data;
+            },
+            error: (err) => {
+                console.log(err);
+            }
+        });
+    }
         
-    addedUser: UserDetails[] = [
-       new UserDetails(1, 'admin', 'prateek', 'Prateek@123'),
-       new UserDetails(2, 'superadmin', 'shoaib', 'Shoaib@123'),
-       new UserDetails(3, 'superadmin', 'faizan', 'Faizan@123'),
-       new UserDetails(4, 'superadmin', 'krutik', 'Krutik@123'),
-       new UserDetails(5, 'admin', 'amod', 'Amod@123'),
-    ]
-
     getUsertype() {
         const foundUser = this.addedUser.find(user => user.username === this.username);
         if(foundUser){
@@ -42,7 +45,15 @@ export class UserService {
             localStorage.setItem('userid', JSON.stringify(foundUser.id));
             return foundUser.id;
         }
-        return undefined;
+        return 0;
+    }
+
+    updateUserDetails(id: number, item: UserDetails): Observable<any>{
+        return this._http.put(`http://localhost:3000/userDetails/${id}`, item);
+    }
+
+    getUserDetails(): Observable<any>{
+        return this._http.get('http://localhost:3000/userDetails');
     }
 
     logout(){

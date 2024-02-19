@@ -8,19 +8,19 @@
     },
     {
       "id": "2",
-      "usertype": "superadmin",
+      "usertype": "admin",
       "username": "shoaib",
       "password": "Shoaib@123"
     },
     {
       "id": "3",
-      "usertype": "superadmin",
+      "usertype": "admin",
       "username": "faizan",
       "password": "Faizan@123"
     },
     {
       "id": "4",
-      "usertype": "superadmin",
+      "usertype": "admin",
       "username": "krutik",
       "password": "Krutik@123"
     },
@@ -33,6 +33,7 @@
   ],
   "workData": [
     {
+      "userId": "1",
       "companyName": "sdfg",
       "jobTitle": "SE (Software Engineer)",
       "from": "2024-02-15",
@@ -40,6 +41,7 @@
       "id": 25
     },
     {
+      "userId": "2",
       "companyName": "sdfsdfs",
       "jobTitle": "SE (Software Engineer)",
       "from": "2024-02-21",
@@ -47,11 +49,20 @@
       "id": 26
     },
     {
+      "userId": "3",
       "companyName": "sdfsdf",
       "jobTitle": "AVP (Assistant Vice President)",
       "from": "2024-02-14",
       "to": "2024-02-17",
       "id": 27
+    },
+    {
+      "userId": "3",
+      "companyName": "asdsad",
+      "jobTitle": "SE (Software Engineer)",
+      "from": "2024-02-21",
+      "to": "2024-02-22",
+      "id": 28
     }
   ]
 }

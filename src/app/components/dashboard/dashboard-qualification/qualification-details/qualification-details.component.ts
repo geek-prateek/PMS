@@ -9,6 +9,7 @@ import { MatDialog } from "@angular/material/dialog";
 import { EmpAddEditComponent } from "src/app/shared/emp-add-edit/emp-add-edit.component";
 import { LocalService } from "src/app/services/localService";
 import { RoutingService } from "src/app/services/routing.service";
+import { UserService } from "src/app/services/user.service";
 
 
 @Component({
@@ -18,13 +19,15 @@ import { RoutingService } from "src/app/services/routing.service";
 })
 export class QualificationDetails implements OnInit{
 
-    constructor(private dashboardService: DashboardService, private _dialog: MatDialog, private routing: RoutingService){}
+    constructor(private dashboardService: DashboardService, private _dialog: MatDialog, private routing: RoutingService, private userService: UserService){}
     @Input() workDetails!: WorkDetails[];
     displayedColumns: string[] = ['companyName', 'jobTitle', 'from', 'to', 'actions'];
     dataSource!: MatTableDataSource<any>;
   
     @ViewChild(MatPaginator) paginator!: MatPaginator;
     @ViewChild(MatSort) sort!: MatSort;
+
+    userId: number = this.userService.getUserID();
 
     ngOnInit(){
         this.getWorkDetails();
@@ -46,15 +49,34 @@ export class QualificationDetails implements OnInit{
     getWorkDetails(){
         this.dashboardService.getWorkDetails().subscribe({
             next: (data) => {
-                this.dataSource = new MatTableDataSource(data);
-                this.dataSource.sort = this.sort;
-                this.dataSource.paginator = this.paginator;
+                data.forEach((element: any) => {
+                    if(element.userId === this.userId){
+                        this.dashboardService.getWorkDetails().subscribe({
+                            next: (data) => {
+                                this.dataSource = new MatTableDataSource(data);
+                                this.dataSource.sort = this.sort;
+                                this.dataSource.paginator = this.paginator; 
+                            },
+                            error: (err) => {
+                                console.log(err);
+                            }
+                        });
+                        
+                        // this.dataSource = new MatTableDataSource(data);
+                        // this.dataSource.sort = this.sort;
+                        // this.dataSource.paginator = this.paginator; 
+                    }
+                    console.log(element.userId, this.userId);
+                    
+                });
+                
             },
             error: (err) => {
                 console.log(err);
             }
         })
     }
+
 
 
     deleteWorkData(id: number){

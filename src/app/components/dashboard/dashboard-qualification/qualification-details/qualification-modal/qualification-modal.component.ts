@@ -54,7 +54,7 @@ export class QualificationModalComponent {
             jobTitle: '',
             from: null,
             to: null
-          })
+        })
     }
 
     

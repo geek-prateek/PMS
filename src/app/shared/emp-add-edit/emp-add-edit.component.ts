@@ -5,6 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import { DashboardService } from 'src/app/services/dashboard.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { RoutingService } from 'src/app/services/routing.service';
+import { UserService } from 'src/app/services/user.service';
+import { WorkDetails } from 'src/app/components/dashboard/workDetails';
 
 @Component({
   selector: 'app-emp-add-edit',
@@ -29,6 +31,7 @@ export class EmpAddEditComponent implements OnInit {
   constructor(
     private dashboardService: DashboardService,
     private _http: HttpClient,
+    private userService: UserService,
     private _dialogRef: MatDialogRef<EmpAddEditComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private routing : RoutingService
@@ -76,7 +79,14 @@ export class EmpAddEditComponent implements OnInit {
   }
 
   addWorkDetails() {
-    this.dashboardService.addWorkDetails(this.addForm.value).subscribe({
+    const addFormDetails: WorkDetails={
+        userId: this.userService.getUserID(),
+        companyName: this.addForm.value.companyName,
+        jobTitle: this.addForm.value.jobTitle,
+        from: this.addForm.value.from,
+        to: this.addForm.value.to,
+    }
+    this.dashboardService.addWorkDetails(addFormDetails).subscribe({
       next: (data) => {
         console.log(data);
         this.routing.openSnackBar('Added Successfully', 'Close')
