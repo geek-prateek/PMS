@@ -38,7 +38,7 @@
       "jobTitle": "SE (Software Engineer)",
       "from": "2024-02-15",
       "to": "2024-02-17",
-      "id": 25
+      "id": "25"
     },
     {
       "userId": "2",
@@ -46,23 +46,25 @@
       "jobTitle": "SE (Software Engineer)",
       "from": "2024-02-21",
       "to": "2024-02-14",
-      "id": 26
+      "id": "26"
     },
     {
       "userId": "3",
-      "companyName": "sdfsdf",
-      "jobTitle": "AVP (Assistant Vice President)",
-      "from": "2024-02-14",
-      "to": "2024-02-17",
-      "id": 27
+      "companyName": "ASD",
+      "jobTitle": "SSE (Senior Software Engineer)",
+      "from": "2024-02-23",
+      "to": "2024-02-24",
+      "id": "27"
     },
     {
+      "id": "c371",
       "userId": "3",
-      "companyName": "asdsad",
+      "companyName": "Faizan",
       "jobTitle": "SE (Software Engineer)",
-      "from": "2024-02-21",
-      "to": "2024-02-22",
-      "id": 28
+      "from": "2024-02-20",
+      "to": "2024-02-22"
     }
-  ]
+  ],
+  "dsrData": [],
+  "profileData": []
 }

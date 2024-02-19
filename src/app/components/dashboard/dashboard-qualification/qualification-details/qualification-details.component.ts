@@ -46,36 +46,20 @@ export class QualificationDetails implements OnInit{
             }
         });
     }
-    getWorkDetails(){
+    getWorkDetails() {
         this.dashboardService.getWorkDetails().subscribe({
             next: (data) => {
-                data.forEach((element: any) => {
-                    if(element.userId === this.userId){
-                        this.dashboardService.getWorkDetails().subscribe({
-                            next: (data) => {
-                                this.dataSource = new MatTableDataSource(data);
-                                this.dataSource.sort = this.sort;
-                                this.dataSource.paginator = this.paginator; 
-                            },
-                            error: (err) => {
-                                console.log(err);
-                            }
-                        });
-                        
-                        // this.dataSource = new MatTableDataSource(data);
-                        // this.dataSource.sort = this.sort;
-                        // this.dataSource.paginator = this.paginator; 
-                    }
-                    console.log(element.userId, this.userId);
-                    
-                });
-                
+                const filteredData = data.filter((element: any) => element.userId === this.userId);
+                this.dataSource = new MatTableDataSource(filteredData);
+                this.dataSource.sort = this.sort;
+                this.dataSource.paginator = this.paginator;
             },
             error: (err) => {
                 console.log(err);
             }
-        })
+        });
     }
+    
 
 
 

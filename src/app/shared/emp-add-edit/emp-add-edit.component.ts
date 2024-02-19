@@ -51,8 +51,15 @@ export class EmpAddEditComponent implements OnInit {
   onAdd() {
     if (this.addForm.valid) {
       if (this.data) {
+        const addFormDetails: WorkDetails={
+          userId: this.userService.getUserID(),
+          companyName: this.addForm.value.companyName,
+          jobTitle: this.addForm.value.jobTitle,
+          from: this.addForm.value.from,
+          to: this.addForm.value.to,
+      }
         this.dashboardService
-          .updateWorkDetails(this.data.id, this.addForm.value)
+          .updateWorkDetails(this.data.id, addFormDetails)
           .subscribe({
             next: (data) => {
               console.log(data);
