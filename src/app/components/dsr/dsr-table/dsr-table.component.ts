@@ -53,7 +53,6 @@ export class DsrTableComponent {
     this.table.deleteDsrDetails(id).subscribe({
       next: (data) => {
         console.log(data);
-        this.dsrTable.splice(id, 1);
         this.getDsrDetails();
       },
       error: (err) => {

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import {
   ActivatedRoute,
   Event,
@@ -49,11 +49,13 @@ export class HeaderComponent {
         this.showLoader = false;
       }
     });
+    
     const userIdfromLocal = this.userService.getUserIdfromLocal();
     this.userService.getProfileDetailsById(userIdfromLocal).subscribe({
       next: (data) => {
         this.username = data.username;
         this.jobTitle = data.userRole;
+        
       },
       error: (err) => {
         console.log(err);

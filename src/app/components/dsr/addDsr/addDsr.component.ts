@@ -124,6 +124,8 @@ import { DsrTableComponent } from '../dsr-table/dsr-table.component';
   styleUrls: ['./addDsr.component.css'],
 })
 export class AddDsrComponent implements OnInit {
+
+  @ViewChild(DsrTableComponent) dsrTable!: DsrTableComponent;
   hourSpent: number = 0;
   minuteSpent: number = 0;
   todayDate: string = '';
@@ -151,6 +153,9 @@ export class AddDsrComponent implements OnInit {
     });
   }
  
+  // ngAfterViewInit() {
+  //   this.dsrTable.getDsrDetails();
+  // }
   get newDsrControls() {
     return (this.addDsrForm.get('newDsr') as FormArray).controls;
   }

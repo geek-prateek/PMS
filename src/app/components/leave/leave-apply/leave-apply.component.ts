@@ -12,7 +12,7 @@ import { HolidayService } from "src/app/services/holiday.service";
     templateUrl: './leave-apply.component.html',
     styleUrls: ['./leave-apply.component.css']
 })
-export class LeaveApplyComponent {
+export class LeaveApplyComponent implements OnInit{
 
     constructor(private userService: UserService, private leaveService: LeaveService, private registerUser: RegisterUserService, private localService: LocalService, private holidayService: HolidayService){}
     leaveCount: number = 0;
@@ -25,6 +25,22 @@ export class LeaveApplyComponent {
         reason: new FormControl(''),
     });
 
+    name: string = "";
+
+    ngOnInit(): void {
+        const userIdfromLocal = this.userService.getUserIdfromLocal();
+        this.userService.getProfileDetailsById(userIdfromLocal).subscribe({
+            next: (data) => {
+                this.name = data.name;
+                
+            },
+            error: (err) => {
+                console.log(err);
+            },
+        
+        });
+    }
+
     onApply(){
         if(this.leaveApplyForm.valid){
             const startDate: Date = new Date(this.leaveApplyForm.value.leaveFrom || '');
@@ -33,11 +49,8 @@ export class LeaveApplyComponent {
             this.leaveCount = this.holidayService.calculateBusinessDays(startDate, endDate);
             console.log(startDate, endDate, this.holidayService.calculateBusinessDays(startDate, endDate));
 
-            // const registerUser = this.localService.getData(this.userService.username);
-            // let name = registerUser.name;
-
             const leaveApplyDetails : LeaveDetails = {
-                employeeName: this.userService.username,
+                employeeName: this.name,
                 startDate: this.leaveApplyForm.value.leaveFrom!,
                 endDate: this.leaveApplyForm.value.leaveTo!,
                 leaveCount: this.leaveCount,
@@ -46,7 +59,7 @@ export class LeaveApplyComponent {
             
             this.leaveService.leaveDetails.push(leaveApplyDetails);   
             console.log(leaveApplyDetails);
-            this.onReset();
+            
         }
         
     }
