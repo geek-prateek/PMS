@@ -111,10 +111,12 @@
 //   }
 // }
 
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { DsrDetails } from '../tableDetails';
+import { DsrDetails } from '../../../Model/tableDetails';
 import { DashboardService } from '../../../services/dashboard.service';
+import { UserService } from 'src/app/services/user.service';
+import { DsrTableComponent } from '../dsr-table/dsr-table.component';
  
 @Component({
   selector: 'app-add-dsr',
@@ -129,9 +131,10 @@ export class AddDsrComponent implements OnInit {
   checked: string = 'Pending';
   constructor(
     private table: DashboardService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private userService: UserService
   ) {}
- 
+
   addDsrForm: FormGroup = this.fb.group({
     dsrDate: [null, Validators.required],
     newDsr: this.fb.array([
@@ -174,38 +177,36 @@ export class AddDsrComponent implements OnInit {
   onDelete(item: number) {
     (this.addDsrForm.get('newDsr') as FormArray).removeAt(item);
   }
+
  
   onPublish() {
     if (this.addDsrForm.valid) {
       this.pendingHourTime = Math.max(8 - this.hourSpent, 0);
       const addDsrDetails: DsrDetails = {
+        userId: this.userService.getUserIdfromLocal(),
         date: this.addDsrForm.value.dsrDate,
         timespent: this.hourSpent,
         minute: this.minuteSpent,
         pendingHour: this.pendingHourTime,
         status: this.checked,
       };
-      this.table.dsrtable.push(addDsrDetails);
-      this.pendingHourTime = 0;
-      console.log(addDsrDetails);
+      this.table.addDsrDetails(addDsrDetails).subscribe({
+        next: (data) => {
+          console.log(data);
+          this.pendingHourTime = 0;
+          console.log(addDsrDetails);
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      
+      })
+      // this.table.dsrtable.push(addDsrDetails);
+      
 
       this.onReset();
     }
   }
-
-  // addDsrDetails(){
-  //   this.table.addDsrDetails(this.addDsrForm.value).subscribe({
-  //     next: (data) => {
-  //       console.log(data);
-  //     },
-  //     error: (err) => {
-  //       console.log(err);
-  //     }
-    
-  //   })
-  // }
-
-  
   
 
   onReset(){

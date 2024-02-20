@@ -1,8 +1,10 @@
-import { Component, OnInit } from "@angular/core";
+import { AfterViewInit, Component, OnInit, ViewChild } from "@angular/core";
 import { ActivatedRoute, Route, Router } from "@angular/router";
 import { RegisterUserService } from "src/app/services/registerUser.service";
 import { LocalService } from "../../services/localService";
 import { UserService } from "../../services/user.service";
+import { HttpClient } from "@angular/common/http";
+import { DashboardEditComponent } from "./dashboard-edit/dashboard-edit.component";
 
 @Component({
     selector: 'app-dashboard',
@@ -20,11 +22,22 @@ export class DashboardComponent implements OnInit {
 
     ngOnInit(): void {
         this.onBasic();
-        this.name = this.localService.getData(this.userService.username).name || this.name;
-        this.email = this.localService.getData(this.userService.username).email;
-        this.role = this.localService.getData(this.userService.username).userRole;
-        this.department = this.localService.getData(this.userService.username).department;
+        this.updateProfile();
+        
+    }
 
+    updateProfile(){
+        this.userService.getProfileDetailsById(this.userService.getUserIdfromLocal()).subscribe({
+            next: (data) => {
+                this.name = data.name;
+                this.email = data.email;
+                this.role = data.userRole;
+                this.department = data.department;
+            },
+            error: (err) => {
+                console.log(err);
+            }
+        });
     }
 
     onQualification(){

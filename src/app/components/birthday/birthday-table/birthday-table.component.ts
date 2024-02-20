@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { RegisterUserService } from "../../../services/registerUser.service";
-import { BirthDetails } from "../birthDetails";
+import { BirthDetails } from "../../../Model/birthDetails";
 import { ActivatedRoute, Router } from "@angular/router";
 import { LocalService } from "../../../services/localService";
 import { UserService } from "../../../services/user.service";
@@ -23,7 +23,9 @@ export class BirthdayTableComponent implements OnInit {
                 alert('Today is ' + data.name + "'s birthday")
             }
         });
-        this.birthDetails = this.localService.getBirthdayData();
+        // this.birthDetails = this.localService.getBirthdayData();
+
+        
         // this.birthDetails.find((data) => {
         //     if(this.registerUser.getNameFromRegisteredUser() !== data.name){
         //         this.birthDetails = this.localService.getBirthdayData();

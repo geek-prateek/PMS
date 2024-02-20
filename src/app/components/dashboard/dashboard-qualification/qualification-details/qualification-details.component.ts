@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from "@angular/core";
-import { WorkDetails } from "../../workDetails";
+import { WorkDetails } from "../../../../Model/workDetails";
 import { DashboardService } from "../../../../services/dashboard.service";
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
@@ -27,7 +27,7 @@ export class QualificationDetails implements OnInit{
     @ViewChild(MatPaginator) paginator!: MatPaginator;
     @ViewChild(MatSort) sort!: MatSort;
 
-    userId: number = this.userService.getUserID();
+    userId: number = this.userService.getUserIdfromLocal();
 
     ngOnInit(){
         this.getWorkDetails();

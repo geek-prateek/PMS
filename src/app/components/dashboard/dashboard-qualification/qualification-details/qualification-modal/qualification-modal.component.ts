@@ -1,7 +1,7 @@
 import { Component, ViewChild } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { DashboardService } from "../../../../../services/dashboard.service";
-import { WorkDetails } from "../../../workDetails";
+import { WorkDetails } from "../../../../../Model/workDetails";
 import { HttpClient } from "@angular/common/http";
 
 @Component({

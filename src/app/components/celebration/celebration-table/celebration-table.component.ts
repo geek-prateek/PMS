@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterUserService } from '../../../services/registerUser.service';
-import { CelebrationDetails } from '../CelebrationDetails';
+import { CelebrationDetails } from '../../../Model/CelebrationDetails';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LocalService } from '../../../services/localService';
 import { UserService } from '../../../services/user.service';
@@ -120,13 +120,13 @@ export class CelebrationTableComponent implements OnInit {
   todayDate: string = new Date().toLocaleDateString();
 
   ngOnInit(): void {
-    if(this.localService.getWorkData() === null){
-      this.localService.saveWorkData(this.celebrationDetails);
+    // if(this.localService.getWorkData() === null){
+    //   this.localService.saveWorkData(this.celebrationDetails);
     
-    }else{
-      this.celebrationDetails = this.localService.getWorkData();
+    // }else{
+    //   this.celebrationDetails = this.localService.getWorkData();
     
-    }
+    // }
   }
 
   onDashboard() {

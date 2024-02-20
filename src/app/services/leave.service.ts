@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { LeaveDetails } from "../components/leave/leaveDetails";
+import { LeaveDetails } from "../Model/leaveDetails";
 import { LocalService } from "./localService";
 
 @Injectable({
@@ -25,8 +25,8 @@ export class LeaveService{
         
     ]
     getLeaveCount(username: string){
-        const registerUser = this.localService.getData(username);
-        let name = registerUser.name;
+        // const registerUser = this.localService.getData(username);
+        // let name = registerUser.name;
         console.log(name);
         
         let count = 15;

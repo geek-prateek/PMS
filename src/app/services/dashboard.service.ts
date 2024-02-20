@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
-import { DsrDetails } from "../components/dsr/tableDetails";
-import { WorkDetails } from "../components/dashboard/workDetails";
+import { DsrDetails } from "../Model/tableDetails";
+import { WorkDetails } from "../Model/workDetails";
 import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 
@@ -10,33 +10,22 @@ import { HttpClient } from "@angular/common/http";
 export class DashboardService {
     constructor(private _http: HttpClient){}
     order: string = "";
-    dsrtable: DsrDetails[]=[
-        {
-            date: new Date("2/11/2024"),
-            timespent: 8,
-            minute: 30,
-            pendingHour: 0,
-            status: "Pending"
-        },
-        {
-            date: new Date("2/12/2024"),
-            timespent: 9,
-            minute: 0,
-            pendingHour: 0,
-            status: "Approved"
-        }
-    ];
+    dsrtable: DsrDetails[]=[];
 
-    // addDsrDetails(data: DsrDetails): Observable<any>{
-    //     return this._http.post('http://localhost:3000/dsrDetails', data);
-    // }
+    addDsrDetails(data: DsrDetails): Observable<any>{
+        return this._http.post('http://localhost:3000/dsrData', data);
+    }
 
-    // getDsrDetails(): Observable<any>{
-    //     return this._http.get('http://localhost:3000/dsrDetails');
-    // }
+    updateDsrDetails(id: number, item: DsrDetails): Observable<any>{
+        return this._http.put(`http://localhost:3000/dsrData/${id}`, item);
+    }
 
-    deleteDsrDetails(item: number){
-        this.dsrtable.splice(item,1);
+    getDsrDetails(): Observable<any>{
+        return this._http.get('http://localhost:3000/dsrData');
+    }
+
+    deleteDsrDetails(item: number): Observable<any>{
+        return this._http.delete(`http://localhost:3000/dsrData/${item}`);
     }
 
     workDetails: WorkDetails[]=[];
@@ -57,7 +46,4 @@ export class DashboardService {
         return this._http.delete(`http://localhost:3000/workData/${item}`);
     }
 
-    editWorkDetails(item: number){
-
-    }
 }

@@ -49,9 +49,20 @@ export class HeaderComponent {
         this.showLoader = false;
       }
     });
-    this.username = this.userService.username;
-    this.jobTitle = this.localService.getData(this.userService.username).userRole;
-
+    const userIdfromLocal = this.userService.getUserIdfromLocal();
+    this.userService.getProfileDetailsById(userIdfromLocal).subscribe({
+      next: (data) => {
+        this.username = data.username;
+        this.jobTitle = data.userRole;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    
+    });
+    console.log(this.username);
+    console.log(this.id);
+    
     setTimeout(() => {
       this.showProgress = false;
     }, 2000);
@@ -72,6 +83,6 @@ export class HeaderComponent {
   }
 
   onLogout() {
-    this.router.navigate(['/login'], { queryParams: { logout: true } });
+    this.userService.logout();
   }
 }

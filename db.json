@@ -49,22 +49,186 @@
       "id": "26"
     },
     {
-      "userId": "3",
-      "companyName": "ASD",
-      "jobTitle": "SSE (Senior Software Engineer)",
-      "from": "2024-02-23",
-      "to": "2024-02-24",
-      "id": "27"
-    },
-    {
       "id": "c371",
       "userId": "3",
       "companyName": "Faizan",
       "jobTitle": "SE (Software Engineer)",
       "from": "2024-02-20",
       "to": "2024-02-22"
+    },
+    {
+      "userId": "3",
+      "companyName": "dgh",
+      "jobTitle": "AVP (Assistant Vice President)",
+      "from": "2024-02-17",
+      "to": "2024-02-01",
+      "id": "SMTdALp"
     }
   ],
-  "dsrData": [],
-  "profileData": []
+  "dsrData": [
+    {
+      "userId": "1",
+      "date": "2024-02-23",
+      "timespent": 8,
+      "minute": 15,
+      "pendingHour": 0,
+      "status": "Pending",
+      "id": 5
+    },
+    {
+      "userId": "3",
+      "date": "2024-02-15",
+      "timespent": 8,
+      "minute": 0,
+      "pendingHour": 0,
+      "status": "Pending",
+      "id": 6
+    },
+    {
+      "userId": "3",
+      "date": "2024-02-25",
+      "timespent": 8,
+      "minute": 0,
+      "pendingHour": 0,
+      "status": "Pending",
+      "id": 7
+    },
+    {
+      "userId": "3",
+      "date": "2024-02-23",
+      "timespent": 8,
+      "minute": 0,
+      "pendingHour": 0,
+      "status": "Pending",
+      "id": 8
+    },
+    {
+      "userId": "3",
+      "date": "2024-02-23",
+      "timespent": 9,
+      "minute": 0,
+      "pendingHour": 0,
+      "status": "Pending",
+      "id": 9
+    },
+    {
+      "userId": 0,
+      "date": "2024-02-08",
+      "timespent": 9,
+      "minute": 0,
+      "pendingHour": 0,
+      "status": "Pending",
+      "id": 10
+    },
+    {
+      "userId": "3",
+      "date": "2024-02-22",
+      "timespent": 10,
+      "minute": 0,
+      "pendingHour": 0,
+      "status": "Pending",
+      "id": 11
+    },
+    {
+      "userId": "1",
+      "date": "2024-02-24",
+      "timespent": 9,
+      "minute": 0,
+      "pendingHour": 0,
+      "status": "Pending",
+      "id": 12
+    }
+  ],
+  "profileData": [
+    {
+      "id": "1",
+      "name": "Prateek Kumar",
+      "email": "prateek12",
+      "username": "prateek",
+      "dob": "1996-02-15",
+      "gender": "male",
+      "department": "Developer",
+      "userRole": "Developer",
+      "doj": "2023-12-04",
+      "address": {
+        "street": "abc",
+        "city": "pune",
+        "state": "maharashtra",
+        "country": "India",
+        "mobile": 9123456708
+      }
+    },
+    {
+      "id": "2",
+      "name": "Shoaib Akhtar",
+      "email": "shoaib",
+      "username": "shoaib",
+      "dob": "1996-02-15",
+      "gender": "male",
+      "department": "Developer",
+      "userRole": "Software Engineer",
+      "doj": "2023-12-04",
+      "address": {
+        "street": "abc",
+        "city": "pune",
+        "state": "maharashtra",
+        "country": "India",
+        "mobile": 9123456708
+      }
+    },
+    {
+      "id": "3",
+      "name": "Faizan Shaik",
+      "email": "faizan12",
+      "username": "faizan",
+      "dob": "2024-02-21",
+      "gender": "male",
+      "department": "Developer",
+      "userRole": "Software Engineer Intern",
+      "doj": "2023-12-04",
+      "address": {
+        "street": "H31",
+        "city": "Hyderabad",
+        "state": "Andhra Pradesh",
+        "country": "India",
+        "mobile": null
+      }
+    },
+    {
+      "id": "4",
+      "name": "Krutik Vaishnav",
+      "email": "krutik",
+      "username": "krutik",
+      "dob": "1996-02-15",
+      "gender": "male",
+      "department": "Developer",
+      "userRole": "Software Engineer Intern",
+      "doj": "2023-12-04",
+      "address": {
+        "street": "abc",
+        "city": "pune",
+        "state": "maharashtra",
+        "country": "India",
+        "mobile": 9123456708
+      }
+    },
+    {
+      "id": "5",
+      "name": "Amod Sah",
+      "email": "amod",
+      "username": "amod",
+      "dob": "1996-02-15",
+      "gender": "male",
+      "department": "Developer",
+      "userRole": "Software Engineer Intern",
+      "doj": "2023-12-04",
+      "address": {
+        "street": "abc",
+        "city": "pune",
+        "state": "maharashtra",
+        "country": "India",
+        "mobile": 9123456708
+      }
+    }
+  ]
 }

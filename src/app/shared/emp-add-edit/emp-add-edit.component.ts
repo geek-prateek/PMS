@@ -6,7 +6,7 @@ import { DashboardService } from 'src/app/services/dashboard.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { RoutingService } from 'src/app/services/routing.service';
 import { UserService } from 'src/app/services/user.service';
-import { WorkDetails } from 'src/app/components/dashboard/workDetails';
+import { WorkDetails } from 'src/app/Model/workDetails';
 
 @Component({
   selector: 'app-emp-add-edit',
@@ -57,7 +57,7 @@ export class EmpAddEditComponent implements OnInit {
           jobTitle: this.addForm.value.jobTitle,
           from: this.addForm.value.from,
           to: this.addForm.value.to,
-      }
+        }
         this.dashboardService
           .updateWorkDetails(this.data.id, addFormDetails)
           .subscribe({

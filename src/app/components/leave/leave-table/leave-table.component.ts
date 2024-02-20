@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { LeaveDetails } from "../leaveDetails";
+import { LeaveDetails } from "../../../Model/leaveDetails";
 import { LeaveService } from "../../../services/leave.service";
 import { LocalService } from "../../../services/localService";
 
@@ -18,6 +18,6 @@ export class LeaveTableComponent implements OnInit{
 
     ngOnInit() {
         this.leaveTable = this.leaveService.leaveDetails;
-        this.localService.saveLeaveData(this.leaveTable);
+        // this.localService.saveLeaveData(this.leaveTable);
     }
 }

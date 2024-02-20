@@ -1,4 +1,4 @@
-import { RegisterUserDetails } from "src/app/shared/registerUser/registerUserDetails.modal";
+import { RegisterUserDetails } from "src/app/Model/registerUserDetails";
 
 export class UserDetails{
     id: number;

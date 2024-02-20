@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { LeaveDetails } from "../leaveDetails";
+import { LeaveDetails } from "../../../Model/leaveDetails";
 import { UserService } from "../../../services/user.service";
 import { LeaveService } from "../../../services/leave.service";
 import { RegisterUserService } from "src/app/services/registerUser.service";
@@ -33,11 +33,11 @@ export class LeaveApplyComponent {
             this.leaveCount = this.holidayService.calculateBusinessDays(startDate, endDate);
             console.log(startDate, endDate, this.holidayService.calculateBusinessDays(startDate, endDate));
 
-            const registerUser = this.localService.getData(this.userService.username);
-            let name = registerUser.name;
+            // const registerUser = this.localService.getData(this.userService.username);
+            // let name = registerUser.name;
 
             const leaveApplyDetails : LeaveDetails = {
-                employeeName: name,
+                employeeName: this.userService.username,
                 startDate: this.leaveApplyForm.value.leaveFrom!,
                 endDate: this.leaveApplyForm.value.leaveTo!,
                 leaveCount: this.leaveCount,

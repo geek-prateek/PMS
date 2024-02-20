@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { RegisterUserDetails } from "../shared/registerUser/registerUserDetails.modal";
+import { RegisterUserDetails } from "../Model/registerUserDetails";
 import { LocalService } from "src/app/services/localService";
 import { UserService } from "./user.service";
 import { HttpClient } from "@angular/common/http";
@@ -14,12 +14,12 @@ export class RegisterUserService{
 
     registerUserDetails: RegisterUserDetails[]=[];
 
-    getNameFromRegisteredUser(){
-        const registerUser = this.localService.getData(this.userService.username);
-        if(registerUser){
-            return registerUser.name;
-        }
-    }
+    // getNameFromRegisteredUser(){
+    //     const registerUser = this.localService.getData(this.userService.username);
+    //     if(registerUser){
+    //         return registerUser.name;
+    //     }
+    // }
 
     // addEmployeeData(data: RegisterUserDetails): Observable<any>{
     //     return this._http.post('http://localhost:3000/employeeDetails', data);

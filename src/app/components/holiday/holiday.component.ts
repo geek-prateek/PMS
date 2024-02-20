@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
-import { HolidayDetails } from "./holidayDetails";
+import { HolidayDetails } from "../../Model/holidayDetails";
 import { MatPaginator, PageEvent } from "@angular/material/paginator";
 import { Observable } from "rxjs";
 import { ActivatedRoute, Router } from "@angular/router";

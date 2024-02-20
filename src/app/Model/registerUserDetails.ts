@@ -1,4 +1,5 @@
 export class RegisterUserDetails{
+    id: number;
     name: string | null | undefined;
     email: string | null | undefined;
     username: string | null | undefined;
@@ -9,7 +10,8 @@ export class RegisterUserDetails{
     doj: Date | null | undefined;
     address: Address | null | undefined;
     
-    constructor(name: string, email: string, username: string, dob: Date, gender: string, department: string, userRole: string, doj: Date, street: string, city: string, state: string, country: string, mobile: number){
+    constructor(id: number, name: string, email: string, username: string, dob: Date, gender: string, department: string, userRole: string, doj: Date, street: string, city: string, state: string, country: string, mobile: number){
+      this.id = id;
       this.name = name;
       this.email = email;
       this.username = username;

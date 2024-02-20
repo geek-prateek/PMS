@@ -1,5 +1,5 @@
 import { Injectable, OnInit } from "@angular/core";
-import { HolidayDetails } from "../components/holiday/holidayDetails";
+import { HolidayDetails } from "../Model/holidayDetails";
 import { Observable } from "rxjs";
 import { ActivatedRoute, Router } from "@angular/router";
 
