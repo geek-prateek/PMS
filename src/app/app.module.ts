@@ -48,6 +48,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { HelpDeskComponent } from './components/helpDesk/helpDesk.component';
 import { ViewDsrComponent } from './components/viewDsr/viewDsr.component';
 
+import {MatStepperModule} from '@angular/material/stepper';
+import { HelpDeskTableComponent } from './components/helpDesk/helpDesk-table/helpDesk-table.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +71,8 @@ import { ViewDsrComponent } from './components/viewDsr/viewDsr.component';
     CelebrationComponent,
     CelebrationTableComponent,
     HelpDeskComponent,
-    ViewDsrComponent
+    ViewDsrComponent,
+    HelpDeskTableComponent
   ],
   imports: [
     BrowserModule,
@@ -92,7 +95,7 @@ import { ViewDsrComponent } from './components/viewDsr/viewDsr.component';
     HttpClientModule,
     MatTableModule,
     MatDialogModule,
-
+    MatStepperModule,
     MatSnackBarModule
   ],
   providers: [UserService],

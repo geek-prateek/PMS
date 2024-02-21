@@ -1,54 +1,48 @@
 import { Component } from "@angular/core";
+import { FormBuilder, Validators } from "@angular/forms";
 
 @Component({
     selector: "app-helpDesk",
     templateUrl: "./helpDesk.component.html",
-    styles: [`
-    #table {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-    border: 1px solid black;
-  }
-  
-  #table td,
-  #table th {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  #table tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  #table tr:hover {
-    background-color: #ddd;
-  }
-  
-  #table th {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    text-align: left;
-    background-color: #7385df;
-    color: white;
-  }
-
-#tableBody{
-    height: 50vh;
-}
-
-.empty{
-    text-align: center;
-    line-height: 400px;
-    color: rgb(194, 194, 194);
-    
-  }
-  
-    `]
+    styleUrls: ["./helpDesk.component.css"],
 
 })
 export class HelpDeskComponent{
+  pageSize: number=10;
+    currentPage: number = 0;
+    lowValue: number = 0;
+    highValue: number = 20;
 
-    helpdeskDetails = [];
+    helpdeskDetails = [
+      {
+        ticketId: 1,
+        subject: "Keyboard not working",
+        description: "When I press the key 'A' it does not work. Please help me with this issue.",
+        status: "Open",
+      },
+      {
+        ticketId: 2,
+        subject: "Mouse not working",
+        description: "When I move the mouse, the cursor does not move. Please help me with this issue.",
+        status: "Open",
+      }
+    ];
+    firstFormGroup = this._formBuilder.group({
+      firstCtrl: ['', Validators.required],
+    });
+    secondFormGroup = this._formBuilder.group({
+      secondCtrl: ['', Validators.required],
+    });
+  
+    onView(helpDesk: any) {
+      console.log("View");
+    }
+    onEdit(helpDesk: any) {
+      console.log("Edit");
+    }
+    onDelete(helpDesk: any) {
+      console.log("Delete");
+    }
 
-}
+    constructor(private _formBuilder: FormBuilder) {}
+  }

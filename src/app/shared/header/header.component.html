@@ -86,7 +86,7 @@
         <h5 *ngIf='router.url.includes("leave")'><i class="bi bi-house-check"></i>Leave Apply</h5>
         <h5 *ngIf='router.url.includes("holiday")'><i class="bi bi-house-door-fill"></i>Holiday List</h5>
         <h5 *ngIf='router.url.includes("inbox")'><i class="bi bi-inbox"></i>Inbox</h5>
-        <h5 *ngIf='router.url.includes("helpDesk")'><i class="bi bi-ticket-perforated"></i>HelpDesk</h5>
+        <h5 *ngIf='router.url.includes("helpDesk")'><i class="bi bi-ticket-perforated"></i>HelpDesk > <small>Tickets</small></h5>
       </div>
       <router-outlet></router-outlet>
       <div *ngIf="showLoader" class="spinner_overlay">
