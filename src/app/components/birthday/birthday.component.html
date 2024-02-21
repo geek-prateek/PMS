@@ -1,6 +1,18 @@
 <div class="card dark-card">
     <div class="card-header d-flex justify-content-between">
       <h4 style="color: red">UPCOMING BIRTHDAY</h4>
+      <app-search>
+        <i class="bi bi-search" style="font-size: 20px;" *ngIf="!on" (click)="onSearch()"></i>
+    
+        <div class="container" *ngIf="on">
+            <div class="row d-flex">
+                <div class="col-md-10">
+                    <input type="text" class="form-control" [(ngModel)]="search" placeholder="Search" />
+                </div>
+                <div class="col-md-1"><i class="bi bi-x" *ngIf="on" (click)="Out()"></i></div>
+                </div>
+            </div>
+      </app-search>
     </div>
     
     <div class="card-body">
@@ -13,7 +25,12 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
-            <app-birthday-table></app-birthday-table>
+            <app-birthday-table>
+              <tr *ngFor="let birth of birthDetails.reverse() | filterSearch: search">
+                <td class="name">{{birth.name}}</td>
+                <td [ngClass]="birth.dob === todayDate ? 'todayBirth': 'upcomingBirth'">{{birth.dob | date: 'dd-MMM'}}</td>
+            </tr>
+            </app-birthday-table>
         </div>
       </div>
     </div>

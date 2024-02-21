@@ -10,6 +10,7 @@ import { LocalService } from "./localService";
 export class UserService {
 
     username: string ="";
+    name: string = "";
     addedUser: UserDetails[] = [];
     profileDetails: RegisterUserDetails[]=[];
     constructor(private router: Router, private route: ActivatedRoute, private _http: HttpClient, private localService: LocalService){
@@ -23,7 +24,22 @@ export class UserService {
         });
         
     }
+
+    getUsernameFromLocalId(){
+        const userIdfromLocal = this.getUserIdfromLocal();
+        this.getProfileDetailsById(userIdfromLocal).subscribe({
+          next: (data) => {
+            this.username = data.username;
+            this.name = data.name;
+            
+          },
+          error: (err) => {
+            console.log(err);
+          },
         
+        });
+    }
+     
     getUsertype() {
         const foundUser = this.addedUser.find(user => user.username === this.username);
         if(foundUser){
@@ -60,6 +76,15 @@ export class UserService {
         }
         return null;
     
+    }
+
+    getUsernameByLocalID(username: string){
+        const foundUser = this.addedUser.find(user => user.username === username);
+        if(foundUser){
+            return foundUser.username;
+        }
+        return '';
+
     }
 
     updateUserDetails(id: number, item: UserDetails): Observable<any>{
@@ -105,6 +130,10 @@ export class UserService {
 
     getProfileDetailsById(id: number): Observable<any>{
         return this._http.get(`http://localhost:3000/profileData/${id}`);
+    }
+
+    getProfileDetailsByUsername(username: string): Observable<any>{
+        return this._http.get(`http://localhost:3000/profileData/?username=${username}`);
     }
 
 }

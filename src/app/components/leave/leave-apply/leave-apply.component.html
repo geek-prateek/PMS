@@ -60,6 +60,7 @@ data-bs-target="#exampleLeaveModal" style="font-size: 25px; margin-right: 18px;"
           <label for="leaveFrom" class="form-label">Start Date <span>*</span></label>
           <input
             type="date"
+            [min]="getToday()"
             class="form-control mb-3"
             placeholder="yyyy-mm-dd"
             formControlName="leaveFrom"
@@ -68,6 +69,7 @@ data-bs-target="#exampleLeaveModal" style="font-size: 25px; margin-right: 18px;"
           <label for="leaveTo" class="form-label">End Date <span>*</span></label>
           <input
             type="date"
+            [min]="getToday()"
             class="form-control mb-3"
             placeholder="yyyy-mm-dd"
             formControlName="leaveTo"

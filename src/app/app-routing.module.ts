@@ -19,6 +19,9 @@ import { CanActivate, CanActivateChild, resolve } from './shared/auth.guard';
 import { UserService } from './services/user.service';
 import { ProfileComponent } from './components/profile/profile.component';
 import { CelebrationComponent } from './components/celebration/celebration.component';
+import { CardStatsComponent } from './components/card-stats/card-stats.component';
+import { HelpDeskComponent } from './components/helpDesk/helpDesk.component';
+import { ViewDsrComponent } from './components/viewDsr/viewDsr.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -30,7 +33,9 @@ const routes: Routes = [
     // canActivateChild: [CanActivateChild],
     children: [
       { path: 'home', component: HomeComponent },
+      {path: 'card-stats', component: CardStatsComponent},
       { path: 'celebration', component: CelebrationComponent},
+      { path: 'dailystatusreport', component: ViewDsrComponent},
       { path: 'dailystatusreportList', component: DsrComponent , children: [
         { path: 'addDsr', component: AddDsrComponent }
       ]},
@@ -48,6 +53,7 @@ const routes: Routes = [
           { path: 'team', component: DashboardTeamComponent },
         ],
       },
+      {path: 'helpDesk', component: HelpDeskComponent},
     ],
   },
   { path: '**', pathMatch: 'full', component: PageNotFoundComponent},

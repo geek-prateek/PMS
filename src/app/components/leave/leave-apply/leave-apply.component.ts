@@ -1,11 +1,12 @@
-import { Component, OnInit } from "@angular/core";
+import { AfterViewInit, Component, OnInit, ViewChild } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { LeaveDetails } from "../../../Model/leaveDetails";
 import { UserService } from "../../../services/user.service";
 import { LeaveService } from "../../../services/leave.service";
 import { RegisterUserService } from "src/app/services/registerUser.service";
-import { LocalService } from "../../../services/localService";
 import { HolidayService } from "src/app/services/holiday.service";
+import { CardStatsComponent } from "../../card-stats/card-stats.component";
+import { ActivatedRoute, Route, Router } from "@angular/router";
 
 @Component({
     selector: 'app-leave-apply',
@@ -14,7 +15,7 @@ import { HolidayService } from "src/app/services/holiday.service";
 })
 export class LeaveApplyComponent implements OnInit{
 
-    constructor(private userService: UserService, private leaveService: LeaveService, private registerUser: RegisterUserService, private localService: LocalService, private holidayService: HolidayService){}
+    constructor(private userService: UserService, private leaveService: LeaveService, private registerUser: RegisterUserService, private holidayService: HolidayService, private router: Router, private route: ActivatedRoute){}
     leaveCount: number = 0;
     leaveBalance: number = 0;
     leaveApplyForm= new FormGroup({
@@ -25,6 +26,7 @@ export class LeaveApplyComponent implements OnInit{
         reason: new FormControl(''),
     });
 
+    @ViewChild(CardStatsComponent) cardStatsComponent!: CardStatsComponent;
     name: string = "";
 
     ngOnInit(): void {
@@ -41,6 +43,7 @@ export class LeaveApplyComponent implements OnInit{
         });
     }
 
+   
     onApply(){
         if(this.leaveApplyForm.valid){
             const startDate: Date = new Date(this.leaveApplyForm.value.leaveFrom || '');
@@ -54,13 +57,39 @@ export class LeaveApplyComponent implements OnInit{
                 startDate: this.leaveApplyForm.value.leaveFrom!,
                 endDate: this.leaveApplyForm.value.leaveTo!,
                 leaveCount: this.leaveCount,
-            };
+            }
+
+            this.leaveService.addLeaveDetails(leaveApplyDetails).subscribe({
+                next: (data) => {
+                  console.log(data);
+                  this.getLeaveData();
+                  this.leaveService.leaveDetails.push(leaveApplyDetails);  
+                  
+                    console.log(leaveApplyDetails);
+                },
+                error: (err) => {
+                  console.log(err);
+                },
+            });
             
             
-            this.leaveService.leaveDetails.push(leaveApplyDetails);   
-            console.log(leaveApplyDetails);
             
         }
+        
+    }
+
+    getToday(): string {
+        return new Date().toISOString().split('T')[0]
+    }
+    getLeaveData(){
+        this.leaveService.getLeaveDetails().subscribe({
+            next: (data) => {
+                this.leaveService.leaveDetails = data;
+            },
+            error: (err) => {
+                console.log(err);
+            },
+        });
         
     }
 

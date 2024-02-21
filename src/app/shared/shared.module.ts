@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { AlertComponent } from './alert/alert.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { HeaderComponent } from './header/header.component';
-import { SortingPipe } from './sorting.pipe';
+import { SortingPipe } from './custom-pipe/sorting.pipe';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
@@ -20,14 +20,18 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
+import { SearchComponent } from './search/search.component';
+import { FilterSearchPipe } from './custom-pipe/filter-search.pipe';
+import { TitleCasePipe } from './custom-pipe/title-case.pipe';
 
 
 @NgModule({
   imports: [
     RouterModule,
     CommonModule,
+    FormsModule,
     MatProgressSpinnerModule,
     MatProgressBarModule,
     MatSlideToggleModule,
@@ -50,7 +54,10 @@ import { MatNativeDateModule } from '@angular/material/core';
     MenuBarComponent,
     DarkModeToggleComponent,
     AnnouncementComponent,
-    EmpAddEditComponent
+    EmpAddEditComponent,
+    SearchComponent,
+    FilterSearchPipe,
+    TitleCasePipe
   ],
   exports: [
     AlertComponent,
@@ -62,7 +69,10 @@ import { MatNativeDateModule } from '@angular/material/core';
     MenuBarComponent,
     DarkModeToggleComponent,
     MatSlideToggleModule,
-    AnnouncementComponent
+    AnnouncementComponent,
+    SearchComponent,
+    FilterSearchPipe,
+    TitleCasePipe
   ],
   
 })

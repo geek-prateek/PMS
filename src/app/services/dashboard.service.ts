@@ -9,6 +9,8 @@ import { HttpClient } from "@angular/common/http";
 })
 export class DashboardService {
     constructor(private _http: HttpClient){}
+
+    search: string = "";
     order: string = "";
     dsrtable: DsrDetails[]=[];
 

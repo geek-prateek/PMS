@@ -9,8 +9,8 @@
         <h3>My Profile</h3>
       </div>
       <app-profile>
-        <span slot="role">{{role}}</span>
-        <div name>{{name}}</div>
+        <span slot="role">{{role | titleCasePipe}}</span>
+        <div name>{{name | titleCasePipe}}</div>
         <div email>{{email}}@gmail.com</div>
       </app-profile>
       <div class="nav nav-tabs nav-fill">

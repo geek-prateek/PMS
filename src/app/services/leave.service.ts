@@ -1,41 +1,46 @@
 import { Injectable } from "@angular/core";
 import { LeaveDetails } from "../Model/leaveDetails";
 import { LocalService } from "./localService";
+import { UserService } from "./user.service";
+import { Observable } from "rxjs";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
     providedIn: "root"
 })
 export class LeaveService{
+    leaveDetails: LeaveDetails[]=[]
 
-    constructor(private localService: LocalService){}
-    leaveDetails: LeaveDetails[]=[
-        {
-            employeeName: "Prateek Kumar",
-            startDate: new Date("12/2/2024"),
-            endDate: new Date("12/2/2024"),
-            leaveCount: 1,
-        },
-        {
-            employeeName: "Shoaib Akhtar",
-            startDate: new Date("12/25/2024"),
-            endDate: new Date("1/2/2025"),
-            leaveCount: 7,
-        }
+    constructor(private userService: UserService, private _http: HttpClient){
         
-        
-    ]
-    getLeaveCount(username: string){
-        // const registerUser = this.localService.getData(username);
-        // let name = registerUser.name;
-        console.log(name);
-        
+    }
+    
+    
+    getLeaveCount(name: string){
         let count = 15;
         this.leaveDetails.forEach((item) => {
             if (item.employeeName === name) {
                 count -= item.leaveCount;
             }
         });
+        
         return count;
+    }
+
+    addLeaveDetails(item: LeaveDetails): Observable<any>{
+        return this._http.post('http://localhost:3000/leaveData', item);
+    }
+
+    getLeaveDetails(): Observable<any>{
+        return this._http.get('http://localhost:3000/leaveData/');
+    }
+
+    getLeaveDetailsById(id: number): Observable<any>{
+        return this._http.get(`http://localhost:3000/leaveData/${id}`);
+    }
+
+    getLeaveDetailsByUsername(username: string): Observable<any>{
+        return this._http.get(`http://localhost:3000/leaveData/?username=${username}`);
     }
 
     

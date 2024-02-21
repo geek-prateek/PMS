@@ -4,6 +4,8 @@ import { LocalService } from "src/app/services/localService";
 import { UserService } from "./user.service";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { BirthDetails } from "../Model/birthDetails";
+import { CelebrationDetails } from "../Model/CelebrationDetails";
 
 @Injectable({
     providedIn: 'root'
@@ -28,4 +30,19 @@ export class RegisterUserService{
     // getEmployeeData(): Observable<any>{
     //     return this._http.get('http://localhost:3000/employeeDetails');
     // }
+
+    updateBirthdayDetails(id: number, item: BirthDetails): Observable<any>{
+        return this._http.put(`http://localhost:3000/birthdayData/${id}`, item);
+    }
+    getBirthdayDetails(): Observable<any>{
+        return this._http.get('http://localhost:3000/birthdayData');
+    }
+
+    updateWorkAnniversaryDetails(id: number, item: CelebrationDetails): Observable<any>{
+        return this._http.put(`http://localhost:3000/workAnniversaryData/${id}`, item);
+    }
+    getWorkAnniversaryDetails(): Observable<any>{
+        return this._http.get('http://localhost:3000/workAnniversaryData');
+    }
+
 }

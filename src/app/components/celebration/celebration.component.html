@@ -1,6 +1,18 @@
 <div class="card dark-card">
     <div class="card-header d-flex justify-content-between">
       <h4 style="color: red">WORK ANNIVERSARY</h4>
+      <app-search>
+        <i class="bi bi-search" style="font-size: 20px;" *ngIf="!on" (click)="onSearch()"></i>
+    
+        <div class="container" *ngIf="on">
+            <div class="row d-flex">
+                <div class="col-md-10">
+                    <input type="text" class="form-control" [(ngModel)]="search" placeholder="Search" />
+                </div>
+                <div class="col-md-1"><i class="bi bi-x" *ngIf="on" (click)="Out()"></i></div>
+                </div>
+            </div>
+      </app-search>
     </div>
     
     <div class="card-body">
@@ -13,7 +25,12 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
-            <app-celebration-table></app-celebration-table>
+            <app-celebration-table>
+              <tr *ngFor="let anni of celebrationDetails.reverse() | filterSearch: search">
+                <td class="name">{{anni.name}}</td>
+                <td [ngClass]="anni.doj === todayDate ? 'todayAnniversary': 'upcomingAnniversary'">{{anni.doj | date: 'dd-MMM'}}</td>
+            </tr>
+            </app-celebration-table>
         </div>
       </div>
     </div>

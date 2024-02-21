@@ -24,7 +24,8 @@ export class HeaderComponent {
     private route: ActivatedRoute,
     private userService: UserService,
     private authService: AuthService,
-    private localService: LocalService
+    private localService: LocalService,
+    
   ) {}
   title: string = 'PMS';
   username: string = '';
@@ -39,6 +40,9 @@ export class HeaderComponent {
       this.id = params['id'];
       
     });
+
+    this.userService.getUsernameFromLocalId();
+    
     
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationStart) {

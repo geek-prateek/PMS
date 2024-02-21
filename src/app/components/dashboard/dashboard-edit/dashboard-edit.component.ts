@@ -7,6 +7,10 @@ import { UserService } from '../../../services/user.service';
 import { LocalService } from '../../../services/localService';
 import { UserDetails } from 'src/app/Model/userDetails';
 import { DashboardComponent } from '../dashboard.component';
+import { BirthDetails } from 'src/app/Model/birthDetails';
+import { CelebrationDetails } from 'src/app/Model/CelebrationDetails';
+import { TitleCasePipe } from 'src/app/shared/custom-pipe/title-case.pipe';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard-edit',
@@ -74,6 +78,11 @@ export class DashboardEditComponent implements OnInit {
     // this.registerUser.registerUserDetails[this.registerUser.registerUserDetails.length-1]
   }
 
+  getToday(): string {
+    return new Date().toISOString().split('T')[0]
+ }
+ maxDate = formatDate(new Date(), '2005-12-31','en');
+ minDate = formatDate(new Date(), '1950-01-01','en');
 
   canExit() {
     if (this.loginForm.dirty && !this.loginForm.disabled) {
@@ -136,6 +145,7 @@ export class DashboardEditComponent implements OnInit {
             next: (data) => {
               console.log(data);
               this.loginForm.patchValue(addLoginDetails);
+             
               this.loginForm.disable();
               this.disabled = false;
               setTimeout(() => {
@@ -149,8 +159,42 @@ export class DashboardEditComponent implements OnInit {
               console.log(err);
             },
           });
+
+          let birthdayDetails: BirthDetails = {
+            name: this.loginForm.value.name,
+            dob: this.loginForm.value.dob,
+          }
+          this.updateBirthdayDetails(id, birthdayDetails);
+
+          let workAnniversaryDetails: CelebrationDetails = {
+            name: this.loginForm.value.name,
+            doj: this.loginForm.value.doj,
+          }
+          this.updateWorkAnniversaryDetails(id, workAnniversaryDetails);
     }
 
+  }
+
+  updateBirthdayDetails(id: number, birthdayDetails: BirthDetails) {
+    this.registerUser.updateBirthdayDetails(id, birthdayDetails).subscribe({
+      next: (data) => {
+        console.log(data);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+
+  updateWorkAnniversaryDetails(id: number, workAnniversaryDetails: CelebrationDetails) {
+    this.registerUser.updateWorkAnniversaryDetails(id, workAnniversaryDetails).subscribe({
+      next: (data) => {
+        console.log(data);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 
   getProfileDetails() {

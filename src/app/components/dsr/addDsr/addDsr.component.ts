@@ -128,7 +128,7 @@ export class AddDsrComponent implements OnInit {
   @ViewChild(DsrTableComponent) dsrTable!: DsrTableComponent;
   hourSpent: number = 0;
   minuteSpent: number = 0;
-  todayDate: string = '';
+  todayDate: Date = new Date();
   pendingHourTime: number = 0;
   checked: string = 'Pending';
   constructor(
@@ -145,8 +145,8 @@ export class AddDsrComponent implements OnInit {
   });
  
   ngOnInit() {
-    const date = new Date();
-    this.todayDate = date.toLocaleDateString();
+    // const date = new Date();
+    // this.todayDate = date.toLocaleDateString();
 
     this.addDsrForm.get('newDsr')?.valueChanges.subscribe(() => {
       this.updateSpentTime();

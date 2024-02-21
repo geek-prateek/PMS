@@ -45,6 +45,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { HelpDeskComponent } from './components/helpDesk/helpDesk.component';
+import { ViewDsrComponent } from './components/viewDsr/viewDsr.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +68,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     PerformanceComponent,
     CelebrationComponent,
     CelebrationTableComponent,
+    HelpDeskComponent,
+    ViewDsrComponent
   ],
   imports: [
     BrowserModule,

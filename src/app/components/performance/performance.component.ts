@@ -6,7 +6,7 @@ import { DarkModeToggleComponent } from "src/app/shared/dark-mode-toggle/dark-mo
     templateUrl: './performance.component.html'
 
 })
-export class PerformanceComponent implements AfterViewInit{
+export class PerformanceComponent implements OnInit, AfterViewInit{
 
 	@ViewChild(DarkModeToggleComponent) darkModeToggleComponent!: DarkModeToggleComponent;
 
@@ -17,6 +17,18 @@ export class PerformanceComponent implements AfterViewInit{
 		// if (toggleResult !== undefined) {
 		// 	this.isDarkMode = toggleResult;
 		// }
+	}
+
+	ngOnInit(): void {
+		const darkMode = JSON.stringify(localStorage.getItem('dark-mode'));
+		if (darkMode.includes('true')) {
+			console.log('dark mode is true');
+			this.isDarkMode = true;
+		} else {
+			console.log('dark mode is false');
+			this.isDarkMode = false;
+		}
+		 
 	}
 	chartOptions = {
 	  animationEnabled: true,

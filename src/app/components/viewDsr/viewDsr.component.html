@@ -1,0 +1,40 @@
+<button class="btn btn-outline-success" style="font-size: larger; float: right; margin: 5px 0 20px 0;">Add DSR</button>
+<div class="container">
+    <table id="table">
+        <thead>
+          <tr>
+            <th>Action</th>
+        <th>DSR Date</th>
+        <th>Total Timespent</th>
+        <th>Pending hour</th>
+        <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <tr *ngFor="let dsr of dsrTable | slice : lowValue : highValue">
+            <td>
+                <!-- <i class="bi bi-eye text-primary" (click)="onView(i)"></i> -->
+                <!-- <i class="bi bi-pencil-square text-success mx-3" (click)="onEdit(i)"></i> -->
+                <i class="bi bi-trash3 text-danger"></i>
+              </td>
+              <td>{{dsr.date | date: 'mediumDate'}}</td>
+              <td>{{dsr.timespent}} hrs, {{dsr.minute}} min</td>
+              <td>{{dsr.pendingHour}} sec</td>
+              <td [ngClass]="dsr.status === 'Pending' ? 'pendingStatus': 'completeStatus'">{{dsr.status}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <mat-paginator
+        #paginator
+        [length]="dsrTable.length"
+        [pageSize]="pageSize"
+        [pageIndex]="currentPage"
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        (page)="onPageChanged($event)"
+        showFirstLastButtons="true"
+        aria-label="Select page"
+        style="background-color: rgb(238, 238, 238)"
+      >
+      </mat-paginator>
+</div>
+

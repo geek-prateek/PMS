@@ -48,7 +48,7 @@ export class CardStatsComponent {
         this.holidayLeft = this.holidayService.nextHoliday;
         console.log(this.holidayService.nextHoliday);
 
-        this.leaveLeft = this.leaveService.getLeaveCount(this.userService.username);
+        this.leaveLeft = this.leaveService.getLeaveCount(this.userService.name);
     }
 
     onDashboard(){

@@ -1,5 +1,6 @@
-
-<h4 class="empty" *ngIf="birthDetails.length === 0" (click)="onDashboard()">Fill User Details</h4>
+<h4 class="empty" *ngIf="birthDetails.length === 0" (click)="onDashboard()">
+  Fill User Details
+</h4>
 <!-- <table id="table" class="tableFixHead" *ngIf="birthDetails.length > 0">
   <thead>
     <tr>
@@ -15,22 +16,24 @@
   </tbody>
 </table> -->
 
-
 <div class="grid" *ngIf="birthDetails.length > 0">
   <div class="grid-container">
-  <table>
-  <thead>
-  <tr class="header">
-    <th>Name<div>Name</div></th>
-    <th>Birth Date<div>Birth Date</div></th>
-  </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let birth of birthDetails.reverse()">
-      <td class="name">{{birth.name}}</td>
-      <td [ngClass]="birth.dob === todayDate ? 'todayBirth': 'upcomingBirth'">{{birth.dob}}</td>
-  </tr>
-  </tbody>
-  </table>
+    <table>
+      <thead>
+        <tr class="header">
+          <th>
+            Name
+            <div>Name</div>
+          </th>
+          <th>
+            Birth Date
+            <div>Birth Date</div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-content></ng-content>
+      </tbody>
+    </table>
   </div>
-  </div>
+</div>

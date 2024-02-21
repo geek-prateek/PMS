@@ -61,7 +61,7 @@
         padding: 8px;
       "
       (click)="onDashboard()"
-      >Welcome {{ username }}<br/><small style="color: lightgray; font-size: small;">{{jobTitle}}</small></a
+      >Welcome {{ username | titleCasePipe }}<br/><small style="color: lightgray; font-size: small;">{{jobTitle}}</small></a
     >
     </div>
     <app-dark-mode-toggle></app-dark-mode-toggle>
@@ -82,11 +82,11 @@
         <h5 *ngIf='router.url.includes("home")'><i class="bi bi-box"></i>Dashboard</h5>
         <h5 *ngIf='router.url.includes("policy")'><i class="bi bi-receipt"></i>Policies</h5>
         <h5 *ngIf='router.url.includes("dashboard")'><i class="bi bi-person-bounding-box"></i>My Profile</h5>
-        <h5 *ngIf='router.url.includes("dailystatusreportList")'><i class="bi bi-check2-square"></i>Daily Status Report</h5>
+        <h5 *ngIf='router.url.includes("dailystatusreport")'><i class="bi bi-check2-square"></i>Daily Status Report</h5>
         <h5 *ngIf='router.url.includes("leave")'><i class="bi bi-house-check"></i>Leave Apply</h5>
         <h5 *ngIf='router.url.includes("holiday")'><i class="bi bi-house-door-fill"></i>Holiday List</h5>
         <h5 *ngIf='router.url.includes("inbox")'><i class="bi bi-inbox"></i>Inbox</h5>
-        
+        <h5 *ngIf='router.url.includes("helpDesk")'><i class="bi bi-ticket-perforated"></i>HelpDesk</h5>
       </div>
       <router-outlet></router-outlet>
       <div *ngIf="showLoader" class="spinner_overlay">

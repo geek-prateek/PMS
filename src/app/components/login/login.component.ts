@@ -56,6 +56,7 @@ export class LoginComponent implements OnInit{
       this.isLoaded = true;
       console.log('Succesfully logged IN');
       this.userService.username = this.loginForm.value.username || '';
+      
       setTimeout(()=>{
         this.router.navigate(['/head/home'], {queryParams: {id: this.userService.getUserID()}});
       },1000)

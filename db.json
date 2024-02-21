@@ -137,6 +137,33 @@
       "pendingHour": 0,
       "status": "Pending",
       "id": 12
+    },
+    {
+      "userId": "3",
+      "date": "2024-02-17",
+      "timespent": 9,
+      "minute": 0,
+      "pendingHour": 0,
+      "status": "Pending",
+      "id": 13
+    },
+    {
+      "userId": "3",
+      "date": "2024-02-16",
+      "timespent": 10,
+      "minute": 0,
+      "pendingHour": 0,
+      "status": "Pending",
+      "id": 14
+    },
+    {
+      "userId": "3",
+      "date": "2024-02-17",
+      "timespent": 9,
+      "minute": 0,
+      "pendingHour": 0,
+      "status": "Pending",
+      "id": 15
     }
   ],
   "profileData": [
@@ -145,7 +172,7 @@
       "name": "Prateek Kumar",
       "email": "prateek12",
       "username": "prateek",
-      "dob": "1996-02-15",
+      "dob": "2003-09-18",
       "gender": "male",
       "department": "Developer",
       "userRole": "Developer",
@@ -163,7 +190,7 @@
       "name": "Shoaib Akhtar",
       "email": "shoaib",
       "username": "shoaib",
-      "dob": "1996-02-15",
+      "dob": "2001-08-22",
       "gender": "male",
       "department": "Developer",
       "userRole": "Software Engineer",
@@ -181,7 +208,7 @@
       "name": "Faizan Shaik",
       "email": "faizan12",
       "username": "faizan",
-      "dob": "2024-02-21",
+      "dob": "2004-02-21",
       "gender": "male",
       "department": "Developer",
       "userRole": "Software Engineer Intern",
@@ -199,7 +226,7 @@
       "name": "Krutik Vaishnav",
       "email": "krutik",
       "username": "krutik",
-      "dob": "1996-02-15",
+      "dob": "2003-04-08",
       "gender": "male",
       "department": "Developer",
       "userRole": "Software Engineer Intern",
@@ -217,7 +244,7 @@
       "name": "Amod Sah",
       "email": "amod",
       "username": "amod",
-      "dob": "1996-02-15",
+      "dob": "2003-12-12",
       "gender": "male",
       "department": "Developer",
       "userRole": "Software Engineer Intern",
@@ -229,6 +256,97 @@
         "country": "India",
         "mobile": 9123456708
       }
+    }
+  ],
+  "leaveData": [
+    {
+      "id": "1",
+      "employeeName": "Prateek Kumar",
+      "startDate": "12/2/2024",
+      "endDate": "12/2/2024",
+      "leaveCount": 1
+    },
+    {
+      "id": "2",
+      "employeeName": "Shoaib Akhtar",
+      "startDate": "12/25/2024",
+      "endDate": "1/2/2025",
+      "leaveCount": 7
+    },
+    {
+      "employeeName": "Faizan Shaik",
+      "startDate": "2024-02-08",
+      "endDate": "2024-02-08",
+      "leaveCount": 1,
+      "id": "8Y7eLwz"
+    },
+    {
+      "employeeName": "Faizan Shaik",
+      "startDate": "2024-02-25",
+      "endDate": "2024-02-27",
+      "leaveCount": 2,
+      "id": "YcgQUzU"
+    },
+    {
+      "employeeName": "Prateek Kumar",
+      "startDate": "2024-02-01",
+      "endDate": "2024-02-02",
+      "leaveCount": 2,
+      "id": "FcDNUOd"
+    }
+  ],
+  "birthdayData": [
+    {
+      "name": "Prateek Kumar",
+      "dob": "2003-09-18",
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "name": "Shoaib Akhtar",
+      "dob": "2001-08-22"
+    },
+    {
+      "name": "Faizan Shaik",
+      "dob": "2004-02-21",
+      "id": "3"
+    },
+    {
+      "name": "Krutik Vaishnav",
+      "dob": "2003-04-08",
+      "id": "4"
+    },
+    {
+      "id": "5",
+      "name": "Amod Sah",
+      "dob": "2003-12-12"
+    }
+  ],
+  "workAnniversaryData": [
+    {
+      "name": "Prateek Kumar",
+      "doj": "2023-12-04",
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "name": "Shoaib Akhtar",
+      "doj": "2023-12-04"
+    },
+    {
+      "name": "Faizan Shaik",
+      "doj": "2023-12-04",
+      "id": "3"
+    },
+    {
+      "name": "Krutik Vaishnav",
+      "doj": "2023-12-04",
+      "id": "4"
+    },
+    {
+      "id": "5",
+      "name": "Amod Sah",
+      "doj": "2023-12-04"
     }
   ]
 }

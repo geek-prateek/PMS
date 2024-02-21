@@ -1,0 +1,31 @@
+<button class="btn btn-outline-success" style="font-size: larger; float: right; margin: 5px 0 20px 0;">Raise Ticket</button>
+<div class="container">
+    <table id="table">
+    <thead>
+        <tr>
+            <th>Tickets</th>
+        </tr>
+    </thead>
+    <h4 class="empty" *ngIf="helpdeskDetails.length === 0">No Ticket Raised</h4>
+    <tbody id="tableBody" *ngIf="helpdeskDetails.length>0">
+        <tr>
+            <!-- <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td> -->
+        </tr>
+    </tbody>
+    </table>     
+    <mat-paginator #paginator [length]="0"
+              [pageSize]="0"
+              [pageIndex]="0"
+              [pageSizeOptions]="[0]"
+              showFirstLastButtons="true"
+              aria-label="Select page"
+              style="background-color: rgb(238, 238, 238);">
+    </mat-paginator>
+</div>
+

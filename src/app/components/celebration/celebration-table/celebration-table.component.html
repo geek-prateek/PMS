@@ -12,10 +12,7 @@
   </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let anni of celebrationDetails.reverse()">
-      <td class="name">{{anni.name}}</td>
-      <td [ngClass]="anni.doj === todayDate ? 'todayAnniversary': 'upcomingAnniversary'">{{anni.doj}}</td>
-  </tr>
+    <ng-content></ng-content>
   </tbody>
   </table>
   </div>
