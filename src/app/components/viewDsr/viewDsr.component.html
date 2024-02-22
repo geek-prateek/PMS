@@ -1,4 +1,4 @@
-<button class="btn btn-outline-success" style="font-size: larger; float: right; margin: 5px 0 20px 0;">Add DSR</button>
+<button class="btn btn-outline-success" style="font-size: larger; float: right; margin: 5px 0 20px 0;" (click)="openAddEditModal()">Add DSR</button>
 <div class="container">
     <table id="table">
         <thead>
@@ -11,11 +11,11 @@
           </tr>
         </thead>
         <tbody id="tableBody">
-          <tr *ngFor="let dsr of dsrTable | slice : lowValue : highValue">
+          <tr *ngFor="let dsr of dsrTable.reverse()| slice : lowValue : highValue; let i = index">
             <td>
-                <!-- <i class="bi bi-eye text-primary" (click)="onView(i)"></i> -->
-                <!-- <i class="bi bi-pencil-square text-success mx-3" (click)="onEdit(i)"></i> -->
-                <i class="bi bi-trash3 text-danger"></i>
+                <!-- <i class="bi bi-eye text-primary" (click)="onView(i)"></i>  -->
+               <i class="bi bi-pencil-square text-success mx-3" (click)="openEditModal(dsr)"></i>
+                <i class="bi bi-trash3 text-danger" (click)="deleteDsrData(i)"></i>
               </td>
               <td>{{dsr.date | date: 'mediumDate'}}</td>
               <td>{{dsr.timespent}} hrs, {{dsr.minute}} min</td>

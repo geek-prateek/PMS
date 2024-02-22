@@ -83,11 +83,11 @@ export class QualificationDetails implements OnInit{
         if (this.dataSource.paginator) {
           this.dataSource.paginator.firstPage();
         }
-      }
+    }
 
     
 
-      openEditModal(data: any){
+    openEditModal(data: any){
         const dialogRef = this._dialog.open(EmpAddEditComponent, {
             data,
         });

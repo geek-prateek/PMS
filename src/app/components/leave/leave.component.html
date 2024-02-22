@@ -2,7 +2,8 @@
   <div class="card-header d-flex justify-content-between">
     <h4 style="color: red">LEAVE</h4>
     <div class="d-flex">
-      <app-leave-apply></app-leave-apply>
+      
+      <i class="bi bi-house-add" style="font-size: 25px; margin-right: 18px;" (click)="openAddEditModal()"></i>
       <app-leave-order></app-leave-order>
     </div>
   </div>
@@ -34,7 +35,28 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <app-leave-table></app-leave-table>
+        <app-leave-table>
+          <h4 class="empty" *ngIf="leaveTable.length === 0">Work on Fire ! <app-leave-apply></app-leave-apply></h4>
+<table id="table" class="tableFixHead" *ngIf="leaveTable.length>0">
+  <thead>
+    <tr>
+      <th>Employee Name</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Leave Count</th>
+    </tr>
+  </thead>
+  <tbody id="tableBody">
+    <tr *ngFor="let leave of leaveTable.reverse()">
+        <td>{{leave.employeeName}}</td>
+        <td>{{leave.startDate | date: 'mediumDate'}}</td>
+        <td>{{leave.endDate | date: 'mediumDate'}}</td>
+        <td>{{leave.leaveCount}}</td>
+    </tr>
+  </tbody>
+</table>
+
+        </app-leave-table>
       </div>
     </div>
   </div>

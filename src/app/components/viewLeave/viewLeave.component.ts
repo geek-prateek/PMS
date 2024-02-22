@@ -1,18 +1,15 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import {
-  MAT_DIALOG_DATA,
-  MatDialog,
-  MatDialogRef,
-} from '@angular/material/dialog';
+import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
-import { DsrDetails } from 'src/app/Model/tableDetails';
+import { LeaveDetails } from 'src/app/Model/leaveDetails';
 import { DashboardService } from 'src/app/services/dashboard.service';
 import { UserService } from 'src/app/services/user.service';
-import { AddDsrListComponent } from '../dsr/addDsrList/addDsrList.component';
+import { LeaveApplyComponent } from '../leave/leave-apply/leave-apply.component';
+import { LeaveService } from 'src/app/services/leave.service';
 
 @Component({
-  selector: 'app-view-dsr',
-  templateUrl: './viewDsr.component.html',
+  selector: 'app-view-leave',
+  templateUrl: './viewLeave.component.html',
   styles: [
     `
       #table {
@@ -53,38 +50,24 @@ import { AddDsrListComponent } from '../dsr/addDsrList/addDsrList.component';
         line-height: 400px;
         color: rgb(194, 194, 194);
       }
-
-      .pendingStatus {
-        color: rgb(235, 125, 74);
-        border: 1px solid rgb(235, 125, 74);
-      }
-
-      .completeStatus {
-        color: green;
-        border: 1px solid green;
-      }
-
-      .edit {
-        color: green;
-      }
     `,
   ],
 })
-export class ViewDsrComponent implements OnInit {
+export class ViewLeaveComponent {
   constructor(
-    private dashboardService: DashboardService,
     private userService: UserService,
-    private _dialog: MatDialog
+    private _dialog: MatDialog,
+    private leaveService: LeaveService
   ) {}
   pageSize: number = 10;
   currentPage: number = 0;
   lowValue: number = 0;
   highValue: number = 20;
-  dsrTable: DsrDetails[] = [];
+  leaveTable: LeaveDetails[] = [];
   userId: number = this.userService.getUserIdfromLocal();
 
   ngOnInit(): void {
-    this.getDsrDetails();
+    this.getLeaveDetails();
   }
   onPageChanged(event: PageEvent) {
     this.lowValue = event.pageIndex * event.pageSize;
@@ -93,13 +76,13 @@ export class ViewDsrComponent implements OnInit {
   }
 
   openAddEditModal() {
-    const dialogRef = this._dialog.open(AddDsrListComponent);
+    const dialogRef = this._dialog.open(LeaveApplyComponent);
     dialogRef.afterClosed().subscribe({
       next: (data) => {
         if (data) {
           console.log(data);
 
-          this.getDsrDetails();
+          this.getLeaveDetails();
         }
       },
       error: (err) => {
@@ -108,43 +91,11 @@ export class ViewDsrComponent implements OnInit {
     });
   }
 
-  getDsrDetails() {
-    this.dashboardService.getDsrDetails().subscribe({
+  getLeaveDetails() {
+    this.leaveService.getLeaveDetails().subscribe({
       next: (data) => {
-        const filteredData = data.filter(
-          (element: any) => element.userId === this.userId
-        );
-        this.dsrTable = filteredData;
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    });
-  }
-
-  openEditModal(data: any) {
-    const dialogRef = this._dialog.open(AddDsrListComponent, {
-      data,
-    });
-
-    dialogRef.afterClosed().subscribe({
-      next: (data) => {
-        if (data) {
-          this.getDsrDetails();
-        }
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    });
-  }
-
-  deleteDsrData(id: number) {
-    this.dashboardService.deleteDsrDetails(id).subscribe({
-      next: (data) => {
-        console.log(data);
-
-        this.getDsrDetails();
+        
+        this.leaveTable = data;
       },
       error: (err) => {
         console.log(err);

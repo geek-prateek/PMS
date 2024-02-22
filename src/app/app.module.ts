@@ -50,6 +50,8 @@ import { ViewDsrComponent } from './components/viewDsr/viewDsr.component';
 
 import {MatStepperModule} from '@angular/material/stepper';
 import { HelpDeskTableComponent } from './components/helpDesk/helpDesk-table/helpDesk-table.component';
+import { AddDsrListComponent } from './components/dsr/addDsrList/addDsrList.component';
+import { ViewLeaveComponent } from './components/viewLeave/viewLeave.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,6 +60,7 @@ import { HelpDeskTableComponent } from './components/helpDesk/helpDesk-table/hel
     PageNotFoundComponent,
     DsrTableComponent,
     DsrComponent,
+    AddDsrListComponent,
     AddDsrComponent,
     BirthdayComponent,
     ContactComponent,
@@ -72,7 +75,8 @@ import { HelpDeskTableComponent } from './components/helpDesk/helpDesk-table/hel
     CelebrationTableComponent,
     HelpDeskComponent,
     ViewDsrComponent,
-    HelpDeskTableComponent
+    HelpDeskTableComponent,
+    ViewLeaveComponent
   ],
   imports: [
     BrowserModule,

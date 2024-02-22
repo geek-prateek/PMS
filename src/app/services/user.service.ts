@@ -25,12 +25,13 @@ export class UserService {
         
     }
 
+
     getUsernameFromLocalId(){
         const userIdfromLocal = this.getUserIdfromLocal();
         this.getProfileDetailsById(userIdfromLocal).subscribe({
           next: (data) => {
             this.username = data.username;
-            this.name = data.name;
+           
             
           },
           error: (err) => {

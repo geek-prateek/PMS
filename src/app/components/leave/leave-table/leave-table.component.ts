@@ -8,24 +8,24 @@ import { LocalService } from "../../../services/localService";
     templateUrl: "./leave-table.component.html",
     styleUrls: ['./leave-table.component.css']
 })
-export class LeaveTableComponent implements OnInit{
+export class LeaveTableComponent{
 
-    constructor(private leaveService: LeaveService, private localService: LocalService){
-        this.leaveService.getLeaveDetails().subscribe({
-            next: (data) => {
-                this.leaveTable = data;
-            },
-            error: (err) => {
-                console.log(err);
-            },
-        });
-    }
+    // constructor(private leaveService: LeaveService, private localService: LocalService){
+    //     this.leaveService.getLeaveDetails().subscribe({
+    //         next: (data) => {
+    //             this.leaveTable = data;
+    //         },
+    //         error: (err) => {
+    //             console.log(err);
+    //         },
+    //     });
+    // }
 
-    leaveTable: LeaveDetails[]=[];
+    // leaveTable: LeaveDetails[]=[];
 
-    ngOnInit() {
-        this.leaveTable = this.leaveService.leaveDetails;
-        // this.localService.saveLeaveData(this.leaveTable);
+    // ngOnInit() {
+    //     this.leaveTable = this.leaveService.leaveDetails;
+    //     // this.localService.saveLeaveData(this.leaveTable);
         
-    }
+    // }
 }

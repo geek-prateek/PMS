@@ -1,0 +1,35 @@
+<button class="btn btn-outline-success" style="font-size: larger; float: right; margin: 5px 0 20px 0;" (click)="openAddEditModal()">Apply Leave</button>
+<div class="container">
+    <table id="table">
+  <thead>
+    <tr>
+      <th>Employee Name</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Leave Count</th>
+    </tr>
+  </thead>
+  <tbody id="tableBody">
+    <tr *ngFor="let leave of leaveTable.reverse()| slice : lowValue : highValue; let i = index">
+        <td>{{leave.employeeName}}</td>
+        <td>{{leave.startDate | date: 'mediumDate'}}</td>
+        <td>{{leave.endDate | date: 'mediumDate'}}</td>
+        <td>{{leave.leaveCount}}</td>
+    </tr>
+  </tbody>
+</table>
+
+      <mat-paginator
+        #paginator
+        [length]="leaveTable.length"
+        [pageSize]="pageSize"
+        [pageIndex]="currentPage"
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        (page)="onPageChanged($event)"
+        showFirstLastButtons="true"
+        aria-label="Select page"
+        style="background-color: rgb(238, 238, 238)"
+      >
+      </mat-paginator>
+</div>
+

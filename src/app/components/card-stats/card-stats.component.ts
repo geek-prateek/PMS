@@ -32,7 +32,8 @@ export class CardStatsComponent {
     dayLeftforPayroll: Number = 0;
     today: Date = new Date();
     lastDayOfMonth = new Date(this.today.getFullYear(), this.today.getMonth()+1, 0);
-
+    
+    name: string = '';
     constructor(private holidayService: HolidayService, private leaveService: LeaveService, private userService: UserService, private routing: RoutingService) { }
     ngOnInit() {
         if(this.lastDayOfMonth.getDay() < 6){
@@ -48,8 +49,25 @@ export class CardStatsComponent {
         this.holidayLeft = this.holidayService.nextHoliday;
         console.log(this.holidayService.nextHoliday);
 
-        this.leaveLeft = this.leaveService.getLeaveCount(this.userService.name);
+
+        const userIdfromLocal = this.userService.getUserIdfromLocal();
+        this.userService.getProfileDetailsById(userIdfromLocal).subscribe({
+          next: (data) => {
+            this.name = data.name;
+            
+          },
+          error: (err) => {
+            console.log(err);
+          },
+        
+        });
+        
+        this.leaveLeft = this.leaveService.getLeaveCount(this.name);
+        console.log(this.name);
+        
     }
+
+    
 
     onDashboard(){
         this.routing.onDashboard();

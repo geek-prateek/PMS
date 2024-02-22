@@ -1,98 +1,86 @@
-<i class="bi bi-house-add" data-bs-toggle="modal"
-data-bs-target="#exampleLeaveModal" style="font-size: 25px; margin-right: 18px;"></i>
 
-<div
-  class="modal fade"
-  id="exampleLeaveModal"
-  tabindex="-1"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content dark-modal">
-      <div
-        class="modal-header"
-        
-      >
-        <h1 class="modal-title fs-5" id="exampleModalLabel">
-          Apply Leave Application
-        </h1>
-        <button
+
+<div class="group-backdrop"></div>
+<div style="width: 25rem;">
+<div mat-dialog-title>
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" style="color: #000000; font-size: larger;"><b>Apply Leave Application</b></h5>
+        <!-- <button
           type="button"
-          class="btn-close btn-close-white"
+          class="btn-close btn-close-black"
           data-bs-dismiss="modal"
           aria-label="Close"
           (click)="onReset()"
-        ></button>
+        ></button> -->
       </div>
-      <div class="modal-body">
-        <form [formGroup]="leaveApplyForm">
-          <label for="taxYear" class="form-label">Tax Year</label>
-          <input
-            type="text"
-            class="form-control disable mb-3"
-            readonly="readonly"
-            formControlName="taxYear"
-          />
+</div>
+<hr>
+<div mat-dialog-content>
+  <div class="modal-body">
+    <form [formGroup]="leaveApplyForm">
+      <label for="taxYear" class="form-label">Tax Year</label>
+      <input
+        type="text"
+        class="form-control disable mb-3"
+        readonly="readonly"
+        formControlName="taxYear"
+      />
 
-          <label for="leaveType" class="form-label"
-            >Leave Type <span>*</span></label
-          >
-          <div class="mb-3">
-            <select
-              class="form-select"
-              name="leaveType"
-              formControlName="leaveType"
-              required
-            >
-              <option value="" selected disabled hidden>Select Leave Type</option>
-              <option value="paid">Annual Paid Leaves</option>
-              <option value="unpaid">Unpaid Leaves</option>
-              <option value="special">Special Occasion Leaves</option>
-            </select>
-          </div>
-
-          <label for="balance" class="form-label mb-3"
-            >Leave Balance :- {{ leaveBalance }}</label
-          >
-          <br>
-
-          <label for="leaveFrom" class="form-label">Start Date <span>*</span></label>
-          <input
-            type="date"
-            [min]="getToday()"
-            class="form-control mb-3"
-            placeholder="yyyy-mm-dd"
-            formControlName="leaveFrom"
-          />
-
-          <label for="leaveTo" class="form-label">End Date <span>*</span></label>
-          <input
-            type="date"
-            [min]="getToday()"
-            class="form-control mb-3"
-            placeholder="yyyy-mm-dd"
-            formControlName="leaveTo"
-          />
-
-          <label for="reason" class="form-label"
-            >Reason</label
-          >
-          <textarea
-            class="form-control"
-            placeholder="Write Notes"
-            rows="2"
-            formControlName="reason"
-          ></textarea>
-        </form>
+      <label for="leaveType" class="form-label"
+        >Leave Type <span>*</span></label
+      >
+      <div class="mb-3">
+        <select
+          class="form-select"
+          name="leaveType"
+          formControlName="leaveType"
+          required
+        >
+          <option value="" selected disabled hidden>Select Leave Type</option>
+          <option value="paid">Annual Paid Leaves</option>
+          <option value="unpaid">Unpaid Leaves</option>
+          <option value="special">Special Occasion Leaves</option>
+        </select>
       </div>
 
-      <div class="modal-footer bg-light">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="onReset()">
-          Cancel
-        </button>
-        <button type="button" class="btn btn-success" [disabled]="leaveApplyForm.invalid" data-bs-dismiss="modal" (click)="onApply()">Apply</button>
-      </div>
-    </div>
+      <label for="balance" class="form-label mb-3"
+        >Leave Balance :- {{ leaveBalance }}</label
+      >
+      <br>
+
+      <label for="leaveFrom" class="form-label">Start Date <span>*</span></label>
+      <input
+        type="date"
+        [min]="getToday()"
+        class="form-control mb-3"
+        placeholder="yyyy-mm-dd"
+        formControlName="leaveFrom"
+      />
+
+      <label for="leaveTo" class="form-label">End Date <span>*</span></label>
+      <input
+        type="date"
+        [min]="getToday()"
+        class="form-control mb-3"
+        placeholder="yyyy-mm-dd"
+        formControlName="leaveTo"
+      />
+
+      <label for="reason" class="form-label"
+        >Reason</label
+      >
+      <textarea
+        class="form-control"
+        placeholder="Write Notes"
+        rows="2"
+        formControlName="reason"
+      ></textarea>
+    </form>
   </div>
+</div>
+<hr>
+<div mat-dialog-actions class="action">
+    <button mat-raised-button type="button" class="btn btn-danger" (click)="onReset()">Cancel</button>
+    <button mat-raised-button class="btn btn-success" [disabled]="leaveApplyForm.invalid" (click)="onApply()">Apply</button>
+</div>
 </div>

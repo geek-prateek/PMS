@@ -22,6 +22,7 @@ import { CelebrationComponent } from './components/celebration/celebration.compo
 import { CardStatsComponent } from './components/card-stats/card-stats.component';
 import { HelpDeskComponent } from './components/helpDesk/helpDesk.component';
 import { ViewDsrComponent } from './components/viewDsr/viewDsr.component';
+import { ViewLeaveComponent } from './components/viewLeave/viewLeave.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -39,7 +40,7 @@ const routes: Routes = [
       { path: 'dailystatusreportList', component: DsrComponent , children: [
         { path: 'addDsr', component: AddDsrComponent }
       ]},
-      {path: 'leave', component: LeaveComponent},
+      {path: 'leave', component: ViewLeaveComponent},
       {path: 'holiday', component: HolidayComponent, resolve:{holidayData: resolve}},
       {path: 'inbox', component: InboxComponent},
       {path: 'policy', component: PolicyComponent},

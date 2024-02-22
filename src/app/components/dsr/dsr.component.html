@@ -1,46 +1,92 @@
 <div class="card dark-card">
   <div class="card-header d-flex justify-content-between">
     <h4 style="color: red">MY DSR</h4>
-    <app-add-dsr>
+    <!-- <app-add-dsr>
       <i
         class="bi bi-patch-plus"
         style="font-size: 25px"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
       ></i>
-    </app-add-dsr>
+    </app-add-dsr> -->
+    <i
+      class="bi bi-patch-plus"
+      style="font-size: 25px"
+      (click)="openAddEditModal()"
+    ></i>
   </div>
-  
+
   <div class="card-body">
- 
-      <div class="d-flex justify-content-around">
-        <div class="form-check">
-          <input
-            type="radio"
-            class="form-check-input"
-            id="lastdays"
-            value="lastdays"
-            [formControl]="selectDays"
-          />
-          <label class="form-check-label">Last 7 Days</label>
-        </div>
-        <div class="form-check">
-          <input
-            type="radio"
-            class="form-check-input"
-            id="currentMonth"
-            value="currentMonth"
-            [formControl]="selectDays"
-          />
-          <label class="form-check-label">Current Month</label>
-        </div>
+    <div class="d-flex justify-content-around">
+      <div class="form-check">
+        <input
+          type="radio"
+          class="form-check-input"
+          id="lastdays"
+          value="lastdays"
+          [formControl]="selectDays"
+        />
+        <label class="form-check-label">Last 7 Days</label>
       </div>
- 
+      <div class="form-check">
+        <input
+          type="radio"
+          class="form-check-input"
+          id="currentMonth"
+          value="currentMonth"
+          [formControl]="selectDays"
+        />
+        <label class="form-check-label">Current Month</label>
+      </div>
+    </div>
   </div>
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <app-dsr-table></app-dsr-table>
+        <app-dsr-table>
+          
+          <h4 class="empty" *ngIf="dsrTable.length === 0">
+            Add DSR <app-add-dsr></app-add-dsr>
+          </h4>
+        
+          <table id="table" class="tableFixHead" *ngIf="dsrTable.length > 0">
+            <thead>
+              <tr>
+                <th>Action</th>
+                <th>DSR Date</th>
+                <th>Total Timespent</th>
+                <th>Pending hour</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+          
+          <tbody id="tableBody">
+            <tr *ngFor="let dsr of dsrTable.reverse(); let i = index">
+              <td>
+                <!-- <i class="bi bi-eye text-primary" (click)="onView(i)"></i> -->
+                <i
+                  class="bi bi-pencil-square text-success mx-3"
+                  (click)="openEditModal(dsr)"
+                ></i>
+                <!-- <i
+                  class="bi bi-trash3 text-danger"
+                  (click)="deleteDsrData(i)"
+                ></i> -->
+              </td>
+              <td>{{ dsr.date | date : "mediumDate" }}</td>
+              <td>{{ dsr.timespent }} hrs, {{ dsr.minute }} min</td>
+              <td>{{ dsr.pendingHour }} sec</td>
+              <td
+                [ngClass]="
+                  dsr.status === 'Pending' ? 'pendingStatus' : 'completeStatus'
+                "
+              >
+                {{ dsr.status }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        </app-dsr-table>
       </div>
     </div>
   </div>

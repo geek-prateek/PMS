@@ -1,10 +1,55 @@
 
 
-.modal-button{
-    border: 1px solid green;
-    color: green;
-}
 
 .taxYear{
     color: black;
 }
+
+.action > button {
+    float: right;
+    display: flex;
+    margin-left: 10px;
+  }
+  .group-backdrop {
+    background: rgba(0, 0, 0, 0.2);
+  }
+  .addbtn {
+    border: 1px solid green;
+    color: green;
+  }
+
+  .mat-dialog-actions {
+    float: right;
+  }
+  .timeRemaining {
+    color: red;
+    border: 1px solid rgb(221, 197, 197);
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
+  }
+
+  .timeCompleted {
+    color: green;
+    border: 1px solid rgb(221, 197, 197);
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
+  }
+
+  .dsrDateBack {
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+
+  .dsrDateInput {
+    border: 1px solid rgb(221, 197, 197);
+    border-radius: 5px;
+    text-align: center;
+    width: 70%;
+  }
+
+  span {
+    color: red;
+  }
