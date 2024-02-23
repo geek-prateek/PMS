@@ -3,7 +3,7 @@ import {
   MatDialog,
 } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
-import { DsrDetails } from 'src/app/Model/tableDetails';
+import { DsrDetails } from 'src/app/Model/DsrDetails';
 import { DashboardService } from 'src/app/services/dashboard.service';
 import { UserService } from 'src/app/services/user.service';
 import { AddDsrListComponent } from '../dsr/addDsrList/addDsrList.component';
@@ -21,11 +21,13 @@ import { MatAccordion, MatExpansionPanel } from '@angular/material/expansion';
         border: 1px solid black;
       }
 
+
       #table td,
       #table th {
         border: 1px solid #ddd;
-        padding: 8px;
+        padding: 20px;
       }
+
 
       #table tr:nth-child(even) {
         background-color: #f2f2f2;
@@ -42,9 +44,14 @@ import { MatAccordion, MatExpansionPanel } from '@angular/material/expansion';
         background-color: #7385df;
         color: white;
       }
-
+      
       #tableBody {
         height: 50vh;
+      }
+
+      #tableBody1{
+        height: 15vh;
+        overflow: auto;
       }
 
       .empty {
@@ -130,6 +137,7 @@ export class ViewDsrComponent implements OnInit {
     dialogRef.afterClosed().subscribe({
       next: (data) => {
         if (data) {
+          
           this.getDsrDetails();
         }
       },

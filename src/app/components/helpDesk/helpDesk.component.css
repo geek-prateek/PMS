@@ -25,6 +25,14 @@
     color: white;
   }
 
+  .actionData{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: left;
+    background-color: #7385df;
+    color: white;
+  }
+
 #tableBody{
     height: 30vh;
 }

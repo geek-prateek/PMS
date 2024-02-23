@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { MatDialog } from "@angular/material/dialog";
 import { AddDsrListComponent } from "./addDsrList/addDsrList.component";
 import { UserService } from "src/app/services/user.service";
-import { DsrDetails } from "src/app/Model/tableDetails";
+import { DsrDetails } from "src/app/Model/DsrDetails";
 
 @Component({
     selector: 'app-dsr',

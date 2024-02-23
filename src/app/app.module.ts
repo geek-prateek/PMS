@@ -51,6 +51,9 @@ import {MatStepperModule} from '@angular/material/stepper';
 import { HelpDeskTableComponent } from './components/helpDesk/helpDesk-table/helpDesk-table.component';
 import { AddDsrListComponent } from './components/dsr/addDsrList/addDsrList.component';
 import { ViewLeaveComponent } from './components/viewLeave/viewLeave.component';
+import { HelpDeskApplyComponent } from './components/helpDesk/help-desk-apply/help-desk-apply.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,6 +77,7 @@ import { ViewLeaveComponent } from './components/viewLeave/viewLeave.component';
     HelpDeskComponent,
     ViewDsrComponent,
     HelpDeskTableComponent,
+    HelpDeskApplyComponent,
     ViewLeaveComponent
   ],
   imports: [

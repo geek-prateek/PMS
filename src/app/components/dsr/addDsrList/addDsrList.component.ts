@@ -8,7 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { DsrDetails } from 'src/app/Model/tableDetails';
+import { DsrDetails } from 'src/app/Model/DsrDetails';
 import { DashboardService } from 'src/app/services/dashboard.service';
 import { RoutingService } from 'src/app/services/routing.service';
 import { UserService } from 'src/app/services/user.service';
@@ -81,6 +81,7 @@ export class AddDsrListComponent implements OnInit {
       dueDate: [null],
       dsrDetails: [null, Validators.required],
     });
+
   }
 
   onAddTask() {
@@ -99,10 +100,18 @@ export class AddDsrListComponent implements OnInit {
           id: this.data.id,
           userId: this.userService.getUserIdfromLocal(),
           date: this.addDsrForm.value.dsrDate,
-          timespent: this.hourSpent,
-          minute: this.minuteSpent,
-          pendingHour: this.pendingHourTime,
+          department: (<FormGroup>(<FormArray>this.addDsrForm.get('newDsr'))?.controls[0])?.controls["department"].value,
+          client:  (<FormGroup>(<FormArray>this.addDsrForm.get('newDsr'))?.controls[0])?.controls["client"].value,
+          project: (<FormGroup>(<FormArray>this.addDsrForm.get('newDsr'))?.controls[0])?.controls["project"].value,
+          taskType: (<FormGroup>(<FormArray>this.addDsrForm.get('newDsr'))?.controls[0])?.controls["taskType"].value,
+          hour: (<FormGroup>(<FormArray>this.addDsrForm.get('newDsr'))?.controls[0])?.controls["hour"].value,
+          minute: (<FormGroup>(<FormArray>this.addDsrForm.get('newDsr'))?.controls[0])?.controls["minute"].value,
+          taskKey: (<FormGroup>(<FormArray>this.addDsrForm.get('newDsr'))?.controls[0])?.controls["taskKey"].value,
+          dueDate: (<FormGroup>(<FormArray>this.addDsrForm.get('newDsr'))?.controls[0])?.controls["dueDate"].value,
+          dsrDetails: (<FormGroup>(<FormArray>this.addDsrForm.get('newDsr'))?.controls[0])?.controls["dsrDetails"].value,
           status: this.checked,
+          timespent: this.hourSpent,
+          pendingHour: this.pendingHourTime,
         };
         this.dashboardService
           .updateDsrDetails(this.data.id, addDsrDetails)
@@ -129,13 +138,21 @@ export class AddDsrListComponent implements OnInit {
 
   addDsrDetails() {
     const addDsrDetails: DsrDetails = {
-      id : 0,
+      id: 0,
       userId: this.userService.getUserIdfromLocal(),
       date: this.addDsrForm.value.dsrDate,
-      timespent: this.hourSpent,
-      minute: this.minuteSpent,
-      pendingHour: this.pendingHourTime,
+      department: (<FormGroup>(<FormArray>this.addDsrForm.get('newDsr'))?.controls[0])?.controls["department"].value,
+      client:  (<FormGroup>(<FormArray>this.addDsrForm.get('newDsr'))?.controls[0])?.controls["client"].value,
+      project: (<FormGroup>(<FormArray>this.addDsrForm.get('newDsr'))?.controls[0])?.controls["project"].value,
+      taskType: (<FormGroup>(<FormArray>this.addDsrForm.get('newDsr'))?.controls[0])?.controls["taskType"].value,
+      hour: (<FormGroup>(<FormArray>this.addDsrForm.get('newDsr'))?.controls[0])?.controls["hour"].value,
+      minute: (<FormGroup>(<FormArray>this.addDsrForm.get('newDsr'))?.controls[0])?.controls["minute"].value,
+      taskKey: (<FormGroup>(<FormArray>this.addDsrForm.get('newDsr'))?.controls[0])?.controls["taskKey"].value,
+      dueDate: (<FormGroup>(<FormArray>this.addDsrForm.get('newDsr'))?.controls[0])?.controls["dueDate"].value,
+      dsrDetails: (<FormGroup>(<FormArray>this.addDsrForm.get('newDsr'))?.controls[0])?.controls["dsrDetails"].value,
       status: this.checked,
+      timespent: this.hourSpent,
+      pendingHour: this.pendingHourTime,
     };
     this.dashboardService.addDsrDetails(addDsrDetails).subscribe({
       next: (data) => {

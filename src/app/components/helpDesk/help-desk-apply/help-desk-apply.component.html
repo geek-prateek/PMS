@@ -1,0 +1,47 @@
+<div class="group-backdrop"></div>
+<div mat-dialog-title >
+    <h5>Raise Tickets</h5>
+</div>
+<hr>
+<div mat-dialog-content style="width: 25rem;">
+    
+    <form [formGroup]="ticketsForm">
+
+        <label for="Subject" class="form-label"
+          >Subject <span class="asterik">*</span></label
+        >
+        <div class="mb-3">
+          <select
+            class="form-select"
+            name="subject"
+            formControlName="subject"
+            
+          >
+            <option value="" selected disabled hidden>--Please Select Assets--</option>
+            <option >Monitor 1</option>
+            <option >Monitor 2</option>
+            <option >Keyboard</option>
+            <option >Mouse</option>
+            <option >Headphone</option>
+          </select>
+        </div>
+
+
+        <label for="description" class="form-label">Description <span class="asterik">*</span></label>
+        
+        <textarea
+          class="form-control"
+          id="description"
+          rows="3"
+          formControlName="description"
+          ></textarea>
+        
+        
+      </form>
+      
+</div>
+<hr>
+<div mat-dialog-actions class="action">
+    <button mat-raised-button type="button" class="btn btn-danger" (click)="onReset()">Cancel</button>
+    <button mat-raised-button class="btn btn-success" [disabled]="ticketsForm.invalid" (click)="onAdd()">{{data ? 'Update': 'Apply'}}</button>
+</div>

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../../services/user.service';
 import { DashboardService } from '../../../services/dashboard.service';
-import { DsrDetails } from '../../../Model/tableDetails';
+import { DsrDetails } from '../../../Model/DsrDetails';
 import { Observable } from 'rxjs';
 import { AddDsrListComponent } from '../addDsrList/addDsrList.component';
 import { MatDialog } from '@angular/material/dialog';

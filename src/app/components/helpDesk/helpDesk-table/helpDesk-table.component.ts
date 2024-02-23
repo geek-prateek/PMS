@@ -7,7 +7,7 @@ import { Component } from "@angular/core";
         <table id="table">
         <thead>
     <tr>
-      <th>Action</th>
+      <ng-content select="[slot=start]"></ng-content>
       <th>Ticket ID</th>
       <th>Subject</th>
       <th>Description</th>

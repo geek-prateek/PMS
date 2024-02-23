@@ -1,29 +1,27 @@
 <button
   class="btn btn-outline-success"
   style="font-size: larger; float: right; margin: 5px 0 20px 0"
+  (click)="openAddEditModal()"
 >
   Raise Ticket
 </button>
 
-<h4 class="empty" *ngIf="helpdeskDetails.length === 0">
+<h4 class="empty" *ngIf="ticketsTable.length === 0">
   Yet there is no Open ticket !!
 </h4>
 
-<!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
-            {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
-          </button> -->
-
-          <div class="container card">
-        <h4 class="ticket-title">My Tickets</h4>
-<mat-stepper #stepper>
-  <mat-step [stepControl]="firstFormGroup">
-    <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Open/Answered</ng-template>
-      <app-helpDesk-table>
-        <tbody id="tableBody" *ngIf="helpdeskDetails.length > 0">
+<div class="container card" *ngIf="ticketsTable.length > 0">
+  <h4 class="ticket-title">My Tickets</h4>
+  <mat-stepper #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Open/Answered</ng-template>
+        <app-helpDesk-table>
+          <th slot="start" class="actionData">Action</th>
+          <tbody id="tableBody" *ngIf="ticketsTable.length > 0">
             <tr
               *ngFor="
-                let helpdesk of helpdeskDetails | slice : lowValue : highValue
+                let helpdesk of ticketsTable.reverse()| slice : lowValue : highValue
               "
             >
               <td>
@@ -33,11 +31,11 @@
                 ></i> -->
                 <i
                   class="bi bi-pencil-square text-success mx-3"
-                  (click)="onEdit(helpdesk)"
+                  (click)="openEditModal(helpdesk)"
                 ></i>
                 <i
                   class="bi bi-trash3 text-danger"
-                  (click)="onDelete(helpdesk)"
+                  (click)="deletedeleteData(helpdesk.id)"
                 ></i>
               </td>
               <td>{{ helpdesk.ticketId }}</td>
@@ -46,9 +44,9 @@
               <td>{{ helpdesk.status }}</td>
             </tr>
           </tbody>
-      </app-helpDesk-table>
-      
-      <!-- <mat-form-field>
+        </app-helpDesk-table>
+
+        <!-- <mat-form-field>
         <mat-label>Name</mat-label>
         <input
           matInput
@@ -57,43 +55,30 @@
           required
         />
       </mat-form-field> -->
-      <div>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step [stepControl]="secondFormGroup">
-    <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Resolved</ng-template>
-      <app-helpDesk-table>
-        <tbody id="tableBody" *ngIf="helpdeskDetails.length > 0">
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Resolved</ng-template>
+        <app-helpDesk-table>
+          <tbody id="tableBody" *ngIf="ticketsTable.length > 0">
             <tr
               *ngFor="
-                let helpdesk of helpdeskDetails | slice : lowValue : highValue
+                let helpdesk of ticketsTable.reverse()| slice : lowValue : highValue
               "
             >
-              <td>
-                <!-- <i
-                  class="bi bi-eye text-primary"
-                  (click)="onView(helpdesk)"
-                ></i> -->
-                <i
-                  class="bi bi-pencil-square text-success mx-3"
-                  (click)="onEdit(helpdesk)"
-                ></i>
-                <i
-                  class="bi bi-trash3 text-danger"
-                  (click)="onDelete(helpdesk)"
-                ></i>
-              </td>
+              
               <td>{{ helpdesk.ticketId }}</td>
               <td>{{ helpdesk.subject }}</td>
               <td>{{ helpdesk.description }}</td>
               <td>Resolved</td>
             </tr>
           </tbody>
-      </app-helpDesk-table>
-      <!-- <mat-form-field>
+        </app-helpDesk-table>
+        <!-- <mat-form-field>
         <mat-label>Address</mat-label>
         <input
           matInput
@@ -102,33 +87,34 @@
           required
         />
       </mat-form-field> -->
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Closed/Invalid</ng-template>
+      <!-- <p>You are now done.</p> -->
+      <app-helpDesk-table>
+        <tbody id="tableBody" *ngIf="ticketsTable.length > 0">
+          <p style="text-align: center">Tickets has been closed !!</p>
+        </tbody>
+      </app-helpDesk-table>
       <div>
         <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
       </div>
-    </form>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Closed/Invalid</ng-template>
-    <!-- <p>You are now done.</p> -->
-    <app-helpDesk-table>
-        <tbody id="tableBody" *ngIf="helpdeskDetails.length > 0">
-            <p style="text-align: center;">Tickets has been closed !!</p>
-            </tbody>
-    </app-helpDesk-table>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
-    </div>
-  </mat-step>
-</mat-stepper>
+    </mat-step>
+  </mat-stepper>
 
-<mat-paginator
+  <mat-paginator
   #paginator
-  [length]="0"
-  [pageSize]="0"
-  [pageIndex]="0"
-  [pageSizeOptions]="[0]"
+  [length]="ticketsTable.length"
+  [pageSize]="pageSize"
+  [pageIndex]="currentPage"
+  [pageSizeOptions]="[5, 10, 25, 100]"
+  (page)="onPageChanged($event)"
   showFirstLastButtons="true"
   aria-label="Select page"
   style="background-color: rgb(238, 238, 238)"

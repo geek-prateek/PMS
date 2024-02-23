@@ -10,9 +10,8 @@ import { UserService } from '../../../services/user.service';
 import { LeaveService } from '../../../services/leave.service';
 import { RegisterUserService } from 'src/app/services/registerUser.service';
 import { HolidayService } from 'src/app/services/holiday.service';
-import { ActivatedRoute, Route, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { CardStatsComponent } from '../../card-stats/card-stats.component';
 
 @Component({
   selector: 'app-leave-apply',
