@@ -5,6 +5,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { RegisterUserDetails } from "../Model/registerUserDetails";
 import { LocalService } from "./localService";
+import { LeaveService } from "./leave.service";
 
 @Injectable()
 export class UserService {
@@ -13,7 +14,7 @@ export class UserService {
     name: string = "";
     addedUser: UserDetails[] = [];
     profileDetails: RegisterUserDetails[]=[];
-    constructor(private router: Router, private route: ActivatedRoute, private _http: HttpClient, private localService: LocalService){
+    constructor(private router: Router, private route: ActivatedRoute, private _http: HttpClient, private localService: LocalService, private leaveService: LeaveService){
         this.getUserDetails().subscribe({
             next: (data) => {
                 this.addedUser = data;
@@ -22,7 +23,6 @@ export class UserService {
                 console.log(err);
             }
         });
-        
     }
 
 
@@ -113,7 +113,6 @@ export class UserService {
         this.localService.clearAll();
         this.router.navigate(['../login'], { queryParams: { logout: true }, relativeTo: this.route });
     }
-
 
     
 

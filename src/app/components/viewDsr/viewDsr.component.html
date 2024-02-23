@@ -1,3 +1,7 @@
+<div class="example-action-buttons">
+  <button mat-button (click)="accordion.openAll()">Expand All</button>
+  <button mat-button (click)="accordion.closeAll()">Collapse All</button>
+</div>
 <button class="btn btn-outline-success" style="font-size: larger; float: right; margin: 5px 0 20px 0;" (click)="openAddEditModal()">Add DSR</button>
 <div class="container">
     <table id="table">
@@ -11,17 +15,40 @@
           </tr>
         </thead>
         <tbody id="tableBody">
-          <tr *ngFor="let dsr of dsrTable.reverse()| slice : lowValue : highValue; let i = index">
+          <mat-accordion multi="true">
+            <mat-expansion-panel *ngFor="let dsr of dsrTable.reverse()| slice : lowValue : highValue; let i = index" #panel>
+              <mat-expansion-panel-header>
+                
+                  <td>
+                      <i class="bi bi-eye text-primary"></i> 
+                     <i class="bi bi-pencil-square text-success mx-3" (click)="openEditModal(dsr)"></i>
+                      <i class="bi bi-trash3 text-danger" (click)="deleteDsrData(dsr.id)"></i>
+                    </td>
+                    <td>{{dsr.date | date: 'mediumDate'}}</td>
+                    <td>{{dsr.timespent}} hrs, {{dsr.minute}} min</td>
+                    <td>{{dsr.pendingHour}} sec</td>
+                    <td [ngClass]="dsr.status === 'Pending' ? 'pendingStatus': 'completeStatus'">{{dsr.status}}</td>
+                
+              </mat-expansion-panel-header>
+              <!-- Add accordion content here -->
+              <p>{{ dsr.date | date : "mediumDate" }}</p>
+              <p>{{ dsr.timespent }} hrs, {{ dsr.minute }} min</p>
+              <p>{{ dsr.pendingHour }} sec</p>
+              <p>{{ dsr.status }}</p>
+            </mat-expansion-panel>
+          </mat-accordion>
+          
+          <!-- <tr *ngFor="let dsr of dsrTable.reverse()| slice : lowValue : highValue; let i = index">
             <td>
-                <!-- <i class="bi bi-eye text-primary" (click)="onView(i)"></i>  -->
+                <i class="bi bi-eye text-primary"></i> 
                <i class="bi bi-pencil-square text-success mx-3" (click)="openEditModal(dsr)"></i>
-                <i class="bi bi-trash3 text-danger" (click)="deleteDsrData(i)"></i>
+                <i class="bi bi-trash3 text-danger" (click)="deleteDsrData(dsr.id)"></i>
               </td>
               <td>{{dsr.date | date: 'mediumDate'}}</td>
               <td>{{dsr.timespent}} hrs, {{dsr.minute}} min</td>
               <td>{{dsr.pendingHour}} sec</td>
               <td [ngClass]="dsr.status === 'Pending' ? 'pendingStatus': 'completeStatus'">{{dsr.status}}</td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
       <mat-paginator

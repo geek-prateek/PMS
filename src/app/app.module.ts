@@ -13,7 +13,6 @@ import { DashboardEditComponent } from './components/dashboard/dashboard-edit/da
 import { DashboardQualificationComponent } from './components/dashboard/dashboard-qualification/dashboard-qualification.component';
 import { DashboardTeamComponent } from './components/dashboard/dashboard-team/dashboard-team.component';
 import { DsrComponent } from './components/dsr/dsr.component';
-import { AddDsrComponent } from './components/dsr/addDsr/addDsr.component';
 import { LeaveComponent } from './components/leave/leave.component';
 import { BirthdayComponent } from './components/birthday/birthday.component';
 import { LeaveTableComponent } from './components/leave/leave-table/leave-table.component';
@@ -47,7 +46,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { HelpDeskComponent } from './components/helpDesk/helpDesk.component';
 import { ViewDsrComponent } from './components/viewDsr/viewDsr.component';
-
+import {MatExpansionModule} from '@angular/material/expansion';
 import {MatStepperModule} from '@angular/material/stepper';
 import { HelpDeskTableComponent } from './components/helpDesk/helpDesk-table/helpDesk-table.component';
 import { AddDsrListComponent } from './components/dsr/addDsrList/addDsrList.component';
@@ -61,7 +60,6 @@ import { ViewLeaveComponent } from './components/viewLeave/viewLeave.component';
     DsrTableComponent,
     DsrComponent,
     AddDsrListComponent,
-    AddDsrComponent,
     BirthdayComponent,
     ContactComponent,
     BirthdayTableComponent,
@@ -100,7 +98,8 @@ import { ViewLeaveComponent } from './components/viewLeave/viewLeave.component';
     MatTableModule,
     MatDialogModule,
     MatStepperModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatExpansionModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

@@ -50,22 +50,31 @@ export class CardStatsComponent {
         console.log(this.holidayService.nextHoliday);
 
 
-        const userIdfromLocal = this.userService.getUserIdfromLocal();
-        this.userService.getProfileDetailsById(userIdfromLocal).subscribe({
-          next: (data) => {
-            this.name = data.name;
-            
-          },
-          error: (err) => {
-            console.log(err);
-          },
         
-        });
+       this.getData();
         
-        this.leaveLeft = this.leaveService.getLeaveCount(this.name);
-        console.log(this.name);
         
     }
+
+    getData(){
+        const userIdfromLocal = this.userService.getUserIdfromLocal();
+        this.userService.getProfileDetailsById(userIdfromLocal).subscribe({
+            next: (data) => {
+                const name = data.name;
+                console.log(name, this.leaveLeft);
+                this.leaveService.getLeaveCount(name).subscribe((count: number) => {
+                    this.leaveLeft = count;
+                });
+            },
+            error: (err) => {
+                console.log(err);
+            },
+        
+        });
+        console.log(this.leaveLeft);
+        
+    }
+    
 
     
 

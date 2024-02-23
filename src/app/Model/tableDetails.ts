@@ -1,12 +1,14 @@
 export class DsrDetails{
-    userId: number | null | undefined;
+    id: number;
+    userId: number;
     date: Date | null | undefined;
     timespent: number| null | undefined;
     minute: number | null | undefined;
     pendingHour: number| null | undefined;
     status: string| null | undefined;
 
-    constructor(userId: number, date: Date, timespent: number, pendingHour: number, status: string){
+    constructor(id: number, userId: number, date: Date, timespent: number, pendingHour: number, status: string){
+        this.id = id;
         this.userId = userId;
         this.date = date;
         this.timespent = timespent;

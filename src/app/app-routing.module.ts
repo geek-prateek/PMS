@@ -7,7 +7,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DashboardEditComponent } from './components/dashboard/dashboard-edit/dashboard-edit.component';
 import { DashboardQualificationComponent } from './components/dashboard/dashboard-qualification/dashboard-qualification.component';
 import { DashboardTeamComponent } from './components/dashboard/dashboard-team/dashboard-team.component';
-import { AddDsrComponent } from './components/dsr/addDsr/addDsr.component';
+
 import { HeaderComponent } from './shared/header/header.component';
 import { LeaveComponent } from './components/leave/leave.component';
 import { HolidayComponent } from './components/holiday/holiday.component';
@@ -23,6 +23,7 @@ import { CardStatsComponent } from './components/card-stats/card-stats.component
 import { HelpDeskComponent } from './components/helpDesk/helpDesk.component';
 import { ViewDsrComponent } from './components/viewDsr/viewDsr.component';
 import { ViewLeaveComponent } from './components/viewLeave/viewLeave.component';
+import { AddDsrListComponent } from './components/dsr/addDsrList/addDsrList.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -38,7 +39,7 @@ const routes: Routes = [
       { path: 'celebration', component: CelebrationComponent},
       { path: 'dailystatusreport', component: ViewDsrComponent},
       { path: 'dailystatusreportList', component: DsrComponent , children: [
-        { path: 'addDsr', component: AddDsrComponent }
+        { path: 'addDsr', component: AddDsrListComponent }
       ]},
       {path: 'leave', component: ViewLeaveComponent},
       {path: 'holiday', component: HolidayComponent, resolve:{holidayData: resolve}},

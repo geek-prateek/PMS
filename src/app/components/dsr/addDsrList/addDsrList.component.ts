@@ -16,62 +16,7 @@ import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-add-dsr-list',
   templateUrl: './addDsrList.component.html',
-  styles: [
-    `
-      .action > button {
-        float: right;
-        display: flex;
-        margin-left: 10px;
-      }
-      .group-backdrop {
-        background: rgba(0, 0, 0, 0.2);
-      }
-      .addbtn {
-        border: 1px solid green;
-        color: green;
-      }
-
-      .mat-dialog-actions {
-        float: right;
-      }
-      .timeRemaining {
-        color: red;
-        border: 1px solid rgb(221, 197, 197);
-        border-radius: 5px;
-        text-align: center;
-        padding: 5px;
-      }
-
-      .timeCompleted {
-        color: green;
-        border: 1px solid rgb(221, 197, 197);
-        border-radius: 5px;
-        text-align: center;
-        padding: 5px;
-      }
-
-      .dsrDateBack {
-        padding: 5px;
-        border-radius: 5px;
-        font-weight: bold;
-      }
-
-      .dsrDateInput {
-        border: 1px solid rgb(221, 197, 197);
-        border-radius: 5px;
-        text-align: center;
-        width: 70%;
-      }
-
-      span {
-        color: red;
-      }
-
-      .modal-body {
-        max-height: calc(65vh - 200px);
-      }
-    `,
-  ],
+  styleUrls: ['./addDsrList.component.css'],
 })
 export class AddDsrListComponent implements OnInit {
   constructor(
@@ -151,6 +96,7 @@ export class AddDsrListComponent implements OnInit {
       if (this.data) {
         this.pendingHourTime = Math.max(8 - this.hourSpent, 0);
         const addDsrDetails: DsrDetails = {
+          id: this.data.id,
           userId: this.userService.getUserIdfromLocal(),
           date: this.addDsrForm.value.dsrDate,
           timespent: this.hourSpent,
@@ -178,11 +124,12 @@ export class AddDsrListComponent implements OnInit {
 
      
     }
-    this.onReset();
+    // this.onReset();
   }
 
   addDsrDetails() {
     const addDsrDetails: DsrDetails = {
+      id : 0,
       userId: this.userService.getUserIdfromLocal(),
       date: this.addDsrForm.value.dsrDate,
       timespent: this.hourSpent,

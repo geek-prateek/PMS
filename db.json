@@ -67,22 +67,13 @@
   ],
   "dsrData": [
     {
-      "userId": "1",
-      "date": "2024-02-23",
-      "timespent": 8,
-      "minute": 15,
-      "pendingHour": 0,
-      "status": "Pending",
-      "id": 5
-    },
-    {
       "userId": "3",
       "date": "2024-02-23",
       "timespent": 8,
       "minute": 0,
       "pendingHour": 0,
       "status": "Pending",
-      "id": 8
+      "id": "8"
     },
     {
       "userId": "3",
@@ -91,7 +82,7 @@
       "minute": 0,
       "pendingHour": 0,
       "status": "Pending",
-      "id": 9
+      "id": "9"
     },
     {
       "userId": "3",
@@ -100,7 +91,7 @@
       "minute": 0,
       "pendingHour": 0,
       "status": "Pending",
-      "id": 11
+      "id": "11"
     },
     {
       "userId": "1",
@@ -109,7 +100,7 @@
       "minute": 0,
       "pendingHour": 0,
       "status": "Pending",
-      "id": 12
+      "id": "12"
     },
     {
       "userId": "3",
@@ -118,7 +109,7 @@
       "minute": 0,
       "pendingHour": 0,
       "status": "Pending",
-      "id": 13
+      "id": "13"
     },
     {
       "userId": "3",
@@ -127,7 +118,7 @@
       "minute": 0,
       "pendingHour": 0,
       "status": "Pending",
-      "id": 14
+      "id": "14"
     },
     {
       "userId": "3",
@@ -136,7 +127,7 @@
       "minute": 0,
       "pendingHour": 0,
       "status": "Pending",
-      "id": 15
+      "id": "15"
     },
     {
       "userId": "3",
@@ -145,16 +136,16 @@
       "minute": 0,
       "pendingHour": 0,
       "status": "Pending",
-      "id": 16
+      "id": "16"
     },
     {
+      "id": 0,
       "userId": "1",
-      "date": "2024-02-23",
+      "date": "2024-02-15",
       "timespent": 9,
       "minute": 0,
       "pendingHour": 0,
-      "status": "Pending",
-      "id": 17
+      "status": "Pending"
     }
   ],
   "profileData": [
@@ -291,27 +282,6 @@
       "endDate": "2024-02-24",
       "leaveCount": 1,
       "id": "Qt704ky"
-    },
-    {
-      "employeeName": "Prateek Kumar",
-      "startDate": "2024-02-23",
-      "endDate": "2024-02-24",
-      "leaveCount": 1,
-      "id": "Hxdjz9b"
-    },
-    {
-      "employeeName": "Prateek Kumar",
-      "startDate": "2024-02-23",
-      "endDate": "2024-02-25",
-      "leaveCount": 1,
-      "id": "-KYzOpg"
-    },
-    {
-      "employeeName": "Prateek Kumar",
-      "startDate": "2024-02-28",
-      "endDate": "2024-02-29",
-      "leaveCount": 2,
-      "id": "H6WCIG7"
     }
   ],
   "birthdayData": [

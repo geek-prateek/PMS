@@ -39,9 +39,9 @@ export class DsrComponent{
             }
         });
     }
-    openEditModal(data: any){
+    openEditModal(dsr: any){
         const dialogRef = this._dialog.open(AddDsrListComponent, {
-            data,
+            data: dsr,
         });
     
         dialogRef.afterClosed().subscribe({

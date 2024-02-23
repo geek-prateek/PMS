@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   Component,
   Inject,
   OnInit,
@@ -11,9 +10,9 @@ import { UserService } from '../../../services/user.service';
 import { LeaveService } from '../../../services/leave.service';
 import { RegisterUserService } from 'src/app/services/registerUser.service';
 import { HolidayService } from 'src/app/services/holiday.service';
-import { CardStatsComponent } from '../../card-stats/card-stats.component';
 import { ActivatedRoute, Route, Router } from '@angular/router';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { CardStatsComponent } from '../../card-stats/card-stats.component';
 
 @Component({
   selector: 'app-leave-apply',
@@ -27,6 +26,7 @@ export class LeaveApplyComponent implements OnInit {
     private registerUser: RegisterUserService,
     private holidayService: HolidayService,
     private _dialogRef: MatDialogRef<LeaveApplyComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
     private router: Router,
     private route: ActivatedRoute
   ) {}
@@ -35,7 +35,6 @@ export class LeaveApplyComponent implements OnInit {
   leaveApplyForm: FormGroup = new FormGroup({});
 
   name: string = '';
-
   ngOnInit(): void {
     const userIdfromLocal = this.userService.getUserIdfromLocal();
     this.userService.getProfileDetailsById(userIdfromLocal).subscribe({

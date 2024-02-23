@@ -1,14 +1,13 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import {
-  MAT_DIALOG_DATA,
   MatDialog,
-  MatDialogRef,
 } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { DsrDetails } from 'src/app/Model/tableDetails';
 import { DashboardService } from 'src/app/services/dashboard.service';
 import { UserService } from 'src/app/services/user.service';
 import { AddDsrListComponent } from '../dsr/addDsrList/addDsrList.component';
+import { MatAccordion, MatExpansionPanel } from '@angular/material/expansion';
 
 @Component({
   selector: 'app-view-dsr',
@@ -74,14 +73,16 @@ export class ViewDsrComponent implements OnInit {
   constructor(
     private dashboardService: DashboardService,
     private userService: UserService,
-    private _dialog: MatDialog
+    private _dialog: MatDialog,
   ) {}
+  @ViewChild(MatAccordion) accordion!: MatAccordion;
   pageSize: number = 10;
   currentPage: number = 0;
   lowValue: number = 0;
   highValue: number = 20;
   dsrTable: DsrDetails[] = [];
   userId: number = this.userService.getUserIdfromLocal();
+
 
   ngOnInit(): void {
     this.getDsrDetails();
@@ -121,7 +122,6 @@ export class ViewDsrComponent implements OnInit {
       },
     });
   }
-
   openEditModal(data: any) {
     const dialogRef = this._dialog.open(AddDsrListComponent, {
       data,

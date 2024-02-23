@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { LeaveDetails } from "../Model/leaveDetails";
 import { LocalService } from "./localService";
 import { UserService } from "./user.service";
-import { Observable } from "rxjs";
+import { Observable, map } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 
 @Injectable({
@@ -11,21 +11,27 @@ import { HttpClient } from "@angular/common/http";
 export class LeaveService{
     leaveDetails: LeaveDetails[]=[]
 
-    constructor(private userService: UserService, private _http: HttpClient){
-        
+    constructor( private _http: HttpClient){
+        console.log(this.leaveDetails);
     }
     
     
-    getLeaveCount(name: string){
-        let count = 15;
-        this.leaveDetails.forEach((item) => {
+    
+    
+    getLeaveCount(name: string): Observable<number> {
+        return this.getLeaveDetails().pipe(
+        map((leaveData: any[]) => {
+            let count = 15;
+            leaveData.forEach((item) => {
             if (item.employeeName === name) {
                 count -= item.leaveCount;
             }
-        });
-        
-        return count;
+            });
+            return count;
+        })
+        );
     }
+
 
     addLeaveDetails(item: LeaveDetails): Observable<any>{
         return this._http.post('http://localhost:3000/leaveData', item);

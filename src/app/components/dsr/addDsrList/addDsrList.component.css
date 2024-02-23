@@ -1,42 +1,52 @@
-.addbtn{
+.action > button {
+    float: right;
+    display: flex;
+    margin-left: 10px;
+  }
+  .group-backdrop {
+    background: rgba(0, 0, 0, 0.2);
+  }
+  .addbtn {
     border: 1px solid green;
     color: green;
-}
+  }
 
-.timeRemaining{
+  .mat-dialog-actions {
+    float: right;
+  }
+  .timeRemaining {
     color: red;
     border: 1px solid rgb(221, 197, 197);
     border-radius: 5px;
     text-align: center;
     padding: 5px;
-}
+  }
 
-.timeCompleted{
+  .timeCompleted {
     color: green;
     border: 1px solid rgb(221, 197, 197);
     border-radius: 5px;
     text-align: center;
     padding: 5px;
-}
+  }
 
-.dsrDateBack {
+  .dsrDateBack {
     padding: 5px;
     border-radius: 5px;
     font-weight: bold;
-}
+  }
 
-.dsrDateInput{
+  .dsrDateInput {
     border: 1px solid rgb(221, 197, 197);
     border-radius: 5px;
     text-align: center;
     width: 70%;
-}
+  }
 
-span{
+  span {
     color: red;
-}
+  }
 
-.modal-body{
+  .modal-body {
     max-height: calc(65vh - 200px);
-    overflow-y: auto;
-}
+  }
