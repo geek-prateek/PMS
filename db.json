@@ -33,14 +33,6 @@
   ],
   "workData": [
     {
-      "userId": "1",
-      "companyName": "sdfg",
-      "jobTitle": "SE (Software Engineer)",
-      "from": "2024-02-15",
-      "to": "2024-02-17",
-      "id": "25"
-    },
-    {
       "userId": "2",
       "companyName": "sdfsdfs",
       "jobTitle": "SE (Software Engineer)",
@@ -63,11 +55,19 @@
       "from": "2024-02-17",
       "to": "2024-02-01",
       "id": "SMTdALp"
+    },
+    {
+      "userId": "1",
+      "companyName": "Payroll",
+      "jobTitle": "SE (Software Engineer)",
+      "from": "2024-02-04",
+      "to": "2024-02-04",
+      "id": "3a5e"
     }
   ],
   "dsrData": [
     {
-      "id": 1,
+      "id": "1",
       "userId": "3",
       "date": "2024-02-02",
       "department": "development",
@@ -84,7 +84,7 @@
       "pendingHour": 0
     },
     {
-      "id": 3,
+      "id": "3",
       "userId": "1",
       "date": "2024-02-17",
       "department": "development",
@@ -101,7 +101,7 @@
       "pendingHour": 0
     },
     {
-      "id": 4,
+      "id": "4",
       "userId": "3",
       "date": "2024-02-17",
       "department": "development",
@@ -118,7 +118,7 @@
       "pendingHour": 0
     },
     {
-      "id": 5,
+      "id": "5",
       "userId": "1",
       "date": "2024-02-17",
       "department": "development",
@@ -133,13 +133,30 @@
       "status": "Pending",
       "timespent": 10,
       "pendingHour": 0
+    },
+    {
+      "id": 0,
+      "userId": "1",
+      "date": "2024-02-12",
+      "department": "development",
+      "client": "btl",
+      "project": "projectTraining",
+      "taskType": "self",
+      "hour": 9,
+      "minute": 0,
+      "taskKey": null,
+      "dueDate": null,
+      "dsrDetails": "ABCD",
+      "status": "Pending",
+      "timespent": 9,
+      "pendingHour": 0
     }
   ],
   "profileData": [
     {
       "id": "1",
       "name": "Prateek Kumar",
-      "email": "prateek12",
+      "email": "prateek",
       "username": "prateek",
       "dob": "2003-09-18",
       "gender": "male",
@@ -269,6 +286,13 @@
       "endDate": "2024-02-24",
       "leaveCount": 1,
       "id": "Qt704ky"
+    },
+    {
+      "id": "5793",
+      "employeeName": "Prateek Kumar",
+      "startDate": "2024-02-26",
+      "endDate": "2024-02-28",
+      "leaveCount": 3
     }
   ],
   "birthdayData": [
@@ -327,24 +351,24 @@
   ],
   "ticketData": [
     {
-      "id": 1,
+      "id": "1",
       "ticketId": "3",
       "subject": "Monitor 1",
       "description": "asdasd",
       "status": "Open"
     },
     {
-      "id": 2,
-      "ticketId": "1",
-      "subject": "Keyboard",
-      "description": "A button is not working\n",
-      "status": "Open"
-    },
-    {
-      "id": 3,
+      "id": "3",
       "ticketId": "1",
       "subject": "Mouse",
       "description": "Mouse is slow",
+      "status": "Open"
+    },
+    {
+      "id": 0,
+      "ticketId": "1",
+      "subject": "Headphone",
+      "description": "Not Working",
       "status": "Open"
     }
   ]
