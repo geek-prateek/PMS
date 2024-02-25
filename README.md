@@ -1,27 +1,49 @@
-# Project
+# Project Management System (PMS)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
+A user-friendly and feature-rich project management system (PMS) website built with Angular.
 
-## Development server
+https://github.com/geek-prateek/PMS/assets/71647878/eabf72df-7f5b-4fae-9e42-c23c690648e0
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Key Features
 
-## Code scaffolding
+1. **Holidays Management:** Maintain a centralized list of holidays for easy reference and planning.
+2. **Work Anniversaries:** Celebrate and acknowledge employee milestones with a dedicated section.
+3. **Leave Management:** Apply for leave, check days taken, and view remaining leave balances.
+4. **Payroll Days:** Stay informed about upcoming payroll dates to facilitate timely financial planning.
+5. **Profile Dashboard:** Provide employees with a personalized dashboard to view their leave history, work experience, and other relevant information.
+6. **Daily Status Report (DSR):** Fill out daily status reports to track progress and updates on tasks.
+7. **Helpdesk:** Raise tickets and streamline issue resolution with our built-in ticketing system.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Getting Started
 
-## Build
+### Prerequisites
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Node.js and npm (or yarn) installed on your system.
+- Visual Studio Code for running the project
 
-## Running unit tests
+### Setup Instructions
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. **Clone the Repository:**
+    ```bash
+    git clone https://github.com/geek-prateek/https://github.com/geek-prateek/PMS.git
+    ```
 
-## Running end-to-end tests
+2. **Install Dependencies:**
+    ```bash
+    Open the folder in VS Code
+    npm install
+    ```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+3. **Start the Development Server:**
+    ```bash
+    json-server --watch db.json
+    npm run start
+    ```
 
-## Further help
+    This will launch the application in your default browser, typically at [http://localhost:4200/](http://localhost:4200/).
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Contributing
+
+We welcome contributions from the community to enhance and improve our project management system. Whether it's bug fixes, new features, or improvements to the user interface, your contributions are valuable. Please follow our contribution guidelines outlined in CONTRIBUTING.md.
+
+**Thank you for your interest in our project!**
