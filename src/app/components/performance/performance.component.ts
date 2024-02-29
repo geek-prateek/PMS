@@ -12,8 +12,10 @@ export class PerformanceComponent implements OnInit, AfterViewInit {
   chart: any;
   isDarkMode: boolean = false;
   todayDate = new Date();
+  leapDate = new Date(this.todayDate.getFullYear(), 1, 29);
+  day: number = 0;
   month: number = 0;
-  year: number = 0;
+  year = this.todayDate.getFullYear();
   ngAfterViewInit(): void {
     // const toggleResult = this.darkModeToggleComponent.onToggle();
     // if (toggleResult !== undefined) {
@@ -31,14 +33,16 @@ export class PerformanceComponent implements OnInit, AfterViewInit {
       this.isDarkMode = false;
     }
     console.log(this.todayDate.getDate());
+    console.log(this.todayDate.getMonth());
+    console.log(this.todayDate.getFullYear());
     this.month = parseInt(
       this.todayDate.toLocaleString('default', { month: 'numeric' })
     );
-    console.log(this.month);
-    this.year = parseInt(
-      this.todayDate.toLocaleString('default', { year: 'numeric' })
-    );
-    console.log(this.year);
+    
+    // this.year = parseInt(
+    //   this.todayDate.toLocaleString('default', { year: 'numeric' })
+    // );
+    
   }
 
   getDataPoints = (count: number) => {
@@ -63,9 +67,14 @@ export class PerformanceComponent implements OnInit, AfterViewInit {
     return arr;
   };
 
+  isLeapYearUsingDate(year: number) {
+    let leapDate = new Date(year, 1, 29);
+    return leapDate.getMonth() === 1 && leapDate.getDate() === 29;    
+  }
+
   chartOptions = {
     animationEnabled: true,
-    theme: this.isDarkMode ? 'dark1' : 'light2',
+    theme: this.isDarkMode ? 'light2' : 'dark1',
     title: {
       text:
         this.todayDate.toLocaleString('default', { month: 'long' }) +

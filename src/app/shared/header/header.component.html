@@ -32,13 +32,13 @@
             <li>
               <a
                 class="dropdown-item"
-                *ngIf="!showButton"
+                *ngIf="router.url.includes('home')"
                 (click)="onDashboard()"
                 >Profile</a
               >
             </li>
             <li>
-              <a class="dropdown-item" *ngIf="showButton" (click)="onHome()"
+              <a class="dropdown-item" *ngIf="router.url.includes('dashboard')" (click)="onHome()"
                 >Home</a
               >
             </li>
