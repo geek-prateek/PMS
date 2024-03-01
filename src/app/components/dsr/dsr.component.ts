@@ -6,6 +6,8 @@ import { MatDialog } from "@angular/material/dialog";
 import { AddDsrListComponent } from "./addDsrList/addDsrList.component";
 import { UserService } from "src/app/services/user.service";
 import { DsrDetails } from "src/app/Model/DsrDetails";
+import { el } from "@fullcalendar/core/internal-common";
+import { elementAt } from "rxjs";
 
 @Component({
     selector: 'app-dsr',
@@ -39,6 +41,20 @@ export class DsrComponent{
             }
         });
     }
+
+    checkDsrIsFilled(){
+        const date = new Date();
+        const todayDate = date.toLocaleDateString();
+        const filteredData = this.dsrTable.filter((element: any) => element.userId === this.userId && element.dsrDate === todayDate);
+        if(filteredData.length === 0){
+            this.sendInboxOfNotFillingDSR();
+        }
+    }
+
+    sendInboxOfNotFillingDSR(){
+        alert("Today DSR is not filled yet. Please fill it.");
+    }
+
     openEditModal(dsr: any){
         const dialogRef = this._dialog.open(AddDsrListComponent, {
             data: dsr,

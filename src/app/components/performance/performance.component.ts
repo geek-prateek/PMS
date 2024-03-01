@@ -14,7 +14,7 @@ export class PerformanceComponent implements OnInit, AfterViewInit {
   todayDate = new Date();
   leapDate = new Date(this.todayDate.getFullYear(), 1, 29);
   day: number = 0;
-  month: number = 0;
+  month: number = this.todayDate.getMonth();
   year = this.todayDate.getFullYear();
   ngAfterViewInit(): void {
     // const toggleResult = this.darkModeToggleComponent.onToggle();
@@ -35,9 +35,9 @@ export class PerformanceComponent implements OnInit, AfterViewInit {
     console.log(this.todayDate.getDate());
     console.log(this.todayDate.getMonth());
     console.log(this.todayDate.getFullYear());
-    this.month = parseInt(
-      this.todayDate.toLocaleString('default', { month: 'numeric' })
-    );
+    // this.month = parseInt(
+    //   this.todayDate.toLocaleString('default', { month: 'numeric' })
+    // );
     
     // this.year = parseInt(
     //   this.todayDate.toLocaleString('default', { year: 'numeric' })
@@ -49,7 +49,7 @@ export class PerformanceComponent implements OnInit, AfterViewInit {
     let arr: { x: Date; y: number }[] = [];
     for (let i = 0; i < count; i++) {
       arr.push({
-        x: new Date(this.year, this.month + 1, i + 1),
+        x: new Date(this.year, this.month, i + 1),
         y: Math.floor(Math.random() * 19) + 1,
       });
     }
@@ -60,7 +60,7 @@ export class PerformanceComponent implements OnInit, AfterViewInit {
     let arr: { x: Date; y: number }[] = [];
     for (let i = 0; i < count; i++) {
       arr.push({
-        x: new Date(this.year, this.month + 1, i + 1),
+        x: new Date(this.year, this.month, i + 1),
         y: 8,
       });
     }
@@ -74,7 +74,7 @@ export class PerformanceComponent implements OnInit, AfterViewInit {
 
   chartOptions = {
     animationEnabled: true,
-    theme: this.isDarkMode ? 'light2' : 'dark1',
+    theme: this.isDarkMode ? 'dark1' : 'light2',
     title: {
       text:
         this.todayDate.toLocaleString('default', { month: 'long' }) +

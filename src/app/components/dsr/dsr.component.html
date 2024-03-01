@@ -15,7 +15,7 @@
       (click)="openAddEditModal()"
     ></i>
   </div>
-
+  
   <div class="card-body">
     <div class="d-flex justify-content-around">
       <div class="form-check">
@@ -26,7 +26,7 @@
           value="lastdays"
           [formControl]="selectDays"
         />
-        <label class="form-check-label">Last 7 Days</label>
+        <label class="form-check-label" id="lastdays">Last 7 Days</label>
       </div>
       <div class="form-check">
         <input
@@ -36,7 +36,7 @@
           value="currentMonth"
           [formControl]="selectDays"
         />
-        <label class="form-check-label">Current Month</label>
+        <label class="form-check-label" id="currentMonth">Current Month</label>
       </div>
     </div>
   </div>

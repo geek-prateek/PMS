@@ -93,11 +93,13 @@ export class EmpAddEditComponent implements OnInit {
         from: this.addForm.value.from,
         to: this.addForm.value.to,
     }
+
     this.dashboardService.addWorkDetails(addFormDetails).subscribe({
       next: (data) => {
         console.log(data);
         this.routing.openSnackBar('Added Successfully', 'Close')
         this._dialogRef.close(true);
+        
       },
       error: (err) => {
         console.log(err);

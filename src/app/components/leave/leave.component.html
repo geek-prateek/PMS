@@ -2,8 +2,11 @@
   <div class="card-header d-flex justify-content-between">
     <h4 style="color: red">LEAVE</h4>
     <div class="d-flex">
-      
-      <i class="bi bi-house-add" style="font-size: 25px; margin-right: 18px;" (click)="openAddEditModal()"></i>
+      <i
+        class="bi bi-house-add"
+        style="font-size: 25px; margin-right: 18px"
+        (click)="openAddEditModal()"
+      ></i>
       <app-leave-order></app-leave-order>
     </div>
   </div>
@@ -16,9 +19,10 @@
           class="form-check-input"
           id="lastWeek"
           value="lastWeek"
+          (click)="onSelectLeave()"
           [formControl]="selectLeave"
         />
-        <label class="form-check-label">Current Week</label>
+        <label class="form-check-label" id="lastWeek">Current Week</label>
       </div>
       <div class="form-check">
         <input
@@ -26,9 +30,10 @@
           class="form-check-input"
           id="currentLeaveMonth"
           value="currentLeaveMonth"
+          (click)="onSelectleaveMonth()"
           [formControl]="selectLeave"
         />
-        <label class="form-check-label">Current Month</label>
+        <label class="form-check-label" id="currentLeaveMonth">Current Month</label>
       </div>
     </div>
   </div>
@@ -36,26 +41,27 @@
     <div class="row">
       <div class="col-xs-12">
         <app-leave-table>
-          <h4 class="empty" *ngIf="leaveTable.length === 0">Work on Fire ! <app-leave-apply></app-leave-apply></h4>
-<table id="table" class="tableFixHead" *ngIf="leaveTable.length>0">
-  <thead>
-    <tr>
-      <th>Employee Name</th>
-      <th>Start Date</th>
-      <th>End Date</th>
-      <th>Leave Count</th>
-    </tr>
-  </thead>
-  <tbody id="tableBody">
-    <tr *ngFor="let leave of leaveTable.reverse()">
-        <td>{{leave.employeeName}}</td>
-        <td>{{leave.startDate | date: 'mediumDate'}}</td>
-        <td>{{leave.endDate | date: 'mediumDate'}}</td>
-        <td>{{leave.leaveCount}}</td>
-    </tr>
-  </tbody>
-</table>
-
+          <h4 class="empty" *ngIf="leaveTable.length === 0">
+            Work on Fire ! <app-leave-apply></app-leave-apply>
+          </h4>
+          <table id="table" class="tableFixHead" *ngIf="leaveTable.length > 0">
+            <thead>
+              <tr>
+                <th>Employee Name</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Leave Count</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+              <tr *ngFor="let leave of leaveTable.reverse()">
+                <td>{{ leave.employeeName }}</td>
+                <td>{{ leave.startDate | date : "mediumDate" }}</td>
+                <td>{{ leave.endDate | date : "mediumDate" }}</td>
+                <td>{{ leave.leaveCount }}</td>
+              </tr>
+            </tbody>
+          </table>
         </app-leave-table>
       </div>
     </div>

@@ -50,4 +50,82 @@ export class LeaveComponent{
             }
         });
     }
+
+    onSelectleaveMonth(){
+        console.log("from leave last month");
+        if(this.selectLeave.value === 'lastMonth'){
+            this.leaveService.getLeaveDetails().subscribe({
+                next: (data)=>{
+                    this.leaveTable = data;
+                },
+                error: (err) =>{
+                    console.log(err);
+                    
+                }
+            })
+        }else if(this.selectLeave.value === 'nextMonth'){
+            this.leaveService.getLeaveDetails().subscribe({
+                next: (data)=>{
+                    this.leaveTable = data;
+                },
+                error: (err)=>{
+                    console.log(err);
+                    
+                }
+            })
+        }
+        else if(this.selectLeave.value === 'all'){
+            this.leaveService.getLeaveDetails().subscribe({
+                next: (data)=>{
+                    this.leaveTable = data;
+
+                },
+                error: (err)=>{
+                    console.log(err);
+                    
+                }
+            })
+        }
+        else{
+            this.selectLeave.value === 'lastWeek';
+        }
+        
+    }
+
+    onSelectLeave(){
+        console.log(this.selectLeave.value);
+        if(this.selectLeave.value === 'lastWeek'){
+            this.leaveService.getLeaveDetails().subscribe({
+                next: (data) => {
+                    this.leaveTable = data;
+                },
+                error: (err) => {
+                    console.log(err);
+                }
+            });
+        }
+        else if(this.selectLeave.value === 'nextWeek'){
+            this.leaveService.getLeaveDetails().subscribe({
+                next: (data) => {
+                    this.leaveTable = data;
+                },
+                error: (err) => {
+                    console.log(err);
+                }
+            });
+        }
+        else if(this.selectLeave.value === 'all'){
+            this.leaveService.getLeaveDetails().subscribe({
+                next: (data) => {
+                    this.leaveTable = data;
+                },
+                error: (err) => {
+                    console.log(err);
+                }
+            });
+        }
+        else{
+            this.selectLeave.value === 'nextWeek';
+        }
+    }
 }
