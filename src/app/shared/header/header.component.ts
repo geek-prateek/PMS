@@ -80,11 +80,13 @@ export class HeaderComponent {
 
   onDashboard() {
     this.authService.onDashboard();
+    this.router.url === '/head/home' ? (this.showButton = false) : (this.showButton = true);
     this.showButton = true;
   }
 
   onHome() {
     this.router.navigate(['/head/home']);
+    this.router.url === '/head/home' ? (this.showButton = false) : (this.showButton = true);
     this.showButton = false;
   }
 
